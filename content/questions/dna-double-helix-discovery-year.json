@@ -1,0 +1,13 @@
+{
+  "id": "dna-double-helix-discovery-year",
+  "prompt": "In what year did Watson and Crick describe the double-helix structure of DNA?",
+  "value": 1953,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "science",
+  "funFact": "Their published paper relied heavily on X-ray diffraction images captured by Rosalind Franklin, work she was never able to fully see credited in her lifetime.",
+  "source": "https://www.nobelprize.org/prizes/medicine/1962/press-release/"
+}

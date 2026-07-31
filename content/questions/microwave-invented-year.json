@@ -1,0 +1,13 @@
+{
+  "id": "microwave-invented-year",
+  "prompt": "In what year was the microwave oven invented?",
+  "value": 1945,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "Percy Spencer noticed a candy bar had melted in his pocket while testing a radar magnetron — the microwave came from a snack accident.",
+  "source": "https://www.britannica.com/technology/microwave-oven"
+}

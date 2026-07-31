@@ -1,0 +1,13 @@
+{
+  "id": "nile-length-km",
+  "prompt": "How long is the Nile River, in kilometres?",
+  "value": 6650,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 20000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "It flows north, through eleven countries, which is why it looks 'backwards' on a map to a lot of people.",
+  "source": "https://www.britannica.com/place/Nile-River"
+}

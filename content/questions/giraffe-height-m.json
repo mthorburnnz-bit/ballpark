@@ -1,0 +1,13 @@
+{
+  "id": "giraffe-height-m",
+  "prompt": "How tall can an adult male giraffe grow, in metres?",
+  "value": 5.5,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 2,
+  "domainMax": 8,
+  "step": 0.1,
+  "category": "nature",
+  "funFact": "Despite that neck, a giraffe still has only seven neck vertebrae — the same number as a human.",
+  "source": "https://www.nationalgeographic.com/animals/mammals/facts/giraffe"
+}

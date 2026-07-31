@@ -1,0 +1,13 @@
+{
+  "id": "speed-of-light-km-s",
+  "prompt": "What is the speed of light in a vacuum, in kilometres per second?",
+  "value": 299792,
+  "unit": "km/s",
+  "scale": "log",
+  "domainMin": 100,
+  "domainMax": 1000000,
+  "step": 1,
+  "category": "science",
+  "funFact": "At that speed, light from the Sun still takes a little over 8 minutes to reach your eyes.",
+  "source": "https://www.britannica.com/science/speed-of-light"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "octopus-heart-count",
+  "prompt": "How many hearts does an octopus have?",
+  "value": 3,
+  "unit": "hearts",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 10,
+  "step": 1,
+  "category": "nature",
+  "funFact": "Two pump blood to the gills and one pumps it to the rest of the body — and that main heart actually stops beating while the octopus swims.",
+  "source": "https://ocean.si.edu/ocean-life/invertebrates/octopus"
+}

@@ -1,0 +1,47 @@
+{
+  "launchDate": "2026-07-27",
+  "schedule": {
+    "2026-07-27": [
+      "microwave-invented-year",
+      "eiffel-tower-height-m",
+      "auckland-tokyo-distance-km",
+      "usain-bolt-100m-record-seconds",
+      "octopus-heart-count"
+    ],
+    "2026-07-28": [
+      "telephone-patent-year",
+      "nile-length-km",
+      "cheetah-top-speed-kmh",
+      "louisiana-purchase-cost-usd",
+      "speed-of-light-km-s"
+    ],
+    "2026-07-29": [
+      "berlin-wall-fell-year",
+      "fifa-world-cup-first-year",
+      "everest-height-m",
+      "nz-minimum-wage-2024-nzd",
+      "heart-beats-per-day"
+    ],
+    "2026-07-30": [
+      "titanic-sank-year",
+      "first-iphone-year",
+      "human-body-temp-c",
+      "sahara-area-km2",
+      "blue-whale-weight-kg"
+    ],
+    "2026-07-31": [
+      "moon-landing-year",
+      "marathon-distance-km",
+      "speed-of-sound-sea-level-ms",
+      "earth-moon-distance-km",
+      "world-population-2024"
+    ],
+    "2026-08-01": [
+      "tour-de-france-first-year",
+      "us-stamp-price-2024-usd",
+      "dna-double-helix-discovery-year",
+      "us-president-salary-usd",
+      "amazon-rainforest-area-km2"
+    ]
+  }
+}

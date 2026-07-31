@@ -1,0 +1,13 @@
+{
+  "id": "speed-of-sound-sea-level-ms",
+  "prompt": "What is the speed of sound in air at sea level, in metres per second?",
+  "value": 343,
+  "unit": "m/s",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 800,
+  "step": 1,
+  "category": "science",
+  "funFact": "It travels roughly four times faster through water, and about fifteen times faster through steel.",
+  "source": "https://www.britannica.com/science/speed-of-sound"
+}

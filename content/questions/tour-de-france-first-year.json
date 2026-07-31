@@ -1,0 +1,13 @@
+{
+  "id": "tour-de-france-first-year",
+  "prompt": "In what year was the first Tour de France held?",
+  "value": 1903,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1850,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "sport",
+  "funFact": "It was launched as a publicity stunt to boost sales of a struggling French sports newspaper.",
+  "source": "https://www.britannica.com/sports/Tour-de-France"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "sahara-area-km2",
+  "prompt": "How big is the Sahara Desert, in square kilometres?",
+  "value": 9200000,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 10000,
+  "domainMax": 50000000,
+  "step": 1000,
+  "category": "geography",
+  "funFact": "It's roughly the size of the entire United States, and it's still expanding at its edges.",
+  "source": "https://www.britannica.com/place/Sahara"
+}

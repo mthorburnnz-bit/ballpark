@@ -1,0 +1,13 @@
+{
+  "id": "auckland-tokyo-distance-km",
+  "prompt": "How far is Auckland from Tokyo, in kilometres?",
+  "value": 8823,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 100,
+  "domainMax": 20000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "That's a longer great-circle route than flying from Auckland all the way to London via the shortest path.",
+  "source": "https://www.distancefromto.net/distance-from-auckland-to-tokyo"
+}

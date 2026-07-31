@@ -1,0 +1,13 @@
+{
+  "id": "eiffel-tower-height-m",
+  "prompt": "How tall is the Eiffel Tower today, including antennas, in metres?",
+  "value": 330,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 600,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It grows about 15cm taller in summer as the iron structure expands in the heat.",
+  "source": "https://www.toureiffel.paris/en/the-monument/key-figures"
+}

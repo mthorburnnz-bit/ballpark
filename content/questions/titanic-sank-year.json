@@ -1,0 +1,13 @@
+{
+  "id": "titanic-sank-year",
+  "prompt": "In what year did the Titanic sink?",
+  "value": 1912,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "The ship carried enough lifeboats for only about half the people on board, meeting the outdated regulations of the day.",
+  "source": "https://www.britannica.com/topic/Titanic"
+}

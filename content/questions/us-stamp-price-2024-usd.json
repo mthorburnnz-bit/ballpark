@@ -1,0 +1,14 @@
+{
+  "id": "us-stamp-price-2024-usd",
+  "prompt": "What was the price of a US Forever stamp, in dollars, as of January 2024?",
+  "value": 0.68,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 0.1,
+  "domainMax": 2,
+  "step": 0.01,
+  "category": "money",
+  "asOf": "January 2024",
+  "funFact": "A 'Forever' stamp is valid for postage no matter how much prices rise after you buy it — it went up again later that same year.",
+  "source": "https://about.usps.com/newsroom/national-releases/"
+}

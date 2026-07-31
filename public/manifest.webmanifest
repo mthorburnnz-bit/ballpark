@@ -1,0 +1,15 @@
+{
+  "name": "Ballpark",
+  "short_name": "Ballpark",
+  "description": "A daily estimation game. Set a range, not a number — tighter and right beats safe and wide.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f0e4",
+  "theme_color": "#f6f0e4",
+  "icons": [
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}

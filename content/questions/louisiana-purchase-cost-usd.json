@@ -1,0 +1,14 @@
+{
+  "id": "louisiana-purchase-cost-usd",
+  "prompt": "How much did the United States pay France for the Louisiana Purchase in 1803, in US dollars?",
+  "value": 15000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 1000000000,
+  "step": 100000,
+  "category": "money",
+  "asOf": "1803",
+  "funFact": "It roughly doubled the size of the country overnight, for a price that works out to a few cents per acre.",
+  "source": "https://www.archives.gov/milestone-documents/louisiana-purchase-treaty"
+}

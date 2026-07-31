@@ -1,0 +1,13 @@
+{
+  "id": "moon-landing-year",
+  "prompt": "In what year did humans first land on the Moon?",
+  "value": 1969,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "The onboard guidance computer had less processing power than a modern calculator, and it briefly overloaded during the descent.",
+  "source": "https://www.nasa.gov/mission/apollo-11/"
+}

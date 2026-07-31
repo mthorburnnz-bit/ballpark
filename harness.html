@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Ballpark — slider dev harness</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <style>
+      body {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: var(--space-5) var(--space-4) var(--space-8);
+      }
+      .harness-q {
+        background: var(--color-paper-raised);
+        border-radius: var(--radius-lg);
+        padding: var(--space-5);
+        margin-bottom: var(--space-6);
+      }
+      .harness-title {
+        font-weight: 800;
+        font-size: 1.1rem;
+        margin-bottom: var(--space-1);
+      }
+      .harness-meta {
+        font-size: 0.78rem;
+        color: var(--color-ink-soft);
+        margin-bottom: var(--space-4);
+      }
+      .harness-value {
+        font-size: 0.85rem;
+        margin-top: var(--space-4);
+        color: var(--color-ink-soft);
+      }
+      h1 {
+        font-size: 1.4rem;
+        margin-bottom: var(--space-2);
+      }
+      .harness-note {
+        font-size: 0.85rem;
+        color: var(--color-ink-soft);
+        margin-bottom: var(--space-6);
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Slider feel gate</h1>
+    <p class="harness-note">
+      Drag each thumb, drag the filled middle to translate the whole range, tap a
+      readout to type an exact value, and try arrow keys / shift+arrow after
+      tabbing to a thumb. This must feel precise and quick on a phone before any
+      other UI gets built.
+    </p>
+    <div id="harness-root"></div>
+    <script type="module" src="/src/harness-main.ts"></script>
+  </body>
+</html>

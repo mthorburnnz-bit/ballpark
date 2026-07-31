@@ -1,0 +1,14 @@
+{
+  "id": "us-president-salary-usd",
+  "prompt": "What is the annual salary of the President of the United States, as of 2024, in US dollars?",
+  "value": 400000,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 50000,
+  "domainMax": 1000000,
+  "step": 1000,
+  "category": "money",
+  "asOf": "2024",
+  "funFact": "It's been fixed at that figure by law since 2001 — Congress has to vote to change it, and hasn't.",
+  "source": "https://www.usa.gov/branches-of-government/executive-branch"
+}

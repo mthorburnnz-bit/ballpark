@@ -1,0 +1,13 @@
+{
+  "id": "blue-whale-weight-kg",
+  "prompt": "How much does an adult blue whale weigh, in kilograms?",
+  "value": 140000,
+  "unit": "kg",
+  "scale": "log",
+  "domainMin": 100,
+  "domainMax": 500000,
+  "step": 100,
+  "category": "nature",
+  "funFact": "Its heart alone can weigh close to 180kg — about as much as an adult grizzly bear.",
+  "source": "https://ocean.si.edu/ocean-life/marine-mammals/blue-whale"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "world-population-2024",
+  "prompt": "What was the world's population, as of 2024?",
+  "value": 8161000000,
+  "unit": "people",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 50000000000,
+  "step": 1000000,
+  "category": "everyday",
+  "asOf": "2024",
+  "funFact": "It took all of human history until 1804 to reach the first billion — the most recent billion was added in about 12 years.",
+  "source": "https://www.un.org/development/desa/pd/"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "earth-moon-distance-km",
+  "prompt": "What is the average distance from Earth to the Moon, in kilometres?",
+  "value": 384400,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "geography",
+  "funFact": "You could fit every other planet in the solar system, lined up side by side, in that gap.",
+  "source": "https://moon.nasa.gov/about/in-depth/"
+}

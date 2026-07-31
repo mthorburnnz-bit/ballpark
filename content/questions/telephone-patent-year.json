@@ -1,0 +1,13 @@
+{
+  "id": "telephone-patent-year",
+  "prompt": "In what year did Alexander Graham Bell patent the telephone?",
+  "value": 1876,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1700,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "Bell filed his patent application just hours before a rival inventor, Elisha Gray, filed a similar claim the same day.",
+  "source": "https://www.britannica.com/biography/Alexander-Graham-Bell"
+}

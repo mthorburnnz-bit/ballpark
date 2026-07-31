@@ -1,0 +1,13 @@
+{
+  "id": "usain-bolt-100m-record-seconds",
+  "prompt": "What is Usain Bolt's 100m world record time, in seconds?",
+  "value": 9.58,
+  "unit": "s",
+  "scale": "linear",
+  "domainMin": 8,
+  "domainMax": 15,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "He set it at the 2009 World Championships in Berlin — a record that has now stood for over fifteen years.",
+  "source": "https://worldathletics.org/records/by-category/world-records"
+}

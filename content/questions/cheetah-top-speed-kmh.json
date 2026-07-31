@@ -1,0 +1,13 @@
+{
+  "id": "cheetah-top-speed-kmh",
+  "prompt": "What is the fastest recorded speed for a cheetah, in km/h?",
+  "value": 104,
+  "unit": "km/h",
+  "scale": "linear",
+  "domainMin": 40,
+  "domainMax": 160,
+  "step": 1,
+  "category": "nature",
+  "funFact": "It reaches that speed from a standing start in about three seconds — faster acceleration than most sports cars.",
+  "source": "https://www.nationalgeographic.com/animals/mammals/facts/cheetah"
+}

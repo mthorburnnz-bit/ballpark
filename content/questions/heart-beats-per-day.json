@@ -1,0 +1,13 @@
+{
+  "id": "heart-beats-per-day",
+  "prompt": "About how many times does the average resting human heart beat in a day?",
+  "value": 100000,
+  "unit": "beats",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "everyday",
+  "funFact": "Over an average lifetime that adds up to roughly 2.5 billion beats, without a single scheduled maintenance break.",
+  "source": "https://www.heart.org/"
+}

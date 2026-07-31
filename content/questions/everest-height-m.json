@@ -1,0 +1,13 @@
+{
+  "id": "everest-height-m",
+  "prompt": "How tall is Mount Everest, in metres above sea level?",
+  "value": 8849,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 0,
+  "domainMax": 12000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "China and Nepal jointly remeasured it in 2020 and agreed on a height slightly taller than earlier official figures.",
+  "source": "https://www.britannica.com/place/Mount-Everest"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "first-iphone-year",
+  "prompt": "In what year did Apple release the first iPhone?",
+  "value": 2007,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It launched without an App Store — that didn't arrive until the following year, in 2008.",
+  "source": "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/"
+}

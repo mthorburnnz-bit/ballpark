@@ -1,0 +1,13 @@
+{
+  "id": "amazon-rainforest-area-km2",
+  "prompt": "How big is the Amazon rainforest, in square kilometres?",
+  "value": 5500000,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 20000000,
+  "step": 10000,
+  "category": "nature",
+  "funFact": "It spans nine countries and produces roughly a fifth of the world's fresh river water output.",
+  "source": "https://www.britannica.com/place/Amazon-Rainforest"
+}

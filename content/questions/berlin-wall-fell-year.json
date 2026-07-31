@@ -1,0 +1,13 @@
+{
+  "id": "berlin-wall-fell-year",
+  "prompt": "In what year did the Berlin Wall fall?",
+  "value": 1989,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "The announcement that triggered the fall was actually a bureaucratic mix-up — an official misspoke about when new travel rules would take effect.",
+  "source": "https://www.history.com/topics/cold-war/berlin-wall"
+}

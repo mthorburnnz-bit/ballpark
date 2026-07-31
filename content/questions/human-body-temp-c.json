@@ -1,0 +1,13 @@
+{
+  "id": "human-body-temp-c",
+  "prompt": "What is the average healthy human body temperature, in degrees Celsius?",
+  "value": 37,
+  "unit": "°C",
+  "scale": "linear",
+  "domainMin": 30,
+  "domainMax": 45,
+  "step": 0.5,
+  "category": "science",
+  "funFact": "Modern studies suggest the true average has actually drifted slightly below the textbook figure over the last century.",
+  "source": "https://www.britannica.com/science/human-body-temperature"
+}
