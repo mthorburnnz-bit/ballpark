@@ -1,6 +1,17 @@
 /** Thin client for the Worker API. All scoring happens server-side —
  * see worker/index.ts. Network is required to reveal any question. */
 
+/** Community aggregates for this question, from every other player's real
+ * (non-practice) submission on record. `sampleSize` 0 means nobody else has
+ * answered yet — the rate/average fields are null in that case. */
+export interface QuestionStats {
+  sampleSize: number;
+  hitRate: number | null;
+  tightRate: number | null;
+  avgLo: number | null;
+  avgHi: number | null;
+}
+
 export interface RevealApiResult {
   hit: boolean;
   f: number;
@@ -9,6 +20,7 @@ export interface RevealApiResult {
   trueValue: number;
   funFact: string;
   source: string;
+  stats: QuestionStats;
 }
 
 export class ApiError extends Error {}

@@ -56,7 +56,7 @@ export default {
     if (url.pathname === "/api/reveal" && request.method === "POST") {
       // Generous: covers real daily play plus enthusiastic archive/practice replays.
       if (!(await checkRateLimit(env, "reveal", ip, 60, 600))) return tooManyRequests();
-      return handleReveal(request);
+      return handleReveal(request, env);
     }
     if (url.pathname === "/api/submit-day" && request.method === "POST") {
       // Strict: a real player submits ~once a day. This just blocks scripted
@@ -78,14 +78,62 @@ interface RevealBody {
   hi?: unknown;
 }
 
+interface QuestionStats {
+  sampleSize: number;
+  hitRate: number | null;
+  tightRate: number | null;
+  avgLo: number | null;
+  avgHi: number | null;
+}
+
+interface QuestionStatsRow {
+  n: number;
+  hits: number;
+  tights: number;
+  avgLo: number | null;
+  avgHi: number | null;
+}
+
+/**
+ * Aggregates every real (non-practice) submission on record for this
+ * question — `question_answers` only ever gets rows from handleSubmitDay,
+ * so archive/practice replays never pollute this. Global, not per-day: a
+ * question that gets reused across multiple unscheduled dates (see the
+ * seeded fallback in daily.ts) accrues stats across all of them.
+ */
+async function fetchQuestionStats(env: Env, questionId: string): Promise<QuestionStats> {
+  const row = await env.DB.prepare(
+    `SELECT COUNT(*) as n, COALESCE(SUM(hit), 0) as hits, COALESCE(SUM(tight), 0) as tights,
+            AVG(lo) as avgLo, AVG(hi) as avgHi
+     FROM question_answers
+     WHERE question_id = ?1`,
+  )
+    .bind(questionId)
+    .first<QuestionStatsRow>();
+
+  const n = row?.n ?? 0;
+  if (n === 0) {
+    return { sampleSize: 0, hitRate: null, tightRate: null, avgLo: null, avgHi: null };
+  }
+  return {
+    sampleSize: n,
+    hitRate: row!.hits / n,
+    tightRate: row!.tights / n,
+    avgLo: row!.avgLo,
+    avgHi: row!.avgHi,
+  };
+}
+
 /**
  * The true value for a question never ships to the client bundle (see
  * spec change: was AES-obfuscation-only, now the server just doesn't send
  * it). This endpoint is how the client learns hit/miss/points/trueValue
  * for a locked-in range — called for every question, real play or
- * practice/archive alike. Stateless: no player identity, nothing written.
+ * practice/archive alike. No player identity is read or written; the
+ * community stats returned are read-only aggregates of other players'
+ * past submissions.
  */
-async function handleReveal(request: Request): Promise<Response> {
+async function handleReveal(request: Request, env: Env): Promise<Response> {
   let body: RevealBody;
   try {
     body = await request.json();
@@ -107,6 +155,7 @@ async function handleReveal(request: Request): Promise<Response> {
   }
 
   const result = scoreAnswer(lo, hi, question.value, question.domainMin, question.domainMax, question.scale);
+  const stats = await fetchQuestionStats(env, questionId);
 
   return json({
     hit: result.hit,
@@ -116,6 +165,7 @@ async function handleReveal(request: Request): Promise<Response> {
     trueValue: question.value,
     funFact: question.funFact,
     source: question.source,
+    stats,
   });
 }
 
