@@ -1,0 +1,13 @@
+{
+  "id": "michael-phelps-gold-medals",
+  "prompt": "How many individual Olympic gold medals has swimmer Michael Phelps won across his career?",
+  "value": 23,
+  "unit": "gold medals",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 40,
+  "step": 1,
+  "category": "sport",
+  "funFact": "That's more Olympic golds than most entire countries have ever won.",
+  "source": "https://www.britannica.com/biography/Michael-Phelps"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "un-official-languages-count",
+  "prompt": "How many official languages does the United Nations have?",
+  "value": 6,
+  "unit": "languages",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 20,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "They are Arabic, Chinese, English, French, Russian, and Spanish — every official document is translated into all six.",
+  "source": "https://www.un.org/en/our-work/official-languages"
+}

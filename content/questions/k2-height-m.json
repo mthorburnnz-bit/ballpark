@@ -1,0 +1,13 @@
+{
+  "id": "k2-height-m",
+  "prompt": "How tall is K2, the world's second-highest mountain, in metres?",
+  "value": 8611,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 0,
+  "domainMax": 11000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "It's known among climbers as the 'Savage Mountain' — its fatality rate for summiteers is far higher than Everest's.",
+  "source": "https://www.britannica.com/place/K2"
+}

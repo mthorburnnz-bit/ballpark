@@ -1,0 +1,13 @@
+{
+  "id": "african-elephant-weight-kg",
+  "prompt": "How much does an adult African elephant weigh, in kilograms?",
+  "value": 6000,
+  "unit": "kg",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 50000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "It's the largest living land animal — a newborn calf alone can weigh over 100kg at birth.",
+  "source": "https://www.britannica.com/animal/elephant-mammal"
+}

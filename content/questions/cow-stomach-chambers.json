@@ -1,0 +1,13 @@
+{
+  "id": "cow-stomach-chambers",
+  "prompt": "How many stomach chambers does a cow have?",
+  "value": 4,
+  "unit": "chambers",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 10,
+  "step": 1,
+  "category": "nature",
+  "funFact": "It's technically one stomach with four compartments — the first, the rumen, can hold well over 100 litres.",
+  "source": "https://www.britannica.com/animal/cattle"
+}

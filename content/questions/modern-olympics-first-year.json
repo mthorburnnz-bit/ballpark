@@ -1,0 +1,13 @@
+{
+  "id": "modern-olympics-first-year",
+  "prompt": "In what year were the first modern Olympic Games held?",
+  "value": 1896,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "sport",
+  "funFact": "They were held in Athens, reviving a tradition that had been dormant for around 1,500 years.",
+  "source": "https://www.britannica.com/sports/Olympic-Games"
+}

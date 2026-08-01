@@ -1,0 +1,13 @@
+{
+  "id": "wandering-albatross-wingspan-m",
+  "prompt": "What is the wingspan of a wandering albatross, the bird with the largest wingspan of any living species, in metres?",
+  "value": 3.5,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 6,
+  "step": 0.1,
+  "category": "nature",
+  "funFact": "It can glide for hours without a single wingbeat, locking its wings in place to ride ocean winds.",
+  "source": "https://www.britannica.com/animal/albatross"
+}

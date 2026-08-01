@@ -1,0 +1,13 @@
+{
+  "id": "recommended-daily-steps",
+  "prompt": "How many steps a day is the commonly cited wellness target?",
+  "value": 10000,
+  "unit": "steps",
+  "scale": "log",
+  "domainMin": 100,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "everyday",
+  "funFact": "The number didn't come from medical research — it originated from a 1965 Japanese pedometer marketing campaign.",
+  "source": "https://www.health.harvard.edu/staying-healthy/10000-steps-a-day-or-fewer"
+}

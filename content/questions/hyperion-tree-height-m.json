@@ -1,0 +1,13 @@
+{
+  "id": "hyperion-tree-height-m",
+  "prompt": "How tall is Hyperion, the world's tallest known living tree, in metres?",
+  "value": 116,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 200,
+  "step": 0.1,
+  "category": "nature",
+  "funFact": "It's a coast redwood in California, and its exact location is kept secret to protect it from visitor damage.",
+  "source": "https://en.wikipedia.org/wiki/Hyperion_(tree)"
+}

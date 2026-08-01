@@ -1,0 +1,13 @@
+{
+  "id": "wright-brothers-first-flight-year",
+  "prompt": "In what year did the Wright brothers make their first powered flight?",
+  "value": 1903,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "The first flight covered less distance than the wingspan of a modern Boeing 747.",
+  "source": "https://www.britannica.com/biography/Wright-brothers"
+}

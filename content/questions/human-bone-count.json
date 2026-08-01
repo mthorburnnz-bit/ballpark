@@ -1,0 +1,13 @@
+{
+  "id": "human-bone-count",
+  "prompt": "How many bones does an average adult human skeleton have?",
+  "value": 206,
+  "unit": "bones",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 400,
+  "step": 1,
+  "category": "science",
+  "funFact": "Babies are born with roughly 300 — many fuse together as the skeleton matures into adulthood.",
+  "source": "https://www.britannica.com/science/bone-anatomy"
+}

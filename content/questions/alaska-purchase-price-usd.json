@@ -1,0 +1,14 @@
+{
+  "id": "alaska-purchase-price-usd",
+  "prompt": "How much did the United States pay Russia for Alaska in 1867, in US dollars?",
+  "value": 7200000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 1000000000,
+  "step": 10000,
+  "category": "money",
+  "asOf": "1867",
+  "funFact": "Critics mocked it as 'Seward's Folly' at the time — before gold and oil made it look like one of history's great bargains.",
+  "source": "https://www.archives.gov/milestone-documents/alaska-purchase"
+}

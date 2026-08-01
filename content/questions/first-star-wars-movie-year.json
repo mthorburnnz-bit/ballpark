@@ -1,0 +1,13 @@
+{
+  "id": "first-star-wars-movie-year",
+  "prompt": "In what year did the first Star Wars film premiere?",
+  "value": 1977,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It wasn't originally called 'Episode IV — A New Hope' on release — that subtitle was only added in a 1981 re-release.",
+  "source": "https://www.britannica.com/topic/Star-Wars-film-franchise"
+}

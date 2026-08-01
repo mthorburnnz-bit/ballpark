@@ -1,0 +1,13 @@
+{
+  "id": "volleyball-net-height-men-m",
+  "prompt": "How high is the net in men's regulation volleyball, in metres?",
+  "value": 2.43,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 4,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "The women's regulation net sits about 15cm lower, at 2.24m.",
+  "source": "https://www.britannica.com/sports/volleyball"
+}

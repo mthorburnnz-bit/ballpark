@@ -1,0 +1,13 @@
+{
+  "id": "trans-siberian-railway-length-km",
+  "prompt": "How long is the Trans-Siberian Railway, in kilometres?",
+  "value": 9289,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 100,
+  "domainMax": 50000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "A full end-to-end journey crosses eight time zones and takes about a week.",
+  "source": "https://www.britannica.com/topic/Trans-Siberian-Railroad"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "proxima-centauri-distance-ly",
+  "prompt": "How far away is Proxima Centauri, the nearest known star to the Sun, in light years?",
+  "value": 4.24,
+  "unit": "ly",
+  "scale": "log",
+  "domainMin": 0.1,
+  "domainMax": 1000,
+  "step": 0.01,
+  "category": "science",
+  "funFact": "Even at that 'close' distance, our fastest current spacecraft would still take tens of thousands of years to get there.",
+  "source": "https://www.britannica.com/place/Proxima-Centauri"
+}

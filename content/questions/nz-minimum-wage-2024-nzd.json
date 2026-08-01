@@ -2,7 +2,7 @@
   "id": "nz-minimum-wage-2024-nzd",
   "prompt": "What was New Zealand's adult minimum wage, in NZD per hour, as of April 2024?",
   "value": 23.15,
-  "unit": "$",
+  "unit": "NZ$",
   "scale": "linear",
   "domainMin": 5,
   "domainMax": 50,

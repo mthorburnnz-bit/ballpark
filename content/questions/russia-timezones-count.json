@@ -1,0 +1,13 @@
+{
+  "id": "russia-timezones-count",
+  "prompt": "How many time zones does Russia span?",
+  "value": 11,
+  "unit": "time zones",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 24,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It briefly cut that down to nine in 2010 for simplicity, then restored several of them a few years later.",
+  "source": "https://www.britannica.com/place/Russia"
+}

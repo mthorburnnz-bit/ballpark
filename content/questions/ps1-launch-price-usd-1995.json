@@ -1,0 +1,14 @@
+{
+  "id": "ps1-launch-price-usd-1995",
+  "prompt": "What was the original PlayStation's launch price in the US in 1995, in US dollars?",
+  "value": 299,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 1000,
+  "step": 1,
+  "category": "money",
+  "asOf": "1995",
+  "funFact": "Sony undercut Sega's Saturn by $100 at the same trade show — announcing the price on stage with a single slide reading just '$299'.",
+  "source": "https://www.britannica.com/topic/PlayStation"
+}

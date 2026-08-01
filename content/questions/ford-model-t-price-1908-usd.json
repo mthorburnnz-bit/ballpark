@@ -1,0 +1,14 @@
+{
+  "id": "ford-model-t-price-1908-usd",
+  "prompt": "How much did a new Ford Model T cost when it launched in 1908, in US dollars?",
+  "value": 850,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 2000,
+  "step": 10,
+  "category": "money",
+  "asOf": "1908",
+  "funFact": "Assembly-line production later drove the price down to under $300 — making it the first car affordable to ordinary workers.",
+  "source": "https://www.britannica.com/topic/Model-T"
+}

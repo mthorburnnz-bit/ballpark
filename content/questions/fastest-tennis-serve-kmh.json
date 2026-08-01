@@ -1,0 +1,13 @@
+{
+  "id": "fastest-tennis-serve-kmh",
+  "prompt": "What is the fastest recorded serve speed in professional tennis, in km/h?",
+  "value": 263,
+  "unit": "km/h",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 350,
+  "step": 1,
+  "category": "sport",
+  "funFact": "It was hit by Sam Groth in 2012 — a player better known for his serve than his overall ranking.",
+  "source": "https://www.guinnessworldrecords.com/world-records/fastest-tennis-serve-(male)"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "peregrine-falcon-dive-speed-kmh",
+  "prompt": "How fast can a peregrine falcon fly in a hunting dive, in km/h?",
+  "value": 320,
+  "unit": "km/h",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 500,
+  "step": 1,
+  "category": "nature",
+  "funFact": "That makes it the fastest animal on the planet — faster than any bird in level flight, any land animal, or any fish.",
+  "source": "https://www.guinnessworldrecords.com/world-records/70929-fastest-bird-diving"
+}

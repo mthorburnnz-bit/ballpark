@@ -1,0 +1,13 @@
+{
+  "id": "queen-bee-eggs-per-day",
+  "prompt": "About how many eggs can a healthy queen bee lay in a single day?",
+  "value": 2000,
+  "unit": "eggs",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 100000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "Over her lifetime that can add up to more than a million eggs — often more than her own body weight in a day.",
+  "source": "https://www.britannica.com/animal/honeybee"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "taste-buds-count",
+  "prompt": "About how many taste buds does the average human tongue have?",
+  "value": 10000,
+  "unit": "taste buds",
+  "scale": "log",
+  "domainMin": 100,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "science",
+  "funFact": "They're replaced roughly every two weeks — which is why a burnt tongue recovers its sense of taste so quickly.",
+  "source": "https://www.britannica.com/science/taste-bud"
+}

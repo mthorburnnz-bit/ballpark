@@ -1,0 +1,13 @@
+{
+  "id": "russia-area-km2",
+  "prompt": "What is the total land area of Russia, in square kilometres?",
+  "value": 17098242,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 50000000,
+  "step": 10000,
+  "category": "geography",
+  "funFact": "It spans eleven time zones — more than any other country on Earth.",
+  "source": "https://www.britannica.com/place/Russia"
+}

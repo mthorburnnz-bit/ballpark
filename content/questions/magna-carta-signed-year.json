@@ -1,0 +1,13 @@
+{
+  "id": "magna-carta-signed-year",
+  "prompt": "In what year was the Magna Carta sealed by King John of England?",
+  "value": 1215,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1000,
+  "domainMax": 1500,
+  "step": 1,
+  "category": "history",
+  "funFact": "It was annulled by the Pope within weeks of being sealed — it only became a lasting cornerstone of English law through later reissues.",
+  "source": "https://www.britannica.com/topic/Magna-Carta"
+}

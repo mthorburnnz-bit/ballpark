@@ -1,0 +1,13 @@
+{
+  "id": "mariana-trench-depth-m",
+  "prompt": "How deep is the Challenger Deep, the deepest known point in the ocean, in metres?",
+  "value": 10935,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 0,
+  "domainMax": 14000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "If Mount Everest were dropped in, its peak would still sit over two kilometres below the surface.",
+  "source": "https://en.wikipedia.org/wiki/Challenger_Deep"
+}

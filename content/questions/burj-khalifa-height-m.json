@@ -1,0 +1,13 @@
+{
+  "id": "burj-khalifa-height-m",
+  "prompt": "How tall is the Burj Khalifa in Dubai, the world's tallest building, in metres?",
+  "value": 828,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 1200,
+  "step": 1,
+  "category": "geography",
+  "funFact": "Its exact final height was kept secret during construction specifically so rival developers couldn't design something taller in time.",
+  "source": "https://www.britannica.com/topic/Burj-Khalifa"
+}

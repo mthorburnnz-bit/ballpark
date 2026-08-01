@@ -1,0 +1,13 @@
+{
+  "id": "piano-keys-count",
+  "prompt": "How many keys does a standard modern piano have?",
+  "value": 88,
+  "unit": "keys",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 150,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Early pianos had as few as 60 — the range grew over centuries as composers demanded a wider pitch range.",
+  "source": "https://www.britannica.com/art/piano-musical-instrument"
+}

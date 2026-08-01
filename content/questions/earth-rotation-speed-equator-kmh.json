@@ -1,0 +1,13 @@
+{
+  "id": "earth-rotation-speed-equator-kmh",
+  "prompt": "How fast is the Earth's surface spinning at the equator, in km/h?",
+  "value": 1670,
+  "unit": "km/h",
+  "scale": "linear",
+  "domainMin": 200,
+  "domainMax": 3000,
+  "step": 1,
+  "category": "science",
+  "funFact": "You're moving faster standing still at the equator than a commercial jet cruises — you just can't feel it.",
+  "source": "https://www.britannica.com/science/Earth-planet"
+}

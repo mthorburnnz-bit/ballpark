@@ -1,0 +1,14 @@
+{
+  "id": "uk-old-pence-per-pound",
+  "prompt": "Before decimalisation in 1971, how many old pence made up one British pound?",
+  "value": 240,
+  "unit": "pence",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 500,
+  "step": 1,
+  "category": "money",
+  "asOf": "1971",
+  "funFact": "The system also had 20 shillings to a pound and 12 pence to a shilling — a source of enduring confusion for anyone learning it.",
+  "source": "https://www.britannica.com/topic/pound-sterling"
+}

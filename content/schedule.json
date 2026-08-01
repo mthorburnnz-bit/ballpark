@@ -42,6 +42,62 @@
       "dna-double-helix-discovery-year",
       "us-president-salary-usd",
       "amazon-rainforest-area-km2"
+    ],
+    "2026-08-02": [
+      "piano-keys-count",
+      "modern-olympics-first-year",
+      "great-fire-of-london-year",
+      "human-bone-count",
+      "great-wall-of-china-length-km"
+    ],
+    "2026-08-03": [
+      "basketball-hoop-height-m",
+      "ford-model-t-price-1908-usd",
+      "french-revolution-start-year",
+      "earth-rotation-speed-equator-kmh",
+      "russia-area-km2"
+    ],
+    "2026-08-04": [
+      "human-chromosome-count",
+      "fastest-tennis-serve-kmh",
+      "magna-carta-signed-year",
+      "mariana-trench-depth-m",
+      "african-elephant-weight-kg"
+    ],
+    "2026-08-05": [
+      "rugby-union-team-size",
+      "un-official-languages-count",
+      "wright-brothers-first-flight-year",
+      "k2-height-m",
+      "proxima-centauri-distance-ly"
+    ],
+    "2026-08-06": [
+      "michael-phelps-gold-medals",
+      "uk-old-pence-per-pound",
+      "great-depression-start-year",
+      "human-brain-weight-g",
+      "trans-siberian-railway-length-km"
+    ],
+    "2026-08-07": [
+      "volleyball-net-height-men-m",
+      "panama-canal-opened-year",
+      "burj-khalifa-height-m",
+      "peregrine-falcon-dive-speed-kmh",
+      "taste-buds-count"
+    ],
+    "2026-08-08": [
+      "first-star-wars-movie-year",
+      "hyperion-tree-height-m",
+      "recommended-daily-steps",
+      "queen-bee-eggs-per-day",
+      "instagram-acquisition-price-usd"
+    ],
+    "2026-08-09": [
+      "russia-timezones-count",
+      "first-sms-sent-year",
+      "ps1-launch-price-usd-1995",
+      "wandering-albatross-wingspan-m",
+      "alaska-purchase-price-usd"
     ]
   }
 }

@@ -1,0 +1,13 @@
+{
+  "id": "great-wall-of-china-length-km",
+  "prompt": "How long is the Great Wall of China, in kilometres, counting every section built across every dynasty (per China's 2012 official government survey)?",
+  "value": 21196,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 100000,
+  "step": 100,
+  "category": "geography",
+  "funFact": "That figure only became official in 2012, after a six-year archaeological survey — before that, nobody had ever measured all the sections together.",
+  "source": "https://www.archaeology.wiki/blog/2012/06/08/great-wall-much-longer-than-in-previous-survey/"
+}

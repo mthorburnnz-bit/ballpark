@@ -1,0 +1,13 @@
+{
+  "id": "great-fire-of-london-year",
+  "prompt": "In what year did the Great Fire of London occur?",
+  "value": 1666,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1500,
+  "domainMax": 1800,
+  "step": 1,
+  "category": "history",
+  "funFact": "It started in a bakery on Pudding Lane and destroyed most of the medieval city, but official records list only six confirmed deaths.",
+  "source": "https://www.britannica.com/event/Great-Fire-of-London"
+}

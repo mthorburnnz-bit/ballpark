@@ -1,0 +1,13 @@
+{
+  "id": "panama-canal-opened-year",
+  "prompt": "In what year did the Panama Canal officially open?",
+  "value": 1914,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "Its opening was overshadowed in the news by the outbreak of World War I just weeks earlier.",
+  "source": "https://www.britannica.com/topic/Panama-Canal"
+}

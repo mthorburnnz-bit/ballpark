@@ -1,0 +1,14 @@
+{
+  "id": "instagram-acquisition-price-usd",
+  "prompt": "As announced in April 2012, how much did Facebook agree to pay to acquire Instagram, in US dollars?",
+  "value": 1000000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 10000000,
+  "domainMax": 10000000000,
+  "step": 1000000,
+  "category": "money",
+  "asOf": "April 2012",
+  "funFact": "Instagram had just 13 employees at the time — and no revenue at all.",
+  "source": "https://techcrunch.com/2012/04/09/facebook-to-acquire-instagram-for-1-billion/"
+}

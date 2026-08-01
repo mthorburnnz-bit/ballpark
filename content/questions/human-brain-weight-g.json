@@ -1,0 +1,13 @@
+{
+  "id": "human-brain-weight-g",
+  "prompt": "How much does an average adult human brain weigh, in grams?",
+  "value": 1400,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 3500,
+  "step": 10,
+  "category": "science",
+  "funFact": "It's only about 2% of body weight, yet it uses roughly 20% of the body's energy.",
+  "source": "https://www.britannica.com/science/human-brain"
+}

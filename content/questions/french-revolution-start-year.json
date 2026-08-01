@@ -1,0 +1,13 @@
+{
+  "id": "french-revolution-start-year",
+  "prompt": "In what year did the French Revolution begin, marked by the storming of the Bastille?",
+  "value": 1789,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1500,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "The Bastille held only seven prisoners at the time it was stormed, none of them the political enemies of the crown the crowd expected to free.",
+  "source": "https://www.britannica.com/event/French-Revolution"
+}

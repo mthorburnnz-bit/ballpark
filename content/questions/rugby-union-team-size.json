@@ -1,0 +1,13 @@
+{
+  "id": "rugby-union-team-size",
+  "prompt": "How many players are on a rugby union team on the field at once?",
+  "value": 15,
+  "unit": "players",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 30,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Rugby league, a related but separate sport, plays with only 13 — a common source of confusion between the two codes.",
+  "source": "https://www.britannica.com/sports/rugby"
+}

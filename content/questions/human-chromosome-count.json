@@ -1,0 +1,13 @@
+{
+  "id": "human-chromosome-count",
+  "prompt": "How many chromosomes does a typical human cell have?",
+  "value": 46,
+  "unit": "chromosomes",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 100,
+  "step": 1,
+  "category": "science",
+  "funFact": "That's fewer than some ferns and goldfish — chromosome count has almost no relationship to an organism's complexity.",
+  "source": "https://www.britannica.com/science/chromosome"
+}
