@@ -11,8 +11,8 @@
     "test": "vitest run",
     "validate": "tsx tools/validate.ts",
     "typecheck:worker": "npm run bundle-content && tsc -p worker/tsconfig.json --noEmit",
-    "deploy": "npm run build && wrangler deploy",
-    "worker:dev": "wrangler dev"
+    "deploy": "npm run build && npx wrangler deploy",
+    "worker:dev": "npx wrangler dev"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260731.1",
