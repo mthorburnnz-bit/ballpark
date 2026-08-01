@@ -628,6 +628,45 @@ svg {
   letter-spacing: 0.03em;
 }
 
+.streak-badges {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.streak-badge {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-paper-raised);
+  opacity: 0.5;
+}
+
+.streak-badge.earned {
+  opacity: 1;
+  background: var(--color-hit-soft);
+}
+
+.streak-badge-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.streak-badge-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.streak-badge.earned .streak-badge-label {
+  color: var(--color-hit);
+}
+
 .confidence-card {
   background: var(--color-paper-raised);
   border-radius: var(--radius-lg);

@@ -191,3 +191,38 @@ describe("deriveStats — confidence score", () => {
     });
   });
 });
+
+describe("deriveStats — streak badges", () => {
+  function withBestStreak(best: number): SaveData {
+    const save = defaultSave();
+    save.streak.best = best;
+    return save;
+  }
+
+  it("earns no badges with no streak history", () => {
+    const badges = deriveStats(withBestStreak(0)).streakBadges;
+    expect(badges.map((b) => b.earned)).toEqual([false, false, false]);
+  });
+
+  it("does not earn a badge one day short of its threshold", () => {
+    const badges = deriveStats(withBestStreak(6)).streakBadges;
+    expect(badges.find((b) => b.threshold === 7)?.earned).toBe(false);
+  });
+
+  it("earns exactly at the threshold", () => {
+    const badges = deriveStats(withBestStreak(7)).streakBadges;
+    expect(badges.map((b) => b.earned)).toEqual([true, false, false]);
+  });
+
+  it("earns lower badges too once a higher streak is reached", () => {
+    const badges = deriveStats(withBestStreak(100)).streakBadges;
+    expect(badges.map((b) => b.earned)).toEqual([true, true, true]);
+  });
+
+  it("stays earned even after the current streak resets, since it's based on best", () => {
+    const save = withBestStreak(30);
+    save.streak.current = 0;
+    const badges = deriveStats(save).streakBadges;
+    expect(badges.find((b) => b.threshold === 30)?.earned).toBe(true);
+  });
+});

@@ -313,8 +313,19 @@ export function buildStatsScreen(stats: DerivedStats, onBack: () => void): HTMLD
     }
   }
 
-  screen.append(grid, buildConfidenceCard(stats.confidence), categorySection);
+  screen.append(grid, buildStreakBadges(stats.streakBadges), buildConfidenceCard(stats.confidence), categorySection);
   return screen;
+}
+
+function buildStreakBadges(badges: DerivedStats["streakBadges"]): HTMLDivElement {
+  const row = el("div", "streak-badges");
+  for (const badge of badges) {
+    const chip = el("div", badge.earned ? "streak-badge earned" : "streak-badge");
+    chip.appendChild(el("div", "streak-badge-icon", badge.earned ? "🔥" : "—"));
+    chip.appendChild(el("div", "streak-badge-label", badge.label));
+    row.appendChild(chip);
+  }
+  return row;
 }
 
 function buildConfidenceCard(confidence: DerivedStats["confidence"]): HTMLDivElement {

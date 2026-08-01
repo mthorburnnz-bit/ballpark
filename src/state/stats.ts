@@ -67,6 +67,28 @@ export interface ConfidenceInsight {
   gapPercent: number; // 0..100, rounded, always >= 0
 }
 
+/** Streak-length milestones a player can permanently earn. Based on best
+ * streak, not current — an earned badge doesn't disappear when a streak breaks. */
+export const STREAK_BADGE_THRESHOLDS: ReadonlyArray<{ threshold: number; label: string }> = [
+  { threshold: 7, label: "7-day" },
+  { threshold: 30, label: "30-day" },
+  { threshold: 100, label: "100-day" },
+];
+
+export interface StreakBadge {
+  threshold: number;
+  label: string;
+  earned: boolean;
+}
+
+function deriveStreakBadges(bestStreak: number): StreakBadge[] {
+  return STREAK_BADGE_THRESHOLDS.map(({ threshold, label }) => ({
+    threshold,
+    label,
+    earned: bestStreak >= threshold,
+  }));
+}
+
 export interface DerivedStats {
   currentStreak: number;
   bestStreak: number;
@@ -76,6 +98,7 @@ export interface DerivedStats {
   tightHitRate: number; // 0..1
   categoryHitRates: Array<{ category: Category; hitRate: number; questions: number }>;
   confidence: ConfidenceInsight | null;
+  streakBadges: StreakBadge[];
 }
 
 /**
@@ -130,6 +153,7 @@ export function deriveStats(save: SaveData): DerivedStats {
     tightHitRate,
     categoryHitRates,
     confidence: deriveConfidence(lifetime, hitRate),
+    streakBadges: deriveStreakBadges(streak.best),
   };
 }
 
