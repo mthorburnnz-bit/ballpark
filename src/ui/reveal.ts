@@ -15,6 +15,10 @@ const STEP_DELAY_MS = 150;
 const NEEDLE_DROP_MS = 550;
 const COUNT_UP_MS = 500;
 
+/** Below this many past submissions, a "42% of players" line is more noise
+ * than signal (n=1 reads as 0% or 100%) — stay quiet until it means something. */
+const MIN_SAMPLE_FOR_STATS = 5;
+
 /**
  * Orchestrates spec §5.2's reveal: needle drop -> hit/miss flash + point
  * count-up (+ confetti if tight) -> fun fact fade-in. Tap anywhere on the
@@ -47,6 +51,7 @@ export class RevealSequence {
       if (this.opts.reducedMotion) {
         this.applyFinalState();
         this.appendFunFact();
+        this.appendCommunityStats();
         this.finish();
         return;
       }
@@ -109,9 +114,10 @@ export class RevealSequence {
       }
     });
 
-    // 3. Fun fact fades in.
+    // 3. Fun fact and community stats fade in.
     this.after(NEEDLE_DROP_MS + COUNT_UP_MS + STEP_DELAY_MS, () => {
       this.appendFunFact();
+      this.appendCommunityStats();
       this.finish();
     });
   }
@@ -200,6 +206,29 @@ export class RevealSequence {
     this.stageEl.appendChild(fact);
   }
 
+  private appendCommunityStats(): void {
+    const { question, result } = this.opts;
+    const { stats } = result;
+    if (stats.sampleSize < MIN_SAMPLE_FOR_STATS) return;
+
+    const box = document.createElement("div");
+    box.className = "community-stats";
+
+    const rows: string[] = [
+      `${Math.round(stats.hitRate! * 100)}% of players got this right.`,
+      `Only ${Math.round(stats.tightRate! * 100)}% nailed it with a tight hit.`,
+      `Average range: ${formatNumber(stats.avgLo!, question.unit)}–${formatNumber(stats.avgHi!, question.unit)}.`,
+    ];
+    for (const text of rows) {
+      const row = document.createElement("div");
+      row.className = "community-stat-row";
+      row.textContent = text;
+      box.appendChild(row);
+    }
+
+    this.stageEl.appendChild(box);
+  }
+
   private after(ms: number, fn: () => void): void {
     const t = setTimeout(() => {
       if (this.skipped) return;
@@ -224,6 +253,7 @@ export class RevealSequence {
     this.applyFinalState();
     if (!this.stageEl.querySelector(".fun-fact")) {
       this.appendFunFact();
+      this.appendCommunityStats();
     }
     this.finish();
   }

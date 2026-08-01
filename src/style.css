@@ -454,6 +454,21 @@ svg {
   font-weight: 600;
 }
 
+.community-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--color-ink-soft);
+  animation: fade-up 260ms ease both;
+}
+
+.community-stat-row::before {
+  content: "· ";
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
