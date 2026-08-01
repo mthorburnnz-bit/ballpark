@@ -25,6 +25,14 @@ export interface Question {
   asOf?: string;
 }
 
+/**
+ * What the client is allowed to know before a question is answered. The
+ * true value, fun fact, and source are withheld until the server's
+ * /api/reveal responds — unlike the original spec's client-side AES
+ * obfuscation, the answer key genuinely never reaches the browser early.
+ */
+export type PublicQuestion = Omit<Question, "value" | "funFact" | "source">;
+
 export interface QuestionAnswer {
   questionId: string;
   lo: number;

@@ -1,10 +1,10 @@
-import type { Question } from "../game/types.ts";
+import type { PublicQuestion } from "../game/types.ts";
 import { toSliderSpace, fromSliderSpace, provisionalScore } from "../game/scoring.ts";
 import { formatNumber } from "./format.ts";
 import { computeTicks } from "./ticks.ts";
 
 export interface RangeSliderOptions {
-  question: Question;
+  question: PublicQuestion;
   initialLo?: number;
   initialHi?: number;
   hapticsEnabled?: boolean;
@@ -27,7 +27,7 @@ type Drag =
 export class RangeSlider {
   readonly el: HTMLDivElement;
 
-  private q: Question;
+  private q: PublicQuestion;
   private lo: number;
   private hi: number;
   private hapticsEnabled: boolean;

@@ -1,6 +1,7 @@
-import type { Question, Category } from "../game/types.ts";
+import type { PublicQuestion, Category } from "../game/types.ts";
 import type { AnswerRecord, SettingsState } from "../state/save.ts";
 import type { DerivedStats } from "../state/stats.ts";
+import type { LeaderboardEntry } from "../state/api.ts";
 import { RangeSlider } from "./slider.ts";
 import { formatNumber } from "./format.ts";
 
@@ -46,6 +47,7 @@ export interface IntroScreenProps {
   onStats: () => void;
   onArchive: () => void;
   onSettings: () => void;
+  onLeaderboard: () => void;
 }
 
 export function buildIntroScreen(props: IntroScreenProps): HTMLDivElement {
@@ -81,10 +83,13 @@ export function buildIntroScreen(props: IntroScreenProps): HTMLDivElement {
   const archiveBtn = el("button", undefined, "Archive");
   archiveBtn.type = "button";
   archiveBtn.addEventListener("click", props.onArchive);
+  const leaderboardBtn = el("button", undefined, "Leaderboard");
+  leaderboardBtn.type = "button";
+  leaderboardBtn.addEventListener("click", props.onLeaderboard);
   const settingsBtn = el("button", undefined, "Settings");
   settingsBtn.type = "button";
   settingsBtn.addEventListener("click", props.onSettings);
-  navLinks.append(statsBtn, archiveBtn, settingsBtn);
+  navLinks.append(statsBtn, archiveBtn, leaderboardBtn, settingsBtn);
   screen.appendChild(navLinks);
 
   return screen;
@@ -101,7 +106,7 @@ export interface QuestionScreenHandles {
 }
 
 export interface QuestionScreenProps {
-  question: Question;
+  question: PublicQuestion;
   index: number; // 0-based
   total: number;
   runningScore: number;
@@ -155,7 +160,7 @@ export function buildQuestionScreen(props: QuestionScreenProps): QuestionScreenH
 // ---------- Results screen ----------
 
 export interface RecapItem {
-  question: Question;
+  question: PublicQuestion;
   answer: AnswerRecord;
 }
 
@@ -170,6 +175,7 @@ export interface ResultsScreenProps {
   onHome: () => void;
   onStats: () => void;
   onArchive: () => void;
+  onLeaderboard: () => void;
 }
 
 export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElement; shareBtn: HTMLButtonElement } {
@@ -204,7 +210,7 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
     const detail = el(
       "div",
       "recap-detail",
-      `Your range: ${formatNumber(answer.lo, question.unit)}–${formatNumber(answer.hi, question.unit)} · Answer: ${formatNumber(question.value, question.unit)}`,
+      `Your range: ${formatNumber(answer.lo, question.unit)}–${formatNumber(answer.hi, question.unit)} · Answer: ${formatNumber(answer.trueValue, question.unit)}`,
     );
     item.append(top, detail);
     recapList.appendChild(item);
@@ -232,7 +238,10 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
   const archiveBtn = el("button", undefined, "Archive");
   archiveBtn.type = "button";
   archiveBtn.addEventListener("click", props.onArchive);
-  navLinks.append(statsBtn, archiveBtn);
+  const leaderboardBtn = el("button", undefined, "Leaderboard");
+  leaderboardBtn.type = "button";
+  leaderboardBtn.addEventListener("click", props.onLeaderboard);
+  navLinks.append(statsBtn, archiveBtn, leaderboardBtn);
   screen.appendChild(navLinks);
 
   return { el: screen, shareBtn };
@@ -310,6 +319,89 @@ export function buildArchiveScreen(
     item.addEventListener("click", () => onPlay(entry.date));
     list.appendChild(item);
   }
+  screen.appendChild(list);
+  return screen;
+}
+
+// ---------- Name entry (leaderboard onboarding) ----------
+
+export function buildNameEntryScreen(onSubmit: (name: string) => void): HTMLDivElement {
+  const screen = el("div", "screen");
+
+  const card = el("div", "today-card");
+  card.appendChild(el("div", "puzzle-number", "One more thing"));
+  card.appendChild(
+    el(
+      "p",
+      "tutorial-line",
+      "Pick a name for the leaderboard. No account, no email — just this device.",
+    ),
+  );
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "rs-readout-input tabular-nums";
+  input.placeholder = "Your name";
+  input.maxLength = 40;
+  input.autocomplete = "off";
+  input.style.width = "100%";
+  input.style.textAlign = "center";
+
+  const submitBtn = el("button", "btn btn-primary", "Save & see my score");
+  submitBtn.type = "button";
+  submitBtn.disabled = true;
+
+  input.addEventListener("input", () => {
+    submitBtn.disabled = input.value.trim().length === 0;
+  });
+
+  const submit = () => {
+    const name = input.value.trim();
+    if (name.length === 0) return;
+    onSubmit(name);
+  };
+  submitBtn.addEventListener("click", submit);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submit();
+  });
+
+  card.append(input, submitBtn);
+  screen.appendChild(card);
+
+  queueMicrotask(() => input.focus());
+
+  return screen;
+}
+
+// ---------- Leaderboard screen ----------
+
+export function buildLeaderboardScreen(
+  entries: LeaderboardEntry[],
+  currentPlayerId: string | null,
+  onBack: () => void,
+): HTMLDivElement {
+  const screen = el("div", "screen");
+  screen.appendChild(buildTopBar("Leaderboard", onBack));
+
+  if (entries.length === 0) {
+    screen.appendChild(el("p", "archive-note", "Nobody's on the board yet — play today's five to be first."));
+    return screen;
+  }
+
+  const list = el("ul", "leaderboard-list");
+  entries.forEach((entry, i) => {
+    const item = el("li", "leaderboard-item");
+    if (entry.playerId === currentPlayerId) item.classList.add("leaderboard-item-you");
+
+    const rank = el("span", "leaderboard-rank tabular-nums", String(i + 1));
+    const name = el("span", "leaderboard-name", entry.name);
+    const meta = el("span", "leaderboard-meta tabular-nums", `${entry.daysPlayed}d`);
+    const total = el("span", "leaderboard-total tabular-nums", String(entry.total));
+
+    item.append(rank, name, meta, total);
+    list.appendChild(item);
+  });
+
   screen.appendChild(list);
   return screen;
 }

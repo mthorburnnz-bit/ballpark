@@ -5,12 +5,17 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "bundle-content": "tsx tools/bundleContent.ts",
+    "build": "npm run bundle-content && tsc && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "validate": "tsx tools/validate.ts"
+    "validate": "tsx tools/validate.ts",
+    "typecheck:worker": "npm run bundle-content && tsc -p worker/tsconfig.json --noEmit",
+    "deploy": "npm run build && wrangler deploy",
+    "worker:dev": "wrangler dev"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260731.1",
     "@types/node": "^26.1.2",
     "tsx": "^4.23.1",
     "typescript": "~6.0.2",

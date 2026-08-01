@@ -9,6 +9,7 @@ export interface AnswerRecord {
   tight: boolean;
   points: number;
   category: Category;
+  trueValue: number; // from the server's /api/reveal response — never computed client-side
 }
 
 export type DayState = "inProgress" | "complete";

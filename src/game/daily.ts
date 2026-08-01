@@ -1,4 +1,12 @@
-import type { Question, Category } from "./types.ts";
+import type { Category } from "./types.ts";
+
+/** The only fields this module's schedule-resolution logic actually needs.
+ * Generic over Q so both the full server-side Question and the client's
+ * answer-redacted PublicQuestion can share this exact same logic. */
+interface QuestionMeta {
+  id: string;
+  category: Category;
+}
 
 /** Player's local calendar date, YYYY-MM-DD. This game rolls over at local
  * midnight, not UTC — see spec §5.4: the social unit is a timezone-local group. */
@@ -46,7 +54,7 @@ const MAX_PER_CATEGORY = 2;
  * of (dateStr, bank) so it's usable from both the browser app and the
  * Node-based content linter with no Vite dependency.
  */
-export function fallbackQuestionsForDate(dateStr: string, bank: readonly Question[]): Question[] {
+export function fallbackQuestionsForDate<Q extends QuestionMeta>(dateStr: string, bank: readonly Q[]): Q[] {
   const rng = mulberry32(hashString(dateStr));
   const pool = [...bank];
   for (let i = pool.length - 1; i > 0; i--) {
@@ -57,7 +65,7 @@ export function fallbackQuestionsForDate(dateStr: string, bank: readonly Questio
     pool[j] = a;
   }
 
-  const picked: Question[] = [];
+  const picked: Q[] = [];
   const categoryCounts = new Map<Category, number>();
   for (const q of pool) {
     if (picked.length >= 5) break;
@@ -75,16 +83,16 @@ export function fallbackQuestionsForDate(dateStr: string, bank: readonly Questio
   return picked;
 }
 
-export function questionsForDate(
+export function questionsForDate<Q extends QuestionMeta>(
   dateStr: string,
   schedule: Record<string, string[]>,
-  bank: readonly Question[],
-  questionsById: ReadonlyMap<string, Question>,
-): Question[] {
+  bank: readonly Q[],
+  questionsById: ReadonlyMap<string, Q>,
+): Q[] {
   const ids = schedule[dateStr];
   if (ids && ids.length === 5) {
     const resolved = ids.map((id) => questionsById.get(id));
-    if (resolved.every((q): q is Question => q !== undefined)) {
+    if (resolved.every((q): q is Q => q !== undefined)) {
       return resolved;
     }
   }

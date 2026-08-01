@@ -13,6 +13,7 @@ function answer(overrides: Partial<AnswerRecord> = {}): AnswerRecord {
     tight: false,
     points: 60,
     category: "geography",
+    trueValue: 5,
     ...overrides,
   };
 }

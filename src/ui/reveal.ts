@@ -1,12 +1,12 @@
-import type { Question } from "../game/types.ts";
-import type { ScoreResult } from "../game/scoring.ts";
+import type { PublicQuestion } from "../game/types.ts";
+import type { RevealApiResult } from "../state/api.ts";
 import type { RangeSlider } from "./slider.ts";
 import { formatNumber } from "./format.ts";
 
 export interface RevealOptions {
-  question: Question;
+  question: PublicQuestion;
   slider: RangeSlider;
-  result: ScoreResult;
+  result: RevealApiResult; // from the server — trueValue/funFact/source never touch the client before this
   container: HTMLElement; // reveal stage is appended here, below the slider
   reducedMotion: boolean;
 }
@@ -55,7 +55,7 @@ export class RevealSequence {
   }
 
   private buildDom(): void {
-    const { question, container } = this.opts;
+    const { result, container } = this.opts;
 
     this.stageEl = document.createElement("div");
     this.stageEl.className = "reveal-stage";
@@ -64,7 +64,7 @@ export class RevealSequence {
     this.needleEl = document.createElement("div");
     this.needleEl.className = "rs-needle";
     this.opts.slider.trackElement.appendChild(this.needleEl);
-    const fraction = this.opts.slider.fractionForValue(question.value);
+    const fraction = this.opts.slider.fractionForValue(result.trueValue);
     this.needleEl.style.left = `${fraction * 100}%`;
 
     this.pointsEl = document.createElement("div");
@@ -131,9 +131,9 @@ export class RevealSequence {
   }
 
   private showOffBy(): void {
-    const { question, slider } = this.opts;
+    const { question, result, slider } = this.opts;
     const { lo, hi } = slider.getValue();
-    const distance = question.value < lo ? lo - question.value : question.value - hi;
+    const distance = result.trueValue < lo ? lo - result.trueValue : result.trueValue - hi;
     this.offByEl = document.createElement("div");
     this.offByEl.className = "reveal-offby";
     this.offByEl.textContent = `Out by ${formatNumber(distance, question.unit)}`;
@@ -161,7 +161,7 @@ export class RevealSequence {
 
   private spawnConfetti(): void {
     const track = this.opts.slider.trackElement;
-    const fraction = this.opts.slider.fractionForValue(this.opts.question.value);
+    const fraction = this.opts.slider.fractionForValue(this.opts.result.trueValue);
     const colors = ["var(--color-tight)", "var(--color-accent)", "var(--color-hit)"];
     for (let i = 0; i < 14; i++) {
       const piece = document.createElement("div");
@@ -179,15 +179,15 @@ export class RevealSequence {
   }
 
   private appendFunFact(): void {
-    const { question } = this.opts;
+    const { result } = this.opts;
     const fact = document.createElement("div");
     fact.className = "fun-fact";
 
     const text = document.createElement("span");
-    text.textContent = `${question.funFact} `;
+    text.textContent = `${result.funFact} `;
 
     const link = document.createElement("a");
-    link.href = question.source;
+    link.href = result.source;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = "Source ↗";

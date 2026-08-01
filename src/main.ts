@@ -1,12 +1,14 @@
 import "./style.css";
-import type { Question } from "./game/types.ts";
+import type { PublicQuestion } from "./game/types.ts";
 import * as bank from "./game/bank.ts";
 import { todayLocalDateString } from "./game/daily.ts";
-import { scoreAnswer } from "./game/scoring.ts";
 import { computeVerdict } from "./game/verdicts.ts";
 import { loadSave, persistSave, getOrCreateDayProgress } from "./state/save.ts";
 import type { DayProgress, AnswerRecord } from "./state/save.ts";
 import { recordDayCompletion, deriveStats } from "./state/stats.ts";
+import { loadPlayerIdentity, createPlayerIdentity } from "./state/player.ts";
+import type { PlayerIdentity } from "./state/player.ts";
+import { fetchReveal, submitDay, fetchLeaderboard } from "./state/api.ts";
 import {
   buildIntroScreen,
   buildQuestionScreen,
@@ -14,6 +16,8 @@ import {
   buildStatsScreen,
   buildArchiveScreen,
   buildSettingsScreen,
+  buildNameEntryScreen,
+  buildLeaderboardScreen,
 } from "./ui/screens.ts";
 import type { RecapItem } from "./ui/screens.ts";
 import { RevealSequence } from "./ui/reveal.ts";
@@ -33,6 +37,21 @@ function mountScreen(screenEl: HTMLElement): void {
   shell.innerHTML = "";
   shell.appendChild(screenEl);
   window.scrollTo(0, 0);
+}
+
+function mountMessageScreen(message: string, actionLabel: string, onAction: () => void): void {
+  const screen = document.createElement("div");
+  screen.className = "screen";
+  const p = document.createElement("p");
+  p.className = "archive-note";
+  p.textContent = message;
+  const btn = document.createElement("button");
+  btn.className = "btn btn-secondary";
+  btn.type = "button";
+  btn.textContent = actionLabel;
+  btn.addEventListener("click", onAction);
+  screen.append(p, btn);
+  mountScreen(screen);
 }
 
 const save = loadSave();
@@ -56,6 +75,7 @@ function showIntro(): void {
     onStats: showStats,
     onArchive: showArchive,
     onSettings: showSettings,
+    onLeaderboard: () => void showLeaderboard(),
   });
   mountScreen(screen);
 }
@@ -88,6 +108,17 @@ function showArchive(): void {
   mountScreen(buildArchiveScreen(entries, (date) => void playArchivedDay(date), showIntro));
 }
 
+async function showLeaderboard(): Promise<void> {
+  mountMessageScreen("Loading leaderboard…", "Back", showIntro);
+  const identity = loadPlayerIdentity();
+  try {
+    const entries = await fetchLeaderboard();
+    mountScreen(buildLeaderboardScreen(entries, identity?.id ?? null, showIntro));
+  } catch {
+    mountMessageScreen("Couldn't load the leaderboard — check your connection.", "Back", showIntro);
+  }
+}
+
 // ---------- Game flow ----------
 
 async function startTodayFlow(): Promise<void> {
@@ -99,6 +130,7 @@ async function startTodayFlow(): Promise<void> {
   const questions = day.questionIds.map((id) => bank.getQuestion(id));
   await runQuestionFlow(questions, day, true);
   recordDayCompletion(save, today);
+  await submitDayToLeaderboard(day);
   showResults(today, day, false);
 }
 
@@ -115,8 +147,27 @@ async function playArchivedDay(date: string): Promise<void> {
   showResults(date, practiceDay, true);
 }
 
+function promptForPlayerName(): Promise<PlayerIdentity> {
+  return new Promise((resolve) => {
+    mountScreen(buildNameEntryScreen((name) => resolve(createPlayerIdentity(name))));
+  });
+}
+
+async function submitDayToLeaderboard(day: DayProgress): Promise<void> {
+  const identity = loadPlayerIdentity() ?? (await promptForPlayerName());
+  const answers = day.questionIds.map((id, i) => {
+    const a = day.answers[i]!;
+    return { questionId: id, lo: a.lo, hi: a.hi };
+  });
+  try {
+    await submitDay(identity.id, identity.name, day.date, bank.puzzleNumberForDate(day.date), answers);
+  } catch {
+    showToast("Couldn't save your score to the leaderboard, but your results are safe.");
+  }
+}
+
 /** Drives one player through all 5 questions of `day`, resuming from day.currentIndex. */
-async function runQuestionFlow(questions: Question[], day: DayProgress, persist: boolean): Promise<void> {
+async function runQuestionFlow(questions: PublicQuestion[], day: DayProgress, persist: boolean): Promise<void> {
   for (let i = day.currentIndex; i < questions.length; i++) {
     const question = questions[i]!;
     const runningScore = day.answers.reduce((sum, a) => sum + (a?.points ?? 0), 0);
@@ -134,23 +185,28 @@ async function runQuestionFlow(questions: Question[], day: DayProgress, persist:
     mountScreen(screenEl);
 
     await new Promise<void>((resolve) => {
-      lockInBtn.addEventListener(
-        "click",
-        () => {
-          slider.lock();
-          lockInBtn.style.display = "none";
+      const attemptReveal = async () => {
+        revealContainer.innerHTML = "";
+        const loadingEl = document.createElement("div");
+        loadingEl.className = "reveal-loading";
+        loadingEl.textContent = "Revealing…";
+        revealContainer.appendChild(loadingEl);
 
-          const { lo, hi } = slider.getValue();
-          const scoreResult = scoreAnswer(lo, hi, question.value, question.domainMin, question.domainMax, question.scale);
+        const { lo, hi } = slider.getValue();
+        try {
+          const apiResult = await fetchReveal(question.id, lo, hi);
+          revealContainer.innerHTML = "";
+
           const answer: AnswerRecord = {
             questionId: question.id,
             lo,
             hi,
-            hit: scoreResult.hit,
-            f: scoreResult.f,
-            tight: scoreResult.tight,
-            points: scoreResult.points,
+            hit: apiResult.hit,
+            f: apiResult.f,
+            tight: apiResult.tight,
+            points: apiResult.points,
             category: question.category,
+            trueValue: apiResult.trueValue,
           };
           day.answers[i] = answer;
           day.currentIndex = i + 1;
@@ -160,15 +216,35 @@ async function runQuestionFlow(questions: Question[], day: DayProgress, persist:
           const reveal = new RevealSequence({
             question,
             slider,
-            result: scoreResult,
+            result: apiResult,
             container: revealContainer,
             reducedMotion: effectiveReducedMotion(),
           });
+          await reveal.play();
+          nextBtn.style.display = "";
+          nextBtn.addEventListener("click", () => resolve(), { once: true });
+        } catch {
+          revealContainer.innerHTML = "";
+          const errorEl = document.createElement("div");
+          errorEl.className = "reveal-error";
+          const msg = document.createElement("span");
+          msg.textContent = "Couldn't reach the server. Check your connection and try again.";
+          const retryBtn = document.createElement("button");
+          retryBtn.className = "btn btn-secondary";
+          retryBtn.type = "button";
+          retryBtn.textContent = "Retry";
+          retryBtn.addEventListener("click", () => void attemptReveal(), { once: true });
+          errorEl.append(msg, retryBtn);
+          revealContainer.appendChild(errorEl);
+        }
+      };
 
-          void reveal.play().then(() => {
-            nextBtn.style.display = "";
-            nextBtn.addEventListener("click", () => resolve(), { once: true });
-          });
+      lockInBtn.addEventListener(
+        "click",
+        () => {
+          slider.lock();
+          lockInBtn.style.display = "none";
+          void attemptReveal();
         },
         { once: true },
       );
@@ -207,6 +283,7 @@ function showResults(dateStr: string, day: DayProgress, isPractice: boolean): vo
     onHome: showIntro,
     onStats: showStats,
     onArchive: showArchive,
+    onLeaderboard: () => void showLeaderboard(),
   });
   mountScreen(screenEl);
 }
