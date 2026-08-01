@@ -81,8 +81,10 @@ export interface LeaderboardEntry {
   daysPlayed: number;
 }
 
-export async function fetchLeaderboard(): Promise<LeaderboardEntry[]> {
-  const res = await fetch("/api/leaderboard");
+export type LeaderboardPeriod = "week" | "all";
+
+export async function fetchLeaderboard(period: LeaderboardPeriod = "week"): Promise<LeaderboardEntry[]> {
+  const res = await fetch(`/api/leaderboard?period=${period}`);
   const data = await parseOrThrow<{ leaderboard: LeaderboardEntry[] }>(res);
   return data.leaderboard;
 }

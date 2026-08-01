@@ -1,7 +1,7 @@
 import type { PublicQuestion, Category } from "../game/types.ts";
 import type { AnswerRecord, SettingsState } from "../state/save.ts";
 import type { DerivedStats } from "../state/stats.ts";
-import type { LeaderboardEntry } from "../state/api.ts";
+import type { LeaderboardEntry, LeaderboardPeriod } from "../state/api.ts";
 import { RangeSlider } from "./slider.ts";
 import { formatNumber } from "./format.ts";
 
@@ -444,13 +444,32 @@ export function buildNameEntryScreen(onSubmit: (name: string) => void): HTMLDivE
 export function buildLeaderboardScreen(
   entries: LeaderboardEntry[],
   currentPlayerId: string | null,
+  period: LeaderboardPeriod,
+  onPeriodChange: (period: LeaderboardPeriod) => void,
   onBack: () => void,
 ): HTMLDivElement {
   const screen = el("div", "screen");
   screen.appendChild(buildTopBar("Leaderboard", onBack));
 
+  const tabs = el("div", "leaderboard-tabs");
+  const tabDefs: Array<[LeaderboardPeriod, string]> = [
+    ["week", "This week"],
+    ["all", "All time"],
+  ];
+  for (const [value, label] of tabDefs) {
+    const tab = el("button", value === period ? "leaderboard-tab active" : "leaderboard-tab", label);
+    tab.type = "button";
+    tab.addEventListener("click", () => onPeriodChange(value));
+    tabs.appendChild(tab);
+  }
+  screen.appendChild(tabs);
+
   if (entries.length === 0) {
-    screen.appendChild(el("p", "archive-note", "Nobody's on the board yet — play today's five to be first."));
+    const emptyMessage =
+      period === "week"
+        ? "Nobody's scored this week yet — play today's five to be first."
+        : "Nobody's on the board yet — play today's five to be first.";
+    screen.appendChild(el("p", "archive-note", emptyMessage));
     return screen;
   }
 

@@ -9,6 +9,7 @@ import { recordDayCompletion, deriveStats } from "./state/stats.ts";
 import { loadPlayerIdentity, createPlayerIdentity } from "./state/player.ts";
 import type { PlayerIdentity } from "./state/player.ts";
 import { fetchReveal, submitDay, fetchLeaderboard, ApiError } from "./state/api.ts";
+import type { LeaderboardPeriod } from "./state/api.ts";
 import {
   buildIntroScreen,
   buildQuestionScreen,
@@ -110,12 +111,14 @@ function showArchive(): void {
   mountScreen(buildArchiveScreen(entries, (date) => void playArchivedDay(date), showIntro));
 }
 
-async function showLeaderboard(): Promise<void> {
+async function showLeaderboard(period: LeaderboardPeriod = "week"): Promise<void> {
   mountMessageScreen("Loading leaderboard…", "Back", showIntro);
   const identity = loadPlayerIdentity();
   try {
-    const entries = await fetchLeaderboard();
-    mountScreen(buildLeaderboardScreen(entries, identity?.id ?? null, showIntro));
+    const entries = await fetchLeaderboard(period);
+    mountScreen(
+      buildLeaderboardScreen(entries, identity?.id ?? null, period, (next) => void showLeaderboard(next), showIntro),
+    );
   } catch {
     mountMessageScreen("Couldn't load the leaderboard — check your connection.", "Back", showIntro);
   }

@@ -65,7 +65,7 @@ export default {
       return handleSubmitDay(request, env);
     }
     if (url.pathname === "/api/leaderboard" && request.method === "GET") {
-      return handleLeaderboard(env);
+      return handleLeaderboard(env, url.searchParams.get("period"));
     }
 
     return env.ASSETS.fetch(request);
@@ -300,15 +300,34 @@ interface LeaderboardRow {
   daysPlayed: number;
 }
 
-async function handleLeaderboard(env: Env): Promise<Response> {
-  const { results } = await env.DB.prepare(
-    `SELECT p.id as playerId, p.name as name, SUM(ds.score) as total, COUNT(*) as daysPlayed
-     FROM daily_scores ds
-     JOIN players p ON p.id = ds.player_id
-     GROUP BY p.id
-     ORDER BY total DESC, daysPlayed ASC
-     LIMIT 100`,
-  ).all<LeaderboardRow>();
+/** Monday of the current UTC week, as YYYY-MM-DD — matches the plain string
+ * dates `daily_scores.date` already stores, so it's usable directly in a
+ * `date >= ?` filter. Not timezone-precise (same tradeoff as the date-slack
+ * check in handleSubmitDay) — a casual weekly reset, not a strict boundary. */
+function currentWeekStartDate(): string {
+  const now = new Date();
+  const day = now.getUTCDay(); // 0 = Sunday .. 6 = Saturday
+  const daysSinceMonday = day === 0 ? 6 : day - 1;
+  const monday = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - daysSinceMonday));
+  return monday.toISOString().slice(0, 10);
+}
 
-  return json({ leaderboard: results });
+/**
+ * `period=week` scopes the same query to the current (Monday-anchored)
+ * week — gives every player a leaderboard they can realistically win on a
+ * recurring basis, instead of only the all-time cumulative one, which an
+ * early player can never be caught on.
+ */
+async function handleLeaderboard(env: Env, period: string | null): Promise<Response> {
+  const weekly = period === "week";
+  const base = `SELECT p.id as playerId, p.name as name, SUM(ds.score) as total, COUNT(*) as daysPlayed
+     FROM daily_scores ds
+     JOIN players p ON p.id = ds.player_id`;
+  const tail = `GROUP BY p.id ORDER BY total DESC, daysPlayed ASC LIMIT 100`;
+
+  const { results } = weekly
+    ? await env.DB.prepare(`${base} WHERE ds.date >= ?1 ${tail}`).bind(currentWeekStartDate()).all<LeaderboardRow>()
+    : await env.DB.prepare(`${base} ${tail}`).all<LeaderboardRow>();
+
+  return json({ leaderboard: results, period: weekly ? "week" : "all" });
 }
