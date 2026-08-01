@@ -26,6 +26,18 @@ function el<K extends keyof HTMLElementTagNameMap>(
   return node;
 }
 
+/** Persistent footer appended below every screen (see main.ts's mountScreen) —
+ * keeps the copyright/contact address discoverable no matter where the
+ * player is in the app, not just on the Settings screen. */
+export function buildAppFooter(): HTMLParagraphElement {
+  const footer = el("p", "app-footer", `© ${new Date().getFullYear()} Claude Verne · `);
+  const contactLink = document.createElement("a");
+  contactLink.href = "mailto:contactme@give-or-take.com";
+  contactLink.textContent = "Contact";
+  footer.appendChild(contactLink);
+  return footer;
+}
+
 function buildTopBar(title: string, onBack: () => void): HTMLDivElement {
   const bar = el("div", "topbar");
   const back = el("button", "btn-text", "← Back");
@@ -453,8 +465,6 @@ export function buildSettingsScreen(
     row.appendChild(toggle);
     screen.appendChild(row);
   }
-
-  screen.appendChild(el("p", "archive-note", `© ${new Date().getFullYear()} Claude Verne`));
 
   return screen;
 }

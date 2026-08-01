@@ -18,6 +18,7 @@ import {
   buildSettingsScreen,
   buildNameEntryScreen,
   buildLeaderboardScreen,
+  buildAppFooter,
 } from "./ui/screens.ts";
 import type { RecapItem } from "./ui/screens.ts";
 import { RevealSequence } from "./ui/reveal.ts";
@@ -36,6 +37,7 @@ function mountScreen(screenEl: HTMLElement): void {
   }
   shell.innerHTML = "";
   shell.appendChild(screenEl);
+  shell.appendChild(buildAppFooter());
   window.scrollTo(0, 0);
 }
 

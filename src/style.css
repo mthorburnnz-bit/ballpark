@@ -23,6 +23,20 @@
   --color-miss-soft: #f7e3d5;
   --color-tight: #8e6509; /* amber, darkened for AA — used for tight-hit glow/confetti/streak */
 
+  /* Reveal-moment "punch" colours — same hues as above, pushed more vivid.
+     Only ever used at the reveal instant (needle, fill flash, points, tight
+     badge), never on persistent/recap text, so the calm base stays calm.
+     -punch: for text at reveal size (>=2.6rem bold), verified >=3:1 on paper
+     (WCAG AA-large). -punch-bright: decorative/non-text only (needle dot,
+     glow rings, confetti) — no contrast requirement. -punch-ink: dark text
+     colour for on top of a -punch-bright pill, verified >=4.5:1. */
+  --color-hit-punch: #009468;
+  --color-hit-punch-bright: #00d99b;
+  --color-hit-punch-ink: #023d2d;
+  --color-miss-punch: #e0430a;
+  --color-miss-punch-bright: #ff5a1f;
+  --color-miss-punch-ink: #4a1400;
+
   /* Type — a system serif for the editorial "broadsheet" moments (the
      prompt, big numbers, the verdict line), clean sans everywhere else.
      No network font requests: both are stacks of fonts already on-device. */
@@ -368,18 +382,41 @@ svg {
 }
 
 .reveal-points.state-hit {
-  color: var(--color-hit);
+  color: var(--color-hit-punch);
+  text-shadow: 0 0 20px rgba(0, 217, 155, 0.45);
 }
 
 .reveal-points.state-miss {
-  color: var(--color-miss);
+  color: var(--color-miss-punch);
+  text-shadow: 0 0 20px rgba(255, 90, 31, 0.4);
 }
 
 .reveal-badge {
-  text-align: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-ink-soft);
+  background: transparent;
+  transition: background 200ms ease, color 200ms ease, box-shadow 200ms ease;
+}
+
+.reveal-badge.state-hit {
+  background: var(--color-hit-soft);
+  color: var(--color-hit);
+}
+
+.reveal-badge.state-miss {
+  background: var(--color-miss-soft);
+  color: var(--color-miss);
+}
+
+.reveal-badge.state-tight {
+  background: var(--color-hit-punch-bright);
+  color: var(--color-hit-punch-ink);
+  box-shadow: 0 0 0 4px rgba(0, 217, 155, 0.25);
 }
 
 .reveal-pop {
@@ -786,6 +823,19 @@ svg {
   border-radius: var(--radius-md);
 }
 
+.app-footer {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-line);
+  flex-shrink: 0;
+}
+
+.app-footer a {
+  font-weight: 600;
+}
+
 .switch {
   position: relative;
   width: 44px;
@@ -1032,22 +1082,24 @@ svg {
 }
 
 .rs-needle.state-hit {
-  background: var(--color-hit);
+  background: var(--color-hit-punch-bright);
+  box-shadow: 0 2px 5px rgba(33, 28, 21, 0.35), 0 0 0 6px rgba(0, 217, 155, 0.3);
 }
 
 .rs-needle.state-miss {
-  background: var(--color-miss);
+  background: var(--color-miss-punch-bright);
+  box-shadow: 0 2px 5px rgba(33, 28, 21, 0.35), 0 0 0 6px rgba(255, 90, 31, 0.3);
 }
 
 .rs-fill.flash-hit {
-  background: var(--color-hit) !important;
-  box-shadow: 0 0 0 4px var(--color-hit-soft);
+  background: var(--color-hit-punch-bright) !important;
+  box-shadow: 0 0 0 4px rgba(0, 217, 155, 0.35), 0 0 16px rgba(0, 217, 155, 0.5);
   transition: background 220ms ease, box-shadow 220ms ease;
 }
 
 .rs-fill.flash-miss {
-  background: var(--color-miss) !important;
-  box-shadow: 0 0 0 4px var(--color-miss-soft);
+  background: var(--color-miss-punch-bright) !important;
+  box-shadow: 0 0 0 4px rgba(255, 90, 31, 0.35), 0 0 16px rgba(255, 90, 31, 0.5);
   transition: background 220ms ease, box-shadow 220ms ease;
 }
 

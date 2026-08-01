@@ -97,7 +97,8 @@ export class RevealSequence {
       this.opts.slider.fillElement.classList.add(result.hit ? "flash-hit" : "flash-miss");
       this.pointsEl.classList.add(result.hit ? "state-hit" : "state-miss", "reveal-pop");
       this.badgeEl.textContent = this.badgeText();
-      this.badgeEl.classList.add("reveal-pop");
+      this.badgeEl.classList.add(result.hit ? "state-hit" : "state-miss", "reveal-pop");
+      if (result.tight) this.badgeEl.classList.add("state-tight");
       this.animatePointsCountUp();
 
       if (result.tight) {
@@ -122,6 +123,8 @@ export class RevealSequence {
     this.pointsEl.classList.add(result.hit ? "state-hit" : "state-miss");
     this.pointsEl.textContent = String(result.points);
     this.badgeEl.textContent = this.badgeText();
+    this.badgeEl.classList.add(result.hit ? "state-hit" : "state-miss");
+    if (result.tight) this.badgeEl.classList.add("state-tight");
     if (!result.hit) this.showOffBy();
   }
 
@@ -163,7 +166,7 @@ export class RevealSequence {
   private spawnConfetti(): void {
     const track = this.opts.slider.trackElement;
     const fraction = this.opts.slider.fractionForValue(this.opts.result.trueValue);
-    const colors = ["var(--color-tight)", "var(--color-accent)", "var(--color-hit)"];
+    const colors = ["var(--color-tight)", "var(--color-accent)", "var(--color-hit-punch-bright)"];
     for (let i = 0; i < 14; i++) {
       const piece = document.createElement("div");
       piece.className = "confetti-piece";
