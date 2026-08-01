@@ -37,7 +37,7 @@ export function buildAppFooter(): HTMLParagraphElement {
   footer.appendChild(contactLink);
   footer.appendChild(document.createTextNode(" · "));
   const privacyLink = document.createElement("a");
-  privacyLink.href = "/privacy.html";
+  privacyLink.href = "/privacy";
   privacyLink.textContent = "Privacy";
   footer.appendChild(privacyLink);
   return footer;
