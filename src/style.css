@@ -628,6 +628,29 @@ svg {
   letter-spacing: 0.03em;
 }
 
+.confidence-card {
+  background: var(--color-paper-raised);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.confidence-line {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.confidence-detail {
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+  line-height: 1.5;
+}
+
 .category-bars {
   display: flex;
   flex-direction: column;

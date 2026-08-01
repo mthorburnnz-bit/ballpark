@@ -313,8 +313,36 @@ export function buildStatsScreen(stats: DerivedStats, onBack: () => void): HTMLD
     }
   }
 
-  screen.append(grid, categorySection);
+  screen.append(grid, buildConfidenceCard(stats.confidence), categorySection);
   return screen;
+}
+
+function buildConfidenceCard(confidence: DerivedStats["confidence"]): HTMLDivElement {
+  const card = el("div", "confidence-card");
+  card.appendChild(el("div", "puzzle-number", "Your calibration"));
+
+  if (!confidence) {
+    card.appendChild(el("p", "archive-note", "Play a few more days to unlock your confidence score."));
+    return card;
+  }
+
+  const headlines: Record<NonNullable<DerivedStats["confidence"]>["label"], string> = {
+    overconfident: "You're overconfident",
+    underconfident: "You're underconfident",
+    calibrated: "You're well calibrated",
+  };
+  card.appendChild(el("p", "confidence-line", headlines[confidence.label]));
+
+  const detail = el("p", "confidence-detail");
+  if (confidence.label === "overconfident") {
+    detail.textContent = `Your ranges covered ${confidence.avgWidthPercent}% of the plausible range on average, but you only hit ${confidence.hitRatePercent}% of the time — about ${confidence.gapPercent} points too narrow. Try leaving a little more room.`;
+  } else if (confidence.label === "underconfident") {
+    detail.textContent = `You hit ${confidence.hitRatePercent}% of the time with ranges covering just ${confidence.avgWidthPercent}% of the plausible range on average — you could tighten by about ${confidence.gapPercent} points and likely still hit, for a bigger score.`;
+  } else {
+    detail.textContent = `Your range widths track closely with how often you hit — ${confidence.avgWidthPercent}% average width vs a ${confidence.hitRatePercent}% hit rate. Nicely judged.`;
+  }
+  card.appendChild(detail);
+  return card;
 }
 
 // ---------- Archive screen ----------

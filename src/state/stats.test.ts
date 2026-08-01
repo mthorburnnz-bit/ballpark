@@ -90,6 +90,7 @@ describe("recordDayCompletion — lifetime + category stats", () => {
     expect(save.lifetime.totalQuestions).toBe(5);
     expect(save.lifetime.totalHits).toBe(3);
     expect(save.lifetime.totalTight).toBe(1);
+    expect(save.lifetime.totalWidthFraction).toBeCloseTo(5 * 0.2); // all 5 answers use the default f=0.2
     expect(save.lifetime.categoryTotals.geography).toEqual({ questions: 2, hits: 1 });
     expect(save.lifetime.categoryTotals.history).toEqual({ questions: 1, hits: 1 });
   });
@@ -123,5 +124,70 @@ describe("deriveStats", () => {
     expect(stats.averageScore).toBe(0);
     expect(stats.hitRate).toBe(0);
     expect(stats.categoryHitRates).toEqual([]);
+    expect(stats.confidence).toBeNull();
+  });
+});
+
+describe("deriveStats — confidence score", () => {
+  function playDays(save: SaveData, days: AnswerRecord[][]): void {
+    days.forEach((dayAnswers, i) => {
+      const date = `2026-08-${String(1 + i).padStart(2, "0")}`;
+      save.days[date] = completedDay(date, dayAnswers);
+      recordDayCompletion(save, date);
+    });
+  }
+
+  it("stays null below the minimum sample size", () => {
+    const save = defaultSave();
+    playDays(save, [[answer(), answer(), answer()]]); // 3 answers, under the 10-sample floor
+    expect(deriveStats(save).confidence).toBeNull();
+  });
+
+  it("flags overconfident when hit rate trails average range width", () => {
+    const save = defaultSave();
+    const wide = (hit: boolean) => answer({ f: 0.5, hit });
+    playDays(save, [
+      [wide(true), wide(true), wide(false), wide(false), wide(false)],
+      [wide(false), wide(false), wide(false), wide(false), wide(false)],
+    ]); // 10 answers, f=0.5 throughout, 2 hits -> hitRate 0.2
+
+    expect(deriveStats(save).confidence).toEqual({
+      label: "overconfident",
+      avgWidthPercent: 50,
+      hitRatePercent: 20,
+      gapPercent: 30,
+    });
+  });
+
+  it("flags underconfident when hit rate beats average range width", () => {
+    const save = defaultSave();
+    const narrow = (hit: boolean) => answer({ f: 0.2, hit });
+    playDays(save, [
+      [narrow(true), narrow(true), narrow(true), narrow(false), narrow(false)],
+      [narrow(true), narrow(true), narrow(true), narrow(false), narrow(false)],
+    ]); // 10 answers, f=0.2 throughout, 6 hits -> hitRate 0.6
+
+    expect(deriveStats(save).confidence).toEqual({
+      label: "underconfident",
+      avgWidthPercent: 20,
+      hitRatePercent: 60,
+      gapPercent: 40,
+    });
+  });
+
+  it("calls it calibrated when hit rate matches average range width", () => {
+    const save = defaultSave();
+    const matched = (hit: boolean) => answer({ f: 0.3, hit });
+    playDays(save, [
+      [matched(true), matched(true), matched(true), matched(false), matched(false)],
+      [matched(false), matched(false), matched(false), matched(false), matched(false)],
+    ]); // 10 answers, f=0.3 throughout, 3 hits -> hitRate 0.3
+
+    expect(deriveStats(save).confidence).toEqual({
+      label: "calibrated",
+      avgWidthPercent: 30,
+      hitRatePercent: 30,
+      gapPercent: 0,
+    });
   });
 });

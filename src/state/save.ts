@@ -46,6 +46,7 @@ export interface LifetimeStats {
   totalQuestions: number;
   totalHits: number;
   totalTight: number;
+  totalWidthFraction: number; // sum of `f` (range width as a fraction of domain) across all answers — see stats.ts's confidence score
   categoryTotals: Partial<Record<Category, CategoryStat>>;
 }
 
@@ -74,6 +75,7 @@ export function defaultSave(): SaveData {
       totalQuestions: 0,
       totalHits: 0,
       totalTight: 0,
+      totalWidthFraction: 0,
       categoryTotals: {},
     },
   };
