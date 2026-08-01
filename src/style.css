@@ -325,8 +325,15 @@ svg {
   color: var(--color-ink);
 }
 
+/* Static (non-JS-rendered) so link-preview crawlers and badge verifiers
+ * that only fetch raw HTML — not the SPA's client-rendered DOM — can see it. */
+.postyourstartup-badge-bar {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-3) var(--space-4) 0;
+}
+
 .postyourstartup-badge {
-  align-self: center;
   display: block;
   opacity: 0.85;
   transition: opacity 120ms ease;

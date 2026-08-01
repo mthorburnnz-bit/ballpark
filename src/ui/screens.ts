@@ -118,27 +118,7 @@ export function buildIntroScreen(props: IntroScreenProps): HTMLDivElement {
   navLinks.append(statsBtn, archiveBtn, leaderboardBtn, settingsBtn);
   screen.appendChild(navLinks);
 
-  screen.appendChild(buildPostYourStartupBadge());
-
   return screen;
-}
-
-function buildPostYourStartupBadge(): HTMLAnchorElement {
-  const link = document.createElement("a");
-  link.href = "https://postyourstartup.co/startup/give-or-take?ref=badge";
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.className = "postyourstartup-badge";
-
-  const img = document.createElement("img");
-  img.src = "https://postyourstartup.co/api/badge/give-or-take?theme=light";
-  img.alt = "Featured on PostYourStartup";
-  img.width = 212;
-  img.height = 55;
-  img.loading = "lazy";
-
-  link.appendChild(img);
-  return link;
 }
 
 // ---------- Question screen ----------
