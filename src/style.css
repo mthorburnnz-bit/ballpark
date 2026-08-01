@@ -6,24 +6,27 @@
    ========================================================================== */
 
 :root {
-  /* Palette */
+  /* Palette — every text colour below is verified >=4.5:1 on both paper
+     surfaces (WCAG AA for normal-size text), not just AA-large. */
   --color-paper: #f6f0e4;
   --color-paper-raised: #efe6d4;
   --color-ink: #211c15;
   --color-ink-soft: #625a4c;
-  --color-ink-faint: #948c7c;
+  --color-ink-faint: #736d61;
   --color-line: #ddd2bb;
 
   --color-accent: #1d4e89; /* range fill, primary actions */
   --color-accent-soft: #dbe6f2;
   --color-hit: #007a5e; /* Okabe-Ito bluish green, darkened for AA on paper */
   --color-hit-soft: #d9efe8;
-  --color-miss: #c24700; /* Okabe-Ito vermillion, darkened for AA on paper */
+  --color-miss: #be4600; /* Okabe-Ito vermillion, darkened for AA on paper */
   --color-miss-soft: #f7e3d5;
-  --color-tight: #a5760a; /* amber, for tight-hit glow/confetti accent */
+  --color-tight: #8e6509; /* amber, darkened for AA — used for tight-hit glow/confetti/streak */
 
-  /* Type */
-  --font-display: -apple-system, "Segoe UI", system-ui, sans-serif;
+  /* Type — a system serif for the editorial "broadsheet" moments (the
+     prompt, big numbers, the verdict line), clean sans everywhere else.
+     No network font requests: both are stacks of fonts already on-device. */
+  --font-display: Georgia, "Iowan Old Style", "Times New Roman", ui-serif, serif;
   --font-body: -apple-system, "Segoe UI", system-ui, sans-serif;
   --font-mono-nums: "Segoe UI", system-ui, sans-serif;
 
@@ -169,9 +172,11 @@ svg {
 }
 
 .logo {
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
   letter-spacing: -0.01em;
+  font-style: italic;
 }
 
 .logo .logo-ball {
@@ -229,6 +234,22 @@ svg {
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
+  transition: color 120ms ease;
+}
+
+@media (hover: hover) {
+  .btn-primary:not(:disabled):hover {
+    background: #3a3226;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+
+  .btn-text:hover {
+    color: var(--color-ink);
+  }
 }
 
 .btn-row {
@@ -307,8 +328,9 @@ svg {
 }
 
 .question-prompt {
-  font-size: clamp(1.4rem, 6vw, 1.9rem);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 6.5vw, 2.05rem);
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
@@ -338,9 +360,10 @@ svg {
 }
 
 .reveal-points {
+  font-family: var(--font-display);
   text-align: center;
-  font-size: 2.4rem;
-  font-weight: 900;
+  font-size: 2.6rem;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
@@ -357,6 +380,21 @@ svg {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-ink-soft);
+}
+
+.reveal-pop {
+  animation: reveal-pop-in 320ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes reveal-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .reveal-offby {
@@ -418,9 +456,10 @@ svg {
 }
 
 .results-total .score-number {
-  font-size: 3.2rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
 }
 
@@ -439,9 +478,11 @@ svg {
 }
 
 .verdict-line {
+  font-family: var(--font-display);
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  font-style: italic;
   color: var(--color-accent);
 }
 
@@ -521,8 +562,9 @@ svg {
 }
 
 .stat-value {
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
@@ -649,7 +691,9 @@ svg {
 }
 
 .leaderboard-total {
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
   color: var(--color-accent);
 }
 
@@ -661,6 +705,42 @@ svg {
   font-size: 0.9rem;
   color: var(--color-ink-soft);
   padding: var(--space-4) 0;
+}
+
+.reveal-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.reveal-loading-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: reveal-loading-pulse 900ms ease-in-out infinite;
+}
+
+.reveal-loading-dot:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.reveal-loading-dot:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes reveal-loading-pulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .reveal-error {
@@ -843,7 +923,8 @@ svg {
   background: var(--color-ink);
   border: 3px solid var(--color-paper);
   box-shadow: 0 1px 3px rgba(33, 28, 21, 0.35);
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(1);
+  transition: transform 120ms ease, box-shadow 120ms ease;
   cursor: pointer;
   touch-action: none;
 }
@@ -859,8 +940,16 @@ svg {
   transform: translate(-50%, -50%);
 }
 
+@media (hover: hover) {
+  .rs-thumb:hover {
+    box-shadow: 0 2px 6px rgba(33, 28, 21, 0.45);
+    transform: translateY(-50%) scale(1.08);
+  }
+}
+
 .rs-thumb:active {
   cursor: grabbing;
+  transform: translateY(-50%) scale(1.15);
 }
 
 .rs-ticks {
@@ -889,11 +978,12 @@ svg {
   position: absolute;
   top: -32px;
   left: 0;
-  width: 12px;
-  height: 12px;
-  margin-left: -6px;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
   border-radius: 50%;
   background: var(--color-ink);
+  box-shadow: 0 2px 5px rgba(33, 28, 21, 0.35);
   opacity: 0;
   transition: top 550ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 200ms ease, background 200ms ease;
   z-index: 5;
@@ -908,6 +998,32 @@ svg {
   height: 16px;
   background: currentColor;
   transform: translateX(-50%);
+}
+
+/* Landing-impact ring, fired once when state-hit/state-miss lands. */
+.rs-needle::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+}
+
+.rs-needle.state-hit::before,
+.rs-needle.state-miss::before {
+  animation: needle-impact-ring 550ms ease-out;
+}
+
+@keyframes needle-impact-ring {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
 }
 
 .rs-needle.rs-needle-visible {

@@ -189,7 +189,9 @@ async function runQuestionFlow(questions: PublicQuestion[], day: DayProgress, pe
         revealContainer.innerHTML = "";
         const loadingEl = document.createElement("div");
         loadingEl.className = "reveal-loading";
-        loadingEl.textContent = "Revealing…";
+        loadingEl.setAttribute("aria-label", "Revealing");
+        loadingEl.innerHTML =
+          '<span class="reveal-loading-dot"></span><span class="reveal-loading-dot"></span><span class="reveal-loading-dot"></span>';
         revealContainer.appendChild(loadingEl);
 
         const { lo, hi } = slider.getValue();

@@ -95,8 +95,9 @@ export class RevealSequence {
 
       // 2. Fill flash + points count-up (+ confetti for a tight hit).
       this.opts.slider.fillElement.classList.add(result.hit ? "flash-hit" : "flash-miss");
-      this.pointsEl.classList.add(result.hit ? "state-hit" : "state-miss");
+      this.pointsEl.classList.add(result.hit ? "state-hit" : "state-miss", "reveal-pop");
       this.badgeEl.textContent = this.badgeText();
+      this.badgeEl.classList.add("reveal-pop");
       this.animatePointsCountUp();
 
       if (result.tight) {
