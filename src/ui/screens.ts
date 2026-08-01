@@ -35,6 +35,11 @@ export function buildAppFooter(): HTMLParagraphElement {
   contactLink.href = "mailto:contactme@give-or-take.com";
   contactLink.textContent = "Contact";
   footer.appendChild(contactLink);
+  footer.appendChild(document.createTextNode(" · "));
+  const privacyLink = document.createElement("a");
+  privacyLink.href = "/privacy.html";
+  privacyLink.textContent = "Privacy";
+  footer.appendChild(privacyLink);
   return footer;
 }
 
