@@ -18,5 +18,9 @@
       "database_name": "ballpark-db",
       "database_id": "c75b8a4e-6e27-4272-b2ef-ec58a911a200"
     }
+  ],
+  "routes": [
+    { "pattern": "give-or-take.com", "custom_domain": true },
+    { "pattern": "www.give-or-take.com", "custom_domain": true }
   ]
 }
