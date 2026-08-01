@@ -325,6 +325,17 @@ svg {
   color: var(--color-ink);
 }
 
+.postyourstartup-badge {
+  align-self: center;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 120ms ease;
+}
+
+.postyourstartup-badge:hover {
+  opacity: 1;
+}
+
 /* ---------- Question screen ---------- */
 
 .question-progress {
