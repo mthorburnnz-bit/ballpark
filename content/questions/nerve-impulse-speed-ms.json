@@ -1,0 +1,13 @@
+{
+  "id": "nerve-impulse-speed-ms",
+  "prompt": "How fast can a nerve impulse travel along the body's fastest nerve fibres, in metres per second?",
+  "value": 120,
+  "unit": "m/s",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 300,
+  "step": 1,
+  "category": "science",
+  "funFact": "That's over 400 km/h — but only for the thickest, most insulated fibres. Some slower nerve types crawl along at under 1 m/s.",
+  "source": "https://www.britannica.com/science/nervous-system"
+}

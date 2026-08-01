@@ -1,0 +1,13 @@
+{
+  "id": "longest-tennis-match-hours",
+  "prompt": "The longest match in tennis history, at Wimbledon 2010, lasted about how many hours?",
+  "value": 11.08,
+  "unit": "hours",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 20,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "The Isner-Mahut match was spread across three days — the deciding final set alone lasted over eight hours.",
+  "source": "https://www.wimbledon.com/en_GB/atoz/isner_v_mahut.html"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "gold-price-1980-peak-usd",
+  "prompt": "Gold hit its inflation-era peak price in January 1980, in US dollars per troy ounce, at about how much?",
+  "value": 850,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 3000,
+  "step": 1,
+  "category": "money",
+  "asOf": "January 1980",
+  "funFact": "It was driven by runaway inflation, the Soviet invasion of Afghanistan, and the Iranian hostage crisis all hitting at once.",
+  "source": "https://www.jmbullion.com/investing-guide/facts/history-of-gold-prices/"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "india-official-languages-count",
+  "prompt": "How many languages are officially recognised in India's constitution?",
+  "value": 22,
+  "unit": "languages",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 50,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Hindi and English are the two languages used for national government business, but the constitution recognises far more at the regional level.",
+  "source": "https://www.britannica.com/topic/languages-of-India-1993512"
+}

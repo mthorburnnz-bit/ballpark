@@ -1,0 +1,14 @@
+{
+  "id": "us-federal-minimum-wage-usd",
+  "prompt": "What is the US federal minimum wage, in US dollars per hour, a rate that has been unchanged since 2009?",
+  "value": 7.25,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 30,
+  "step": 0.01,
+  "category": "money",
+  "asOf": "2009",
+  "funFact": "Many states and cities set their own, much higher minimum wages on top of it — the federal figure is just the nationwide floor.",
+  "source": "https://www.dol.gov/agencies/whd/minimum-wage"
+}

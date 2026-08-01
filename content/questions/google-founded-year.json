@@ -1,0 +1,13 @@
+{
+  "id": "google-founded-year",
+  "prompt": "In what year was Google founded?",
+  "value": 1998,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It started as a research project at Stanford — the founders originally wanted to sell it for under $2 million and were turned down.",
+  "source": "https://www.britannica.com/topic/Google-Inc"
+}

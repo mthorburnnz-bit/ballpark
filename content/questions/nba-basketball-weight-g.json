@@ -1,0 +1,13 @@
+{
+  "id": "nba-basketball-weight-g",
+  "prompt": "How much does a regulation NBA basketball weigh, in grams?",
+  "value": 623,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "sport",
+  "funFact": "That's about 22 ounces — light enough that a full ball weighs roughly the same as a large bag of flour.",
+  "source": "https://www.britannica.com/sports/basketball"
+}

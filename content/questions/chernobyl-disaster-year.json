@@ -1,0 +1,13 @@
+{
+  "id": "chernobyl-disaster-year",
+  "prompt": "In what year did the Chernobyl nuclear disaster occur?",
+  "value": 1986,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "The surrounding exclusion zone, evacuated as uninhabitable, has since become an unlikely wildlife refuge with thriving wolf and lynx populations.",
+  "source": "https://www.britannica.com/event/Chernobyl-disaster"
+}

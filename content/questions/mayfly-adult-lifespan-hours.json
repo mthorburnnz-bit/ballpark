@@ -1,0 +1,13 @@
+{
+  "id": "mayfly-adult-lifespan-hours",
+  "prompt": "About how many hours does an adult mayfly typically live for?",
+  "value": 24,
+  "unit": "hours",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 100,
+  "step": 1,
+  "category": "nature",
+  "funFact": "It has no functioning mouth as an adult — its entire brief adult life is spent purely on reproducing, not eating.",
+  "source": "https://www.britannica.com/animal/mayfly"
+}

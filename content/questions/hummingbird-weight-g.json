@@ -1,0 +1,13 @@
+{
+  "id": "hummingbird-weight-g",
+  "prompt": "How much does a ruby-throated hummingbird weigh on average, in grams?",
+  "value": 3.4,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 0.5,
+  "domainMax": 20,
+  "step": 0.1,
+  "category": "nature",
+  "funFact": "That's lighter than a US penny — yet it can still migrate nonstop across the entire Gulf of Mexico.",
+  "source": "https://www.britannica.com/animal/hummingbird"
+}

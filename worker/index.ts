@@ -5,6 +5,7 @@ import type { Question } from "../src/game/types.ts";
 export interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
+  RATE_LIMIT: KVNamespace;
 }
 
 interface ContentBundle {
@@ -27,14 +28,40 @@ function badRequest(message: string, status = 400): Response {
   return json({ error: message }, { status });
 }
 
+/**
+ * Simple fixed-window counter in KV, keyed per IP per endpoint. Not
+ * airtight under concurrent requests (KV reads/writes aren't atomic), but
+ * that's fine here — the goal is deterring naive spam scripts against the
+ * anonymous, login-free leaderboard, not withstanding a determined
+ * distributed attacker.
+ */
+async function checkRateLimit(env: Env, bucket: string, ip: string, limit: number, windowSeconds: number): Promise<boolean> {
+  const key = `rl:${bucket}:${ip}`;
+  const current = await env.RATE_LIMIT.get(key);
+  const count = current ? Number.parseInt(current, 10) : 0;
+  if (count >= limit) return false;
+  await env.RATE_LIMIT.put(key, String(count + 1), { expirationTtl: windowSeconds });
+  return true;
+}
+
+function tooManyRequests(): Response {
+  return json({ error: "Too many requests — please slow down and try again shortly." }, { status: 429 });
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+    const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
 
     if (url.pathname === "/api/reveal" && request.method === "POST") {
+      // Generous: covers real daily play plus enthusiastic archive/practice replays.
+      if (!(await checkRateLimit(env, "reveal", ip, 60, 600))) return tooManyRequests();
       return handleReveal(request);
     }
     if (url.pathname === "/api/submit-day" && request.method === "POST") {
+      // Strict: a real player submits ~once a day. This just blocks scripted
+      // spam of fake players/scores, not legitimate retries after a hiccup.
+      if (!(await checkRateLimit(env, "submit", ip, 10, 3600))) return tooManyRequests();
       return handleSubmitDay(request, env);
     }
     if (url.pathname === "/api/leaderboard" && request.method === "GET") {

@@ -1,0 +1,13 @@
+{
+  "id": "bee-eye-count",
+  "prompt": "How many eyes does a honeybee have?",
+  "value": 5,
+  "unit": "eyes",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 15,
+  "step": 1,
+  "category": "nature",
+  "funFact": "Two are the large compound eyes you'd notice, but three tiny simple eyes called ocelli sit on top of its head, mainly used to detect light levels.",
+  "source": "https://www.britannica.com/animal/honeybee"
+}

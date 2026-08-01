@@ -1,0 +1,13 @@
+{
+  "id": "human-heart-chambers",
+  "prompt": "How many chambers does the human heart have?",
+  "value": 4,
+  "unit": "chambers",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 10,
+  "step": 1,
+  "category": "science",
+  "funFact": "Two are for receiving blood and two are for pumping it out — the whole layout evolved to keep oxygen-rich and oxygen-poor blood from mixing.",
+  "source": "https://www.britannica.com/science/heart"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "wikipedia-english-articles-count",
+  "prompt": "About how many articles did the English-language Wikipedia have, as of 2024?",
+  "value": 6800000,
+  "unit": "articles",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 100000000,
+  "step": 1000,
+  "category": "everyday",
+  "asOf": "2024",
+  "funFact": "It's written and edited entirely by volunteers — there's no paid editorial staff writing the articles themselves.",
+  "source": "https://en.wikipedia.org/wiki/Wikipedia:Statistics"
+}

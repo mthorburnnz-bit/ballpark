@@ -1,0 +1,13 @@
+{
+  "id": "age-of-earth-years",
+  "prompt": "How old is the Earth, in years?",
+  "value": 4540000000,
+  "unit": "years",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 1000000000000,
+  "step": 100000000,
+  "category": "science",
+  "funFact": "That age comes from dating meteorites, which formed from the same cloud of dust and gas as the Earth itself.",
+  "source": "https://www.britannica.com/science/Earth-planet"
+}

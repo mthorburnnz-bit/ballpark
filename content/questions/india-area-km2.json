@@ -1,0 +1,13 @@
+{
+  "id": "india-area-km2",
+  "prompt": "What is the total area of India, in square kilometres?",
+  "value": 3287263,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 10000,
+  "domainMax": 50000000,
+  "step": 1000,
+  "category": "geography",
+  "funFact": "It's the seventh-largest country by area but the most populous — home to well over a billion people on just over 2% of the world's land.",
+  "source": "https://www.britannica.com/place/India"
+}

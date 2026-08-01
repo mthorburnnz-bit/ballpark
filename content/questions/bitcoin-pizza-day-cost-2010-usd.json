@@ -1,0 +1,14 @@
+{
+  "id": "bitcoin-pizza-day-cost-2010-usd",
+  "prompt": "In the famous 2010 'Bitcoin Pizza Day' trade, 10,000 BTC bought two pizzas worth about how many US dollars?",
+  "value": 41,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 200,
+  "step": 1,
+  "category": "money",
+  "asOf": "2010",
+  "funFact": "Those same 10,000 bitcoin would later be worth hundreds of millions of dollars — making it arguably the most expensive pizza order in history.",
+  "source": "https://www.gemini.com/cryptopedia/10000-bitcoin-pizza-day-bitcointalk-btc-pizza-day"
+}

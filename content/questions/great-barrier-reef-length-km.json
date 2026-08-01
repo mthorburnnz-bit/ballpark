@@ -1,0 +1,13 @@
+{
+  "id": "great-barrier-reef-length-km",
+  "prompt": "How long is the Great Barrier Reef, in kilometres?",
+  "value": 2300,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 50,
+  "domainMax": 50000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "It's the world's largest living structure, made up of nearly 3,000 individual reefs — large enough to be visible from space.",
+  "source": "https://www.britannica.com/place/Great-Barrier-Reef"
+}

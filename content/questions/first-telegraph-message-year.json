@@ -1,0 +1,13 @@
+{
+  "id": "first-telegraph-message-year",
+  "prompt": "In what year was the first long-distance telegraph message sent in the US?",
+  "value": 1844,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1700,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "Samuel Morse's message read 'What hath God wrought' — sent from Washington, D.C. to Baltimore.",
+  "source": "https://www.britannica.com/biography/Samuel-F-B-Morse"
+}

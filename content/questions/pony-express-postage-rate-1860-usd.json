@@ -1,0 +1,14 @@
+{
+  "id": "pony-express-postage-rate-1860-usd",
+  "prompt": "At the start of the Pony Express in 1860, how much did it cost to send half an ounce of mail, in US dollars?",
+  "value": 5,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 0.1,
+  "domainMax": 30,
+  "step": 0.01,
+  "category": "money",
+  "asOf": "1860",
+  "funFact": "Ordinary US postage at the time cost no more than ten cents — the Pony Express premium reflected just how fast and risky the delivery was.",
+  "source": "https://about.usps.com/who/profile/history/pdf/pony-express.pdf"
+}

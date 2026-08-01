@@ -1,0 +1,13 @@
+{
+  "id": "first-heart-transplant-year",
+  "prompt": "In what year was the first human-to-human heart transplant performed?",
+  "value": 1967,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "Surgeon Christiaan Barnard performed it in South Africa — the patient survived just 18 days, but the procedure itself was declared a success.",
+  "source": "https://www.britannica.com/biography/Christiaan-Barnard"
+}

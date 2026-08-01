@@ -1,0 +1,13 @@
+{
+  "id": "tennis-net-height-center-m",
+  "prompt": "How high is a tennis net at its centre, in metres?",
+  "value": 0.914,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 0.1,
+  "domainMax": 3,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "It's exactly 3 feet — but the net posts at each end stand taller, at 3.5 feet, so the net actually sags slightly toward the middle.",
+  "source": "https://www.britannica.com/sports/tennis"
+}

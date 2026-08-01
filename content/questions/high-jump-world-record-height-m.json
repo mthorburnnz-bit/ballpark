@@ -1,0 +1,13 @@
+{
+  "id": "high-jump-world-record-height-m",
+  "prompt": "What is the men's high jump world record, in metres?",
+  "value": 2.45,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 4,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "Cuba's Javier Sotomayor set it in 1993, and more than three decades later no one else has ever cleared even 2.44m.",
+  "source": "https://www.guinnessworldrecords.com/world-records/highest-high-jump-(male)"
+}

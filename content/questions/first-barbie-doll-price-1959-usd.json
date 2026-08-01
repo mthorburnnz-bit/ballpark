@@ -1,0 +1,14 @@
+{
+  "id": "first-barbie-doll-price-1959-usd",
+  "prompt": "How much did the first Barbie doll cost when she debuted in 1959, in US dollars?",
+  "value": 3.0,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 0.5,
+  "domainMax": 15,
+  "step": 0.01,
+  "category": "money",
+  "asOf": "1959",
+  "funFact": "Unskilled workers at the time earned about $1.16 an hour — so a Barbie cost roughly two and a half hours of work.",
+  "source": "https://www.wfla.com/news/barbie-doll-makes-debut-61-years-ago-for-just-3/"
+}

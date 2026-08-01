@@ -1,0 +1,13 @@
+{
+  "id": "wikipedia-founded-year",
+  "prompt": "In what year was Wikipedia founded?",
+  "value": 2001,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It started as a side project to feed articles into a slower, more formally-reviewed encyclopedia called Nupedia — the side project quickly overtook it.",
+  "source": "https://www.britannica.com/topic/Wikipedia"
+}

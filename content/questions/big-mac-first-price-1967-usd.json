@@ -1,0 +1,14 @@
+{
+  "id": "big-mac-first-price-1967-usd",
+  "prompt": "How much did a Big Mac cost when it debuted in 1967, in US dollars?",
+  "value": 0.45,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 0.05,
+  "domainMax": 2,
+  "step": 0.01,
+  "category": "money",
+  "asOf": "1967",
+  "funFact": "McDonald's executives were reportedly nervous about the price — a basic drive-thru hamburger cost just 18 cents at the time.",
+  "source": "https://www.history.com/this-day-in-history/april-22/big-mac-introduced"
+}

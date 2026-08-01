@@ -1,0 +1,13 @@
+{
+  "id": "largest-stadium-capacity-seats",
+  "prompt": "What is the seating capacity of the world's largest stadium, Rungrado 1st of May Stadium in North Korea?",
+  "value": 114000,
+  "unit": "seats",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 1000000,
+  "step": 1000,
+  "category": "sport",
+  "funFact": "It's used for the Arirang Mass Games, choreographed performances with tens of thousands of participants at once.",
+  "source": "https://www.britannica.com/place/Pyongyang"
+}

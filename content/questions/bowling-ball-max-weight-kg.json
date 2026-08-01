@@ -1,0 +1,13 @@
+{
+  "id": "bowling-ball-max-weight-kg",
+  "prompt": "What is the maximum allowed weight of a regulation ten-pin bowling ball, in kilograms?",
+  "value": 7.26,
+  "unit": "kg",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 20,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "That's exactly 16 pounds — bowling balls are still officially measured and sold in pounds even in metric countries.",
+  "source": "https://www.britannica.com/sports/bowling"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "human-brain-neurons-count",
+  "prompt": "About how many neurons does the average human brain have?",
+  "value": 86000000000,
+  "unit": "neurons",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 10000000000000,
+  "step": 1000000000,
+  "category": "science",
+  "funFact": "That figure only became widely accepted after a 2009 study — for decades, textbooks confidently cited 100 billion, a number that was never actually measured.",
+  "source": "https://www.britannica.com/science/neuron"
+}

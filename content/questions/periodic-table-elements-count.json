@@ -1,0 +1,13 @@
+{
+  "id": "periodic-table-elements-count",
+  "prompt": "How many chemical elements are officially recognised on the periodic table?",
+  "value": 118,
+  "unit": "elements",
+  "scale": "linear",
+  "domainMin": 10,
+  "domainMax": 200,
+  "step": 1,
+  "category": "science",
+  "funFact": "The heaviest ones are made artificially in labs and exist for a fraction of a second before decaying.",
+  "source": "https://www.britannica.com/science/periodic-table"
+}

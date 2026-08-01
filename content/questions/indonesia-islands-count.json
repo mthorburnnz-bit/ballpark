@@ -1,0 +1,13 @@
+{
+  "id": "indonesia-islands-count",
+  "prompt": "About how many islands make up Indonesia?",
+  "value": 17000,
+  "unit": "islands",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "geography",
+  "funFact": "Only about 6,000 of them are inhabited — the rest range from small landmasses to bare rock outcrops.",
+  "source": "https://www.britannica.com/place/Indonesia"
+}

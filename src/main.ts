@@ -8,7 +8,7 @@ import type { DayProgress, AnswerRecord } from "./state/save.ts";
 import { recordDayCompletion, deriveStats } from "./state/stats.ts";
 import { loadPlayerIdentity, createPlayerIdentity } from "./state/player.ts";
 import type { PlayerIdentity } from "./state/player.ts";
-import { fetchReveal, submitDay, fetchLeaderboard } from "./state/api.ts";
+import { fetchReveal, submitDay, fetchLeaderboard, ApiError } from "./state/api.ts";
 import {
   buildIntroScreen,
   buildQuestionScreen,
@@ -225,12 +225,16 @@ async function runQuestionFlow(questions: PublicQuestion[], day: DayProgress, pe
           await reveal.play();
           nextBtn.style.display = "";
           nextBtn.addEventListener("click", () => resolve(), { once: true });
-        } catch {
+        } catch (err) {
           revealContainer.innerHTML = "";
           const errorEl = document.createElement("div");
           errorEl.className = "reveal-error";
           const msg = document.createElement("span");
-          msg.textContent = "Couldn't reach the server. Check your connection and try again.";
+          // ApiError carries the server's actual message (e.g. a rate-limit
+          // notice) — anything else (offline, DNS failure) is a real
+          // connectivity problem, so keep the generic wording for that case.
+          msg.textContent =
+            err instanceof ApiError ? err.message : "Couldn't reach the server. Check your connection and try again.";
           const retryBtn = document.createElement("button");
           retryBtn.className = "btn btn-secondary";
           retryBtn.type = "button";

@@ -1,0 +1,13 @@
+{
+  "id": "human-gestation-days",
+  "prompt": "What is the average length of human pregnancy, in days?",
+  "value": 280,
+  "unit": "days",
+  "scale": "linear",
+  "domainMin": 30,
+  "domainMax": 400,
+  "step": 1,
+  "category": "science",
+  "funFact": "That count starts from the first day of the last menstrual period, not from conception — so it overstates the embryo's actual age by about two weeks.",
+  "source": "https://www.britannica.com/science/pregnancy"
+}

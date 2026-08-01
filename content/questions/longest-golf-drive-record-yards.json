@@ -1,0 +1,13 @@
+{
+  "id": "longest-golf-drive-record-yards",
+  "prompt": "What is the longest recorded golf drive in a competition, in yards?",
+  "value": 515,
+  "unit": "yards",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 1000,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Mike Austin hit it in 1974 at age 64, with a helping tailwind — the record has stood for roughly fifty years.",
+  "source": "https://en.wikipedia.org/wiki/Mike_Austin_(golfer)"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "first-credit-card-year",
+  "prompt": "In what year was the first general-purpose credit card (Diners Club) introduced?",
+  "value": 1950,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "The idea reportedly came after its founder was embarrassed to find he'd forgotten his wallet at a business dinner.",
+  "source": "https://www.britannica.com/topic/Diners-Club-International"
+}

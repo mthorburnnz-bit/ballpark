@@ -1,0 +1,13 @@
+{
+  "id": "olympic-diving-platform-height-m",
+  "prompt": "How high is the highest platform used in Olympic diving, in metres?",
+  "value": 10,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 30,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Divers hit the water at around 50-60 km/h from that height — roughly the same impact as jumping off a three-storey building.",
+  "source": "https://www.britannica.com/sports/diving-sport"
+}

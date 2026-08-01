@@ -1,0 +1,13 @@
+{
+  "id": "monarch-butterfly-wingspan-cm",
+  "prompt": "What is the wingspan of a monarch butterfly, in centimetres?",
+  "value": 10,
+  "unit": "cm",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 30,
+  "step": 0.1,
+  "category": "nature",
+  "funFact": "Despite being so light, monarchs migrate up to 4,000km between North America and Mexico — a journey no single butterfly completes alone, spanning several generations.",
+  "source": "https://www.britannica.com/animal/monarch-butterfly"
+}

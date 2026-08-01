@@ -1,0 +1,13 @@
+{
+  "id": "garden-snail-speed-mh",
+  "prompt": "How fast does a typical garden snail move, in metres per hour?",
+  "value": 48,
+  "unit": "m/h",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 300,
+  "step": 1,
+  "category": "nature",
+  "funFact": "At that pace, it would take a snail nearly three weeks to cross a single kilometre without stopping.",
+  "source": "https://www.britannica.com/animal/snail"
+}

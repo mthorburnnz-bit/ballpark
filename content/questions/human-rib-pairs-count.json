@@ -1,0 +1,13 @@
+{
+  "id": "human-rib-pairs-count",
+  "prompt": "How many pairs of ribs does a typical human have?",
+  "value": 12,
+  "unit": "pairs",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 30,
+  "step": 1,
+  "category": "science",
+  "funFact": "About 1 in 200 people are born with an extra pair — a leftover 'cervical rib' near the neck, usually harmless and often undetected.",
+  "source": "https://www.britannica.com/science/rib-anatomy"
+}

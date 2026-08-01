@@ -1,0 +1,13 @@
+{
+  "id": "youtube-founded-year",
+  "prompt": "In what year was YouTube founded?",
+  "value": 2005,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "The very first video ever uploaded was an 18-second clip called 'Me at the zoo' — still viewable today.",
+  "source": "https://www.britannica.com/topic/YouTube"
+}

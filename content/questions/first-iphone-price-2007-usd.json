@@ -1,0 +1,14 @@
+{
+  "id": "first-iphone-price-2007-usd",
+  "prompt": "How much did the original iPhone (4GB model) cost at launch in 2007, in US dollars?",
+  "value": 499,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "money",
+  "asOf": "2007",
+  "funFact": "Apple cut the price by $200 just two months later, prompting enough customer backlash that Steve Jobs personally issued an apology credit.",
+  "source": "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/"
+}

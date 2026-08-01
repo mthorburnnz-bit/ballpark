@@ -1,0 +1,13 @@
+{
+  "id": "volleyball-team-court-size",
+  "prompt": "How many players from each team are on the court at once in volleyball?",
+  "value": 6,
+  "unit": "players",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 15,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Beach volleyball, by contrast, is played with just 2 per side — the same sport, a very different game.",
+  "source": "https://www.britannica.com/sports/volleyball"
+}

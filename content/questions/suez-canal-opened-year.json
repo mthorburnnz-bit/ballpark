@@ -1,0 +1,13 @@
+{
+  "id": "suez-canal-opened-year",
+  "prompt": "In what year did the Suez Canal open?",
+  "value": 1869,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1750,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "It cut the sea journey between Europe and Asia by thousands of kilometres, since ships no longer had to sail all the way around Africa.",
+  "source": "https://www.britannica.com/topic/Suez-Canal"
+}

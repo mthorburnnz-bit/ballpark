@@ -1,0 +1,13 @@
+{
+  "id": "harry-potter-first-book-year",
+  "prompt": "In what year was the first Harry Potter book published?",
+  "value": 1997,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It was rejected by about a dozen publishers before Bloomsbury took a chance on it — with an initial print run of just 500 copies.",
+  "source": "https://www.britannica.com/topic/Harry-Potter-and-the-Sorcerers-Stone"
+}

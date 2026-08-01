@@ -1,0 +1,13 @@
+{
+  "id": "penguin-species-count",
+  "prompt": "How many species of penguin are there?",
+  "value": 18,
+  "unit": "species",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 40,
+  "step": 1,
+  "category": "nature",
+  "funFact": "Only a handful of species actually live in the icy Antarctic — several others live in much warmer climates, including one in the Galápagos near the equator.",
+  "source": "https://www.britannica.com/animal/penguin"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "angel-falls-height-m",
+  "prompt": "How tall is Angel Falls in Venezuela, the world's tallest uninterrupted waterfall, in metres?",
+  "value": 979,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 1500,
+  "step": 1,
+  "category": "geography",
+  "funFact": "The water falls so far that much of it turns to mist before ever reaching the ground.",
+  "source": "https://www.britannica.com/place/Angel-Falls"
+}

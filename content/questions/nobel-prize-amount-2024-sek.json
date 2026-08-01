@@ -1,0 +1,14 @@
+{
+  "id": "nobel-prize-amount-2024-sek",
+  "prompt": "How much was each full Nobel Prize worth, in Swedish kronor (SEK), for the 2024 prizes?",
+  "value": 11000000,
+  "unit": "SEK",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 1000000000,
+  "step": 100000,
+  "category": "money",
+  "asOf": "2024",
+  "funFact": "If a prize is shared between multiple winners, that amount gets split between them — not multiplied.",
+  "source": "https://www.nobelprize.org/prizes/about/the-nobel-prize-money/"
+}

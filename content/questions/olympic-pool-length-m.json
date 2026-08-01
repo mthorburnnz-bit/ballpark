@@ -1,0 +1,13 @@
+{
+  "id": "olympic-pool-length-m",
+  "prompt": "How long is a regulation Olympic swimming pool, in metres?",
+  "value": 50,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 5,
+  "domainMax": 200,
+  "step": 1,
+  "category": "sport",
+  "funFact": "That's exactly why swimmers describe distances in 'laps of 50' — a 1500m race is 30 lengths of the pool.",
+  "source": "https://www.britannica.com/sports/swimming-sport"
+}

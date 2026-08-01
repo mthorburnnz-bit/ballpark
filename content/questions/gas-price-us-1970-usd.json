@@ -1,0 +1,14 @@
+{
+  "id": "gas-price-us-1970-usd",
+  "prompt": "What was the average price of a gallon of gas in the US, in US dollars, in 1970?",
+  "value": 0.36,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 0.05,
+  "domainMax": 2,
+  "step": 0.01,
+  "category": "money",
+  "asOf": "1970",
+  "funFact": "That's roughly $3 in today's money once adjusted for inflation — not far off current prices at all.",
+  "source": "https://www.officialdata.org/Gasoline-(all-types)/price-inflation/1970"
+}

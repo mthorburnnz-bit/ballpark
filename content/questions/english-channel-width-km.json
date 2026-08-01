@@ -1,0 +1,13 @@
+{
+  "id": "english-channel-width-km",
+  "prompt": "How wide is the English Channel at its narrowest point (the Strait of Dover), in kilometres?",
+  "value": 34,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 100,
+  "step": 1,
+  "category": "geography",
+  "funFact": "It's narrow enough that on a clear day, England and France are each visible from the other's coastline.",
+  "source": "https://www.britannica.com/place/Strait-of-Dover"
+}

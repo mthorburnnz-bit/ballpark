@@ -36,6 +36,20 @@ function buildTopBar(title: string, onBack: () => void): HTMLDivElement {
   return bar;
 }
 
+/** Time until the player's next local midnight — a static snapshot at
+ * render time, not a live-ticking clock (the point is "there's a new one
+ * tomorrow," not second-accurate precision). */
+function formatCountdownToNextPuzzle(): string {
+  const now = new Date();
+  const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+  const msRemaining = nextMidnight.getTime() - now.getTime();
+  const totalMinutes = Math.max(0, Math.round(msRemaining / 60000));
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  if (hours === 0) return `${minutes}m`;
+  return `${hours}h ${minutes}m`;
+}
+
 // ---------- Intro / today card ----------
 
 export interface IntroScreenProps {
@@ -229,6 +243,7 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
     streakRow.appendChild(el("span", undefined, "Current streak"));
     streakRow.appendChild(el("span", "tabular-nums", `🔥 ${props.streakCurrent}`));
     screen.appendChild(streakRow);
+    screen.appendChild(el("div", "countdown", `New puzzle in ${formatCountdownToNextPuzzle()}`));
   }
 
   const navLinks = el("div", "nav-links");

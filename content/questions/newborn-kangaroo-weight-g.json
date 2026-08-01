@@ -1,0 +1,13 @@
+{
+  "id": "newborn-kangaroo-weight-g",
+  "prompt": "How much does a newborn kangaroo (joey) weigh at birth, in grams?",
+  "value": 0.75,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 0.01,
+  "domainMax": 5,
+  "step": 0.01,
+  "category": "nature",
+  "funFact": "It's smaller than a jellybean at birth and has to crawl, unaided, all the way up into its mother's pouch to keep developing.",
+  "source": "https://www.britannica.com/animal/kangaroo"
+}

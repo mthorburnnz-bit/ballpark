@@ -1,0 +1,13 @@
+{
+  "id": "penicillin-discovery-year",
+  "prompt": "In what year did Alexander Fleming discover penicillin?",
+  "value": 1928,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "He found it by accident — mould had contaminated a petri dish he'd left out, and it was killing the bacteria around it.",
+  "source": "https://www.britannica.com/biography/Alexander-Fleming"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "apple-macintosh-launch-price-1984-usd",
+  "prompt": "How much did the original Apple Macintosh cost at launch in 1984, in US dollars?",
+  "value": 2495,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 10000,
+  "step": 1,
+  "category": "money",
+  "asOf": "1984",
+  "funFact": "Adjusted for inflation, that's well over $7,000 in today's money — for a computer with 128 kilobytes of memory.",
+  "source": "https://www.britannica.com/technology/Macintosh"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "antarctica-area-km2",
+  "prompt": "What is the total area of Antarctica, in square kilometres?",
+  "value": 14200000,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 50000000,
+  "step": 10000,
+  "category": "geography",
+  "funFact": "It's almost twice the size of Australia, yet it has no permanent human residents — only rotating research staff.",
+  "source": "https://www.britannica.com/place/Antarctica"
+}

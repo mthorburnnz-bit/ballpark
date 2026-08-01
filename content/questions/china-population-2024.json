@@ -1,0 +1,14 @@
+{
+  "id": "china-population-2024",
+  "prompt": "What was mainland China's population, as of the end of 2024?",
+  "value": 1408280000,
+  "unit": "people",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 50000000000,
+  "step": 1000000,
+  "category": "geography",
+  "asOf": "end of 2024",
+  "funFact": "It's been shrinking for three years running — a striking reversal after decades as the world's most populous country.",
+  "source": "https://english.www.gov.cn/archive/statistics/202501/17/content_WS6789c3d8c6d0868f4e8eee45.html"
+}

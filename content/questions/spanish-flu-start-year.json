@@ -1,0 +1,13 @@
+{
+  "id": "spanish-flu-start-year",
+  "prompt": "In what year did the Spanish flu pandemic begin?",
+  "value": 1918,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "Despite the name, it likely didn't originate in Spain — Spain was just one of the few countries not censoring wartime news about it.",
+  "source": "https://www.britannica.com/event/Spanish-flu-of-1918"
+}

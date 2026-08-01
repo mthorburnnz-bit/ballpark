@@ -1,0 +1,13 @@
+{
+  "id": "facebook-founded-year",
+  "prompt": "In what year was Facebook founded?",
+  "value": 2004,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It launched as a Harvard-only site — you needed a harvard.edu email address to sign up in the first few months.",
+  "source": "https://www.britannica.com/topic/Facebook"
+}

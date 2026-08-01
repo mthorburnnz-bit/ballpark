@@ -1,0 +1,13 @@
+{
+  "id": "age-of-universe-years",
+  "prompt": "How old is the universe, in years, according to current scientific estimates?",
+  "value": 13800000000,
+  "unit": "years",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 1000000000000,
+  "step": 100000000,
+  "category": "science",
+  "funFact": "That figure comes largely from measuring the cosmic microwave background — the faint afterglow of the Big Bang itself.",
+  "source": "https://www.britannica.com/science/age-of-the-universe"
+}

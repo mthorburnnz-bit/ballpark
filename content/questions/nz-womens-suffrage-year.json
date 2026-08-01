@@ -1,0 +1,13 @@
+{
+  "id": "nz-womens-suffrage-year",
+  "prompt": "In what year did New Zealand become the first self-governing country to grant women the right to vote?",
+  "value": 1893,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "The petition demanding the change, organised by Kate Sheppard, ran to over 270 metres of paper when its signature sheets were glued together.",
+  "source": "https://www.britannica.com/topic/womens-suffrage/New-Zealand"
+}

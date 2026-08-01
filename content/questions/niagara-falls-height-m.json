@@ -1,0 +1,13 @@
+{
+  "id": "niagara-falls-height-m",
+  "prompt": "How tall is Niagara Falls (the Horseshoe Falls), in metres?",
+  "value": 51,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 5,
+  "domainMax": 200,
+  "step": 1,
+  "category": "geography",
+  "funFact": "It's not especially tall by waterfall standards — its fame comes from the sheer volume of water going over it, over 2,800 cubic metres per second.",
+  "source": "https://www.britannica.com/place/Niagara-Falls-waterfalls-North-America"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "fall-of-constantinople-year",
+  "prompt": "In what year did Constantinople fall to the Ottoman Empire?",
+  "value": 1453,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1000,
+  "domainMax": 1700,
+  "step": 1,
+  "category": "history",
+  "funFact": "It ended the Byzantine Empire — the last continuous remnant of ancient Rome, standing for nearly a thousand years after Rome itself had fallen.",
+  "source": "https://www.britannica.com/event/Fall-of-Constantinople-1453"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "suez-canal-length-km",
+  "prompt": "How long is the Suez Canal, in kilometres?",
+  "value": 193,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 5,
+  "domainMax": 5000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "It has no locks at all — the Mediterranean and Red Seas sit close enough in elevation that ships simply sail straight through.",
+  "source": "https://www.britannica.com/topic/Suez-Canal"
+}

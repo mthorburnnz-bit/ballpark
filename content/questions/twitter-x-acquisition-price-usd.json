@@ -1,0 +1,14 @@
+{
+  "id": "twitter-x-acquisition-price-usd",
+  "prompt": "How much did Elon Musk pay to acquire Twitter in 2022, in US dollars?",
+  "value": 44000000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 1000000000000,
+  "step": 100000000,
+  "category": "money",
+  "asOf": "2022",
+  "funFact": "The deal closed at exactly $54.20 per share — a number Musk had floated as a joke months earlier, referencing cannabis culture.",
+  "source": "https://www.britannica.com/topic/X-Corp"
+}

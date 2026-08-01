@@ -1,0 +1,13 @@
+{
+  "id": "golf-round-holes-count",
+  "prompt": "How many holes are played in a standard round of golf?",
+  "value": 18,
+  "unit": "holes",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 50,
+  "step": 1,
+  "category": "sport",
+  "funFact": "The number was essentially decided by accident — St Andrews in Scotland had 22 holes, then trimmed some in 1764, and the rest of the golfing world followed suit.",
+  "source": "https://www.britannica.com/sports/golf"
+}

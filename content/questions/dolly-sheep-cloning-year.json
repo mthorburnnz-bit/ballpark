@@ -1,0 +1,13 @@
+{
+  "id": "dolly-sheep-cloning-year",
+  "prompt": "In what year was Dolly the sheep, the first mammal cloned from an adult cell, born?",
+  "value": 1996,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "She was cloned from a mammary gland cell — which is why researchers named her after Dolly Parton.",
+  "source": "https://www.britannica.com/topic/Dolly-cloned-sheep"
+}

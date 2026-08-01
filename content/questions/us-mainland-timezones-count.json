@@ -1,0 +1,13 @@
+{
+  "id": "us-mainland-timezones-count",
+  "prompt": "How many time zones does the United States span, including Alaska and Hawaii?",
+  "value": 6,
+  "unit": "time zones",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 15,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Counting all its territories too — like Guam and American Samoa — the full reach of US time zones actually spans even further.",
+  "source": "https://www.britannica.com/topic/time-zone"
+}

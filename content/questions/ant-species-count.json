@@ -1,0 +1,13 @@
+{
+  "id": "ant-species-count",
+  "prompt": "About how many species of ants have been identified worldwide?",
+  "value": 12000,
+  "unit": "species",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "nature",
+  "funFact": "Combined, the total weight of all ants on Earth is estimated to roughly match the combined weight of all humans.",
+  "source": "https://www.britannica.com/animal/ant"
+}

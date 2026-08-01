@@ -1,0 +1,13 @@
+{
+  "id": "fall-of-rome-year",
+  "prompt": "The fall of the Western Roman Empire is conventionally dated to what year?",
+  "value": 476,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 900,
+  "step": 1,
+  "category": "history",
+  "funFact": "The 'fall' was really the deposition of a teenage emperor, Romulus Augustulus, by a Germanic general — the Eastern half of the empire carried on for another thousand years.",
+  "source": "https://www.britannica.com/place/ancient-Rome"
+}

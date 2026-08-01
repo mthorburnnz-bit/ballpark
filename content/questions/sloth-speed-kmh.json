@@ -1,0 +1,13 @@
+{
+  "id": "sloth-speed-kmh",
+  "prompt": "How fast does a three-toed sloth move on the ground, in km/h?",
+  "value": 0.24,
+  "unit": "km/h",
+  "scale": "linear",
+  "domainMin": 0.01,
+  "domainMax": 2,
+  "step": 0.01,
+  "category": "nature",
+  "funFact": "They're actually decent swimmers, moving roughly three times faster in water than they ever do on land.",
+  "source": "https://www.britannica.com/animal/sloth-mammal"
+}

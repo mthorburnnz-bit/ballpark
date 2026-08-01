@@ -1,0 +1,13 @@
+{
+  "id": "ice-hockey-players-on-ice",
+  "prompt": "How many players per team (including the goalie) are on the ice at once in ice hockey?",
+  "value": 6,
+  "unit": "players",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 20,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Teams sometimes pull the goalie for an extra attacker late in a losing game — a high-risk gamble that leaves the net completely empty.",
+  "source": "https://www.britannica.com/sports/ice-hockey"
+}

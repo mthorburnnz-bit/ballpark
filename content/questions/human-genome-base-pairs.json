@@ -1,0 +1,13 @@
+{
+  "id": "human-genome-base-pairs",
+  "prompt": "About how many base pairs are in the human genome?",
+  "value": 3100000000,
+  "unit": "base pairs",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 1000000000000,
+  "step": 100000000,
+  "category": "science",
+  "funFact": "Printed out as letters at a normal font size, the full sequence would fill a stack of books taller than most buildings.",
+  "source": "https://www.genome.gov/human-genome-project"
+}

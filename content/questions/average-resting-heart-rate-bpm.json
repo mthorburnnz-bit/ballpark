@@ -1,0 +1,13 @@
+{
+  "id": "average-resting-heart-rate-bpm",
+  "prompt": "What is a typical resting heart rate for a healthy adult, in beats per minute?",
+  "value": 70,
+  "unit": "bpm",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 200,
+  "step": 1,
+  "category": "science",
+  "funFact": "Well-trained endurance athletes can have resting rates in the 40s — their hearts are simply strong enough to pump more blood per beat.",
+  "source": "https://www.britannica.com/science/heart-rate"
+}

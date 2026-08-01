@@ -1,0 +1,13 @@
+{
+  "id": "aoraki-mount-cook-height-m",
+  "prompt": "How tall is Aoraki / Mount Cook, New Zealand's highest peak, in metres?",
+  "value": 3724,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 6000,
+  "step": 1,
+  "category": "geography",
+  "funFact": "A major rockslide in 1991 shaved about 10 metres off its summit overnight.",
+  "source": "https://www.doc.govt.nz/parks-and-recreation/places-to-go/canterbury/places/aoraki-mount-cook-national-park/"
+}

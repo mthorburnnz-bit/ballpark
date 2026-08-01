@@ -1,0 +1,13 @@
+{
+  "id": "octopus-species-count",
+  "prompt": "About how many known species of octopus are there?",
+  "value": 300,
+  "unit": "species",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 10000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "New species are still being described regularly — deep-sea surveys keep turning up ones no one has documented before.",
+  "source": "https://ocean.si.edu/ocean-life/invertebrates/octopus"
+}

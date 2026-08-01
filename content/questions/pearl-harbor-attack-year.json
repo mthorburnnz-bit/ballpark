@@ -1,0 +1,13 @@
+{
+  "id": "pearl-harbor-attack-year",
+  "prompt": "In what year did the attack on Pearl Harbor take place?",
+  "value": 1941,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1850,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "It brought the United States into World War II the very next day, when Congress declared war on Japan.",
+  "source": "https://www.britannica.com/event/Pearl-Harbor-attack"
+}

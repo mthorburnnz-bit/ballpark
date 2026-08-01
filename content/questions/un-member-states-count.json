@@ -1,0 +1,13 @@
+{
+  "id": "un-member-states-count",
+  "prompt": "How many member states does the United Nations have?",
+  "value": 193,
+  "unit": "countries",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 250,
+  "step": 1,
+  "category": "geography",
+  "funFact": "The Vatican and Palestine hold 'observer state' status but aren't full members — which is why total country counts elsewhere sometimes differ from this figure.",
+  "source": "https://www.un.org/en/about-us/member-states"
+}

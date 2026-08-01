@@ -1,0 +1,13 @@
+{
+  "id": "earth-orbital-speed-kms",
+  "prompt": "How fast does the Earth travel around the Sun, in kilometres per second?",
+  "value": 29.78,
+  "unit": "km/s",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 100,
+  "step": 0.01,
+  "category": "science",
+  "funFact": "That's roughly 107,000 km/h — fast enough to cross New Zealand in about 25 seconds.",
+  "source": "https://www.britannica.com/science/Earths-orbit"
+}

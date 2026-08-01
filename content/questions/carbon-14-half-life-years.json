@@ -1,0 +1,13 @@
+{
+  "id": "carbon-14-half-life-years",
+  "prompt": "What is the half-life of carbon-14, the isotope used in radiocarbon dating, in years?",
+  "value": 5730,
+  "unit": "years",
+  "scale": "log",
+  "domainMin": 10,
+  "domainMax": 1000000,
+  "step": 10,
+  "category": "science",
+  "funFact": "It's why radiocarbon dating stops being useful past about 50,000 years — beyond that, too little carbon-14 remains to measure reliably.",
+  "source": "https://www.britannica.com/science/radiocarbon-dating"
+}

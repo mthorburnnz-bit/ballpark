@@ -1,0 +1,13 @@
+{
+  "id": "first-super-bowl-year",
+  "prompt": "In what year was the first Super Bowl played?",
+  "value": 1967,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "sport",
+  "funFact": "It wasn't even called the 'Super Bowl' on tickets at the time — that name only became official from the third game onward.",
+  "source": "https://www.britannica.com/sports/Super-Bowl"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "blue-whale-length-m",
+  "prompt": "How long is an adult blue whale on average, in metres?",
+  "value": 24,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 40,
+  "step": 1,
+  "category": "nature",
+  "funFact": "Its tongue alone can weigh as much as an elephant, and its heart is roughly the size of a small car.",
+  "source": "https://ocean.si.edu/ocean-life/marine-mammals/blue-whale"
+}

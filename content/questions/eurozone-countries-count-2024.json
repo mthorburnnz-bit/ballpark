@@ -1,0 +1,14 @@
+{
+  "id": "eurozone-countries-count-2024",
+  "prompt": "How many countries officially used the euro as their currency, as of 2024?",
+  "value": 20,
+  "unit": "countries",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 40,
+  "step": 1,
+  "category": "everyday",
+  "asOf": "2024",
+  "funFact": "Croatia was the most recent country to join, adopting the euro in January 2023.",
+  "source": "https://www.ecb.europa.eu/euro/intro/html/index.en.html"
+}
