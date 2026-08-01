@@ -1,15 +1,16 @@
 import type { AnswerRecord } from "../state/save.ts";
 
-const GAME_URL = "ballpark.game";
-
 export function buildShareText(
   puzzleNumber: number,
   answers: readonly AnswerRecord[],
   verdict: string,
   totalScore: number,
+  // Defaults to wherever the app is actually running (workers.dev today,
+  // a real domain later) so this never needs a manual edit when that changes.
+  url: string = typeof window !== "undefined" ? window.location.host : "",
 ): string {
   const emojis = answers.map((a) => (a.tight ? "🎯" : a.hit ? "✅" : "❌")).join("");
-  return `Ballpark #${puzzleNumber} ⚾\n${emojis}  ${totalScore} pts\n${verdict}\n${GAME_URL}`;
+  return `Give or Take #${puzzleNumber} 🤏\n${emojis}  ${totalScore} pts\n${verdict}\n${url}`;
 }
 
 export type ShareOutcome = "shared" | "copied" | "failed";

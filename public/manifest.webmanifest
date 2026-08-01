@@ -1,6 +1,6 @@
 {
-  "name": "Ballpark",
-  "short_name": "Ballpark",
+  "name": "Give or Take",
+  "short_name": "Give or Take",
   "description": "A daily estimation game. Set a range, not a number — tighter and right beats safe and wide.",
   "start_url": "/",
   "scope": "/",

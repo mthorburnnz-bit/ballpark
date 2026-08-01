@@ -6,7 +6,7 @@ export interface PlayerIdentity {
   name: string;
 }
 
-const STORAGE_KEY = "ballpark:player";
+const STORAGE_KEY = "giveortake:player";
 
 export function loadPlayerIdentity(): PlayerIdentity | null {
   try {

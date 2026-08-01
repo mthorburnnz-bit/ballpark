@@ -1,8 +1,9 @@
 {
-  "name": "ballpark",
+  "name": "give-or-take",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Claude Verne",
   "scripts": {
     "dev": "vite",
     "bundle-content": "tsx tools/bundleContent.ts",

@@ -55,7 +55,7 @@ export function buildIntroScreen(props: IntroScreenProps): HTMLDivElement {
 
   const topbar = el("div", "topbar");
   const logo = el("div", "logo");
-  logo.innerHTML = `Ball<span class="logo-ball">park</span>`;
+  logo.innerHTML = `Give or <span class="logo-ball">Take</span>`;
   const streak = el("div", "streak-flame", props.streakCurrent > 0 ? `🔥 ${props.streakCurrent}` : "");
   topbar.append(logo, streak);
 
@@ -438,6 +438,8 @@ export function buildSettingsScreen(
     row.appendChild(toggle);
     screen.appendChild(row);
   }
+
+  screen.appendChild(el("p", "archive-note", `© ${new Date().getFullYear()} Claude Verne`));
 
   return screen;
 }

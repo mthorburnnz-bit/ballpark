@@ -58,7 +58,7 @@ export interface SaveData {
   hasSeenTutorial: boolean;
 }
 
-const STORAGE_KEY = "ballpark:save";
+const STORAGE_KEY = "giveortake:save";
 const CURRENT_VERSION = 1;
 
 export function defaultSave(): SaveData {
