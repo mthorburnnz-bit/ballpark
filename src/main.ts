@@ -6,8 +6,8 @@ import { computeVerdict } from "./game/verdicts.ts";
 import { loadSave, persistSave, getOrCreateDayProgress } from "./state/save.ts";
 import type { DayProgress, AnswerRecord } from "./state/save.ts";
 import { recordDayCompletion, deriveStats } from "./state/stats.ts";
-import { loadPlayerIdentity, createPlayerIdentity } from "./state/player.ts";
-import type { PlayerIdentity } from "./state/player.ts";
+import { loadPlayerIdentity, createPlayerIdentity, renamePlayerIdentity } from "./state/player.ts";
+import { containsBannedWord } from "./game/moderation.ts";
 import { fetchReveal, submitDay, fetchLeaderboard, ApiError } from "./state/api.ts";
 import type { LeaderboardPeriod } from "./state/api.ts";
 import {
@@ -152,14 +152,21 @@ async function playArchivedDay(date: string): Promise<void> {
   showResults(date, practiceDay, true);
 }
 
-function promptForPlayerName(): Promise<PlayerIdentity> {
+function promptForPlayerName(): Promise<string> {
   return new Promise((resolve) => {
-    mountScreen(buildNameEntryScreen((name) => resolve(createPlayerIdentity(name))));
+    mountScreen(buildNameEntryScreen((name) => resolve(name)));
   });
 }
 
 async function submitDayToLeaderboard(day: DayProgress): Promise<void> {
-  const identity = loadPlayerIdentity() ?? (await promptForPlayerName());
+  let identity = loadPlayerIdentity();
+  if (!identity) {
+    identity = createPlayerIdentity(await promptForPlayerName());
+  } else if (containsBannedWord(identity.name)) {
+    // Covers a name saved before this filter existed — re-prompt rather
+    // than let every future submission for this player silently fail.
+    identity = renamePlayerIdentity(identity, await promptForPlayerName());
+  }
   const answers = day.questionIds.map((id, i) => {
     const a = day.answers[i]!;
     return { questionId: id, lo: a.lo, hi: a.hi };

@@ -1,5 +1,6 @@
 import bundleData from "./generated/content-bundle.json";
 import { scoreAnswer } from "../src/game/scoring.ts";
+import { containsBannedWord } from "../src/game/moderation.ts";
 import type { Question } from "../src/game/types.ts";
 
 export interface Env {
@@ -233,6 +234,13 @@ async function handleSubmitDay(request: Request, env: Env): Promise<Response> {
   }
 
   const cleanName = playerName.trim().slice(0, 40);
+
+  // Real trust boundary for the name filter — the client-side check in
+  // buildNameEntryScreen is just a same-request nudge; this is what
+  // actually keeps a bad name out of the players table.
+  if (containsBannedWord(cleanName)) {
+    return badRequest("That name isn't allowed on the leaderboard — please choose another.");
+  }
 
   let total = 0;
   const scored: Array<AnswerInput & { hit: boolean; f: number; tight: boolean; points: number }> = [];
