@@ -1,0 +1,43 @@
+name: Build Android (unsigned)
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "android/**"
+      - ".github/workflows/build-android.yml"
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install SDK components
+        run: sdkmanager "platforms;android-36" "build-tools;36.1.0"
+
+      - name: Build unsigned APK + AAB
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease bundleRelease --stacktrace
+
+      - name: Create release with unsigned artifacts
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: android-unsigned-${{ github.run_number }}
+          name: Android build ${{ github.run_number }} (unsigned)
+          prerelease: true
+          files: |
+            android/app/build/outputs/apk/release/app-release-unsigned.apk
+            android/app/build/outputs/bundle/release/app-release.aab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

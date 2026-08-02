@@ -1,0 +1,32 @@
+{
+  "packageId": "com.giveortake.twa",
+  "host": "give-or-take.com",
+  "name": "Give or Take",
+  "launcherName": "Give or Take",
+  "display": "standalone",
+  "themeColor": "#f6f0e4",
+  "navigationColor": "#f6f0e4",
+  "backgroundColor": "#f6f0e4",
+  "enableNotifications": false,
+  "startUrl": "/",
+  "iconUrl": "https://give-or-take.com/icons/icon-512.png",
+  "maskableIconUrl": "https://give-or-take.com/icons/icon-512-maskable.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "android"
+  },
+  "appVersionCode": 1,
+  "appVersion": "1.0.0",
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "fallbackType": "customtabs",
+  "features": {},
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "orientation": "portrait",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": []
+}
