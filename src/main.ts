@@ -26,6 +26,10 @@ import { RevealSequence } from "./ui/reveal.ts";
 import { buildShareText, shareResult } from "./ui/share.ts";
 import { showToast } from "./ui/toast.ts";
 
+// Static crawlable description for engines that don't render JS — see
+// index.html. Real browsers never need it, so drop it the moment JS runs.
+document.getElementById("seo-fallback")?.remove();
+
 const appRoot = document.querySelector<HTMLDivElement>("#app")!;
 let shell: HTMLDivElement | null = null;
 

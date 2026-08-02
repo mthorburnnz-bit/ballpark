@@ -54,6 +54,14 @@ export default {
     const url = new URL(request.url);
     const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
 
+    // www and bare domain serve identical content — redirect to one canonical
+    // host so search engines consolidate ranking signal instead of splitting
+    // it across two URLs.
+    if (url.hostname === "www.give-or-take.com") {
+      url.hostname = "give-or-take.com";
+      return Response.redirect(url.toString(), 301);
+    }
+
     if (url.pathname === "/api/reveal" && request.method === "POST") {
       // Generous: covers real daily play plus enthusiastic archive/practice replays.
       if (!(await checkRateLimit(env, "reveal", ip, 60, 600))) return tooManyRequests();
