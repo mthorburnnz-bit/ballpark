@@ -304,6 +304,12 @@ svg {
   max-width: 34ch;
 }
 
+.name-entry-error {
+  font-size: 0.85rem;
+  color: var(--color-miss);
+  font-weight: 600;
+}
+
 .nav-links {
   display: flex;
   justify-content: center;

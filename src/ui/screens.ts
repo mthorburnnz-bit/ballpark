@@ -2,6 +2,7 @@ import type { PublicQuestion, Category } from "../game/types.ts";
 import type { AnswerRecord, SettingsState } from "../state/save.ts";
 import type { DerivedStats } from "../state/stats.ts";
 import type { LeaderboardEntry, LeaderboardPeriod } from "../state/api.ts";
+import { containsBannedWord } from "../game/moderation.ts";
 import { RangeSlider } from "./slider.ts";
 import { formatNumber } from "./format.ts";
 
@@ -418,17 +419,26 @@ export function buildNameEntryScreen(onSubmit: (name: string) => void): HTMLDivE
   input.style.width = "100%";
   input.style.textAlign = "center";
 
+  const errorEl = el("p", "name-entry-error", "That name isn't allowed on the leaderboard — please choose another.");
+  errorEl.style.display = "none";
+
   const submitBtn = el("button", "btn btn-primary", "Save & see my score");
   submitBtn.type = "button";
   submitBtn.disabled = true;
 
+  // Same filter the server enforces (moderation.ts) — this just stops a
+  // rejected name from ever being saved locally, since there's no later
+  // "edit name" flow. The server call in main.ts is still the real check.
   input.addEventListener("input", () => {
-    submitBtn.disabled = input.value.trim().length === 0;
+    const name = input.value.trim();
+    const blocked = name.length > 0 && containsBannedWord(name);
+    errorEl.style.display = blocked ? "" : "none";
+    submitBtn.disabled = name.length === 0 || blocked;
   });
 
   const submit = () => {
     const name = input.value.trim();
-    if (name.length === 0) return;
+    if (name.length === 0 || containsBannedWord(name)) return;
     onSubmit(name);
   };
   submitBtn.addEventListener("click", submit);
@@ -436,7 +446,7 @@ export function buildNameEntryScreen(onSubmit: (name: string) => void): HTMLDivE
     if (e.key === "Enter") submit();
   });
 
-  card.append(input, submitBtn);
+  card.append(input, errorEl, submitBtn);
   screen.appendChild(card);
 
   queueMicrotask(() => input.focus());

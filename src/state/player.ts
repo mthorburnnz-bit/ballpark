@@ -43,3 +43,12 @@ export function createPlayerIdentity(name: string): PlayerIdentity {
   savePlayerIdentity(identity);
   return identity;
 }
+
+/** Same id, new name — keeps leaderboard history attached to one player
+ * instead of forking it, e.g. when a previously-saved name gets rejected
+ * by a moderation rule that didn't exist when it was first chosen. */
+export function renamePlayerIdentity(identity: PlayerIdentity, name: string): PlayerIdentity {
+  const updated = { id: identity.id, name: name.trim().slice(0, 40) };
+  savePlayerIdentity(updated);
+  return updated;
+}
