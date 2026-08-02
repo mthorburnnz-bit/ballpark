@@ -16,6 +16,16 @@ content/generated
 .wrangler
 .env
 
+# Android (Play Store TWA wrapper) — never commit the signing keystore
+android/node_modules
+android/build
+android/app/build
+android/.gradle
+android/local.properties
+android/*.keystore
+android/*.apk
+android/*.aab
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

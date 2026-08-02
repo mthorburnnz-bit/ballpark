@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.giveortake.twa",
+      "sha256_cert_fingerprints": [
+        "1F:6F:BA:42:0E:4C:4B:08:68:B0:2E:F4:B3:C8:89:29:14:A0:2C:16:B2:05:08:64:B2:BD:B1:7E:9B:89:DE:45"
+      ]
+    }
+  }
+]
