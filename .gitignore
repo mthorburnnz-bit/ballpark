@@ -37,3 +37,6 @@ android/unsigned
 *.njsproj
 *.sln
 *.sw?
+
+# Generated Play Store screenshots — regenerate with tools/screenshots.mjs
+tools/shots
