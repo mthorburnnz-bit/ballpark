@@ -1,6 +1,7 @@
 import bundleData from "./generated/content-bundle.json";
 import { scoreAnswer } from "../src/game/scoring.ts";
 import { containsBannedWord } from "../src/game/moderation.ts";
+import { computePercentile } from "../src/game/percentile.ts";
 import type { Question } from "../src/game/types.ts";
 
 export interface Env {
@@ -306,7 +307,19 @@ async function handleSubmitDay(request: Request, env: Env): Promise<Response> {
     persistedTotal = existing?.score ?? total;
   }
 
-  return json({ total: persistedTotal, alreadySubmitted: !wasNewSubmission });
+  // "You beat X% of players today" — computed against the persisted score
+  // (not this request's possibly-stale recomputation) and always excluding
+  // the player's own row, regardless of insert order above.
+  const percentileRow = await env.DB.prepare(
+    `SELECT COUNT(*) as total, COUNT(CASE WHEN score < ?3 THEN 1 END) as lower
+     FROM daily_scores
+     WHERE date = ?1 AND player_id != ?2`,
+  )
+    .bind(date, playerId, persistedTotal)
+    .first<{ total: number; lower: number }>();
+  const percentile = computePercentile(percentileRow?.lower ?? 0, percentileRow?.total ?? 0);
+
+  return json({ total: persistedTotal, alreadySubmitted: !wasNewSubmission, percentile });
 }
 
 interface LeaderboardRow {

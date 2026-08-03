@@ -23,7 +23,7 @@ import {
 } from "./ui/screens.ts";
 import type { RecapItem } from "./ui/screens.ts";
 import { RevealSequence } from "./ui/reveal.ts";
-import { buildShareText, shareResult } from "./ui/share.ts";
+import { buildShareText, buildProfileShareText, shareResult } from "./ui/share.ts";
 import { showToast } from "./ui/toast.ts";
 
 // Static crawlable description for engines that don't render JS — see
@@ -88,7 +88,15 @@ function showIntro(): void {
 }
 
 function showStats(): void {
-  mountScreen(buildStatsScreen(deriveStats(save), showIntro));
+  const stats = deriveStats(save);
+  mountScreen(buildStatsScreen(stats, showIntro, () => void handleShareProfile(stats.categoryProfile)));
+}
+
+async function handleShareProfile(profile: ReturnType<typeof deriveStats>["categoryProfile"]): Promise<void> {
+  if (!profile) return;
+  const outcome = await shareResult(buildProfileShareText(profile));
+  if (outcome === "copied") showToast("Copied to clipboard!");
+  else if (outcome === "failed") showToast("Couldn't share — try again");
 }
 
 function showSettings(): void {
@@ -139,8 +147,8 @@ async function startTodayFlow(): Promise<void> {
   const questions = day.questionIds.map((id) => bank.getQuestion(id));
   await runQuestionFlow(questions, day, true);
   recordDayCompletion(save, today);
-  await submitDayToLeaderboard(day);
-  showResults(today, day, false);
+  const percentile = await submitDayToLeaderboard(day);
+  showResults(today, day, false, percentile);
 }
 
 async function playArchivedDay(date: string): Promise<void> {
@@ -162,7 +170,7 @@ function promptForPlayerName(): Promise<string> {
   });
 }
 
-async function submitDayToLeaderboard(day: DayProgress): Promise<void> {
+async function submitDayToLeaderboard(day: DayProgress): Promise<number | null> {
   let identity = loadPlayerIdentity();
   if (!identity) {
     identity = createPlayerIdentity(await promptForPlayerName());
@@ -176,9 +184,11 @@ async function submitDayToLeaderboard(day: DayProgress): Promise<void> {
     return { questionId: id, lo: a.lo, hi: a.hi };
   });
   try {
-    await submitDay(identity.id, identity.name, day.date, bank.puzzleNumberForDate(day.date), answers);
+    const result = await submitDay(identity.id, identity.name, day.date, bank.puzzleNumberForDate(day.date), answers);
+    return result.percentile;
   } catch {
     showToast("Couldn't save your score to the leaderboard, but your results are safe.");
+    return null;
   }
 }
 
@@ -279,7 +289,7 @@ async function runQuestionFlow(questions: PublicQuestion[], day: DayProgress, pe
   }
 }
 
-function showResults(dateStr: string, day: DayProgress, isPractice: boolean): void {
+function showResults(dateStr: string, day: DayProgress, isPractice: boolean, percentile: number | null = null): void {
   const questions = day.questionIds.map((id) => bank.getQuestion(id));
   const recap: RecapItem[] = questions.map((question, i) => ({ question, answer: day.answers[i]! }));
   const total = recap.reduce((sum, r) => sum + r.answer.points, 0);
@@ -301,7 +311,8 @@ function showResults(dateStr: string, day: DayProgress, isPractice: boolean): vo
     verdict,
     streakCurrent: save.streak.current,
     isPractice,
-    onShare: () => void handleShare(puzzleNumber, recap, verdict, total),
+    percentile,
+    onShare: () => void handleShare(puzzleNumber, recap, verdict, total, percentile),
     onHome: showIntro,
     onStats: showStats,
     onArchive: showArchive,
@@ -315,12 +326,14 @@ async function handleShare(
   recap: RecapItem[],
   verdict: string,
   total: number,
+  percentile: number | null,
 ): Promise<void> {
   const text = buildShareText(
     puzzleNumber,
     recap.map((r) => r.answer),
     verdict,
     total,
+    percentile,
   );
   const outcome = await shareResult(text);
   if (outcome === "copied") showToast("Copied to clipboard!");

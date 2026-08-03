@@ -89,6 +89,39 @@ function deriveStreakBadges(bestStreak: number): StreakBadge[] {
   }));
 }
 
+/** A category needs at least this many answered questions before it's
+ * eligible to be called someone's "best" or "worst" — one lucky guess
+ * shouldn't crown a player a history expert. */
+export const MIN_QUESTIONS_FOR_CATEGORY_PROFILE = 3;
+
+export interface CategoryProfile {
+  best: { category: Category; hitRate: number };
+  worst: { category: Category; hitRate: number };
+}
+
+/**
+ * Picks the strongest and weakest category from a player's hit rates —
+ * their shareable "identity" ("sharp on history, hopeless on money").
+ * Requires at least two qualifying categories, since a single one can't
+ * produce a meaningful best/worst comparison.
+ */
+function deriveCategoryProfile(categoryHitRates: DerivedStats["categoryHitRates"]): CategoryProfile | null {
+  const qualifying = categoryHitRates.filter((c) => c.questions >= MIN_QUESTIONS_FOR_CATEGORY_PROFILE);
+  if (qualifying.length < 2) return null;
+
+  let best = qualifying[0]!;
+  let worst = qualifying[0]!;
+  for (const c of qualifying) {
+    if (c.hitRate > best.hitRate) best = c;
+    if (c.hitRate < worst.hitRate) worst = c;
+  }
+
+  return {
+    best: { category: best.category, hitRate: best.hitRate },
+    worst: { category: worst.category, hitRate: worst.hitRate },
+  };
+}
+
 export interface DerivedStats {
   currentStreak: number;
   bestStreak: number;
@@ -97,6 +130,7 @@ export interface DerivedStats {
   hitRate: number; // 0..1
   tightHitRate: number; // 0..1
   categoryHitRates: Array<{ category: Category; hitRate: number; questions: number }>;
+  categoryProfile: CategoryProfile | null;
   confidence: ConfidenceInsight | null;
   streakBadges: StreakBadge[];
 }
@@ -152,6 +186,7 @@ export function deriveStats(save: SaveData): DerivedStats {
     hitRate,
     tightHitRate,
     categoryHitRates,
+    categoryProfile: deriveCategoryProfile(categoryHitRates),
     confidence: deriveConfidence(lifetime, hitRate),
     streakBadges: deriveStreakBadges(streak.best),
   };

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { buildShareText } from "./share.ts";
+import { buildShareText, buildProfileShareText } from "./share.ts";
 import type { AnswerRecord } from "../state/save.ts";
 
 function answer(overrides: Partial<AnswerRecord>): AnswerRecord {
@@ -26,7 +26,7 @@ describe("buildShareText", () => {
       answer({ hit: false, tight: false, points: 0 }),
       answer({ hit: true, tight: false }),
     ];
-    const text = buildShareText(241, answers, "Overconfident about geography", 312, "giveortake.game");
+    const text = buildShareText(241, answers, "Overconfident about geography", 312, null, "giveortake.game");
     expect(text).toBe(
       "Give or Take #241 🤏\n🎯🎯✅❌✅  312 pts\nOverconfident about geography\ngiveortake.game",
     );
@@ -34,7 +34,7 @@ describe("buildShareText", () => {
 
   it("never reveals which questions were hits/misses beyond the emoji row", () => {
     const answers = [answer({ hit: false, points: 0 })];
-    const text = buildShareText(1, answers, "Confidently wrong today", 0, "giveortake.game");
+    const text = buildShareText(1, answers, "Confidently wrong today", 0, null, "giveortake.game");
     expect(text).not.toContain("q"); // no questionId leakage
     expect(text.split("\n")).toHaveLength(4);
   });
@@ -46,5 +46,27 @@ describe("buildShareText", () => {
     const answers = [answer({ hit: true, points: 10 })];
     const text = buildShareText(1, answers, "Sharp today", 10);
     expect(text.endsWith("\n")).toBe(true); // trailing url segment is empty, not undefined/broken
+  });
+
+  it("adds a percentile line when one is given", () => {
+    const answers = [answer({ hit: true, points: 10 })];
+    const text = buildShareText(1, answers, "Sharp today", 10, 71, "giveortake.game");
+    expect(text).toBe("Give or Take #1 🤏\n✅  10 pts\nBeat 71% of players\nSharp today\ngiveortake.game");
+  });
+
+  it("omits the percentile line entirely when null", () => {
+    const answers = [answer({ hit: true, points: 10 })];
+    const text = buildShareText(1, answers, "Sharp today", 10, null, "giveortake.game");
+    expect(text).not.toContain("Beat");
+  });
+});
+
+describe("buildProfileShareText", () => {
+  it("names the best and worst category with their hit rates", () => {
+    const text = buildProfileShareText(
+      { best: { category: "history", hitRate: 0.78 }, worst: { category: "money", hitRate: 0.22 } },
+      "giveortake.game",
+    );
+    expect(text).toBe("Give or Take 🤏\nSharp on History (78%), hopeless on Money (22%)\ngiveortake.game");
   });
 });

@@ -57,6 +57,7 @@ export interface SubmitDayAnswer {
 export interface SubmitDayResult {
   total: number;
   alreadySubmitted: boolean;
+  percentile: number | null;
 }
 
 export async function submitDay(

@@ -25,6 +25,7 @@ android/local.properties
 android/*.keystore
 android/*.apk
 android/*.aab
+android/unsigned
 
 # Editor directories and files
 .vscode/*

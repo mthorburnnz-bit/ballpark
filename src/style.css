@@ -547,6 +547,13 @@ svg {
   letter-spacing: 0.04em;
 }
 
+.results-percentile {
+  margin-top: var(--space-2);
+  font-weight: 700;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
 .emoji-row {
   text-align: center;
   font-size: 1.8rem;

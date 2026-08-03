@@ -6,7 +6,7 @@ import { containsBannedWord } from "../game/moderation.ts";
 import { RangeSlider } from "./slider.ts";
 import { formatNumber } from "./format.ts";
 
-const CATEGORY_LABELS: Record<Category, string> = {
+export const CATEGORY_LABELS: Record<Category, string> = {
   geography: "Geography",
   history: "History",
   science: "Science",
@@ -203,6 +203,7 @@ export interface ResultsScreenProps {
   verdict: string;
   streakCurrent: number;
   isPractice: boolean;
+  percentile: number | null;
   onShare: () => void;
   onHome: () => void;
   onStats: () => void;
@@ -218,6 +219,9 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
   const total = el("div", "results-total");
   total.appendChild(el("div", "score-number tabular-nums", String(props.totalScore)));
   total.appendChild(el("div", "score-label", "points"));
+  if (props.percentile !== null) {
+    total.appendChild(el("div", "results-percentile", `Beat ${props.percentile}% of players today`));
+  }
 
   const emojiRow = el(
     "div",
@@ -282,7 +286,11 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
 
 // ---------- Stats screen ----------
 
-export function buildStatsScreen(stats: DerivedStats, onBack: () => void): HTMLDivElement {
+export function buildStatsScreen(
+  stats: DerivedStats,
+  onBack: () => void,
+  onShareProfile: () => void,
+): HTMLDivElement {
   const screen = el("div", "screen");
   screen.appendChild(buildTopBar("Your stats", onBack));
 
@@ -319,7 +327,13 @@ export function buildStatsScreen(stats: DerivedStats, onBack: () => void): HTMLD
     }
   }
 
-  screen.append(grid, buildStreakBadges(stats.streakBadges), buildConfidenceCard(stats.confidence), categorySection);
+  screen.append(
+    grid,
+    buildStreakBadges(stats.streakBadges),
+    buildConfidenceCard(stats.confidence),
+    buildCategoryProfileCard(stats.categoryProfile, onShareProfile),
+    categorySection,
+  );
   return screen;
 }
 
@@ -359,6 +373,45 @@ function buildConfidenceCard(confidence: DerivedStats["confidence"]): HTMLDivEle
     detail.textContent = `Your range widths track closely with how often you hit — ${confidence.avgWidthPercent}% average width vs a ${confidence.hitRatePercent}% hit rate. Nicely judged.`;
   }
   card.appendChild(detail);
+  return card;
+}
+
+function buildCategoryProfileCard(
+  profile: DerivedStats["categoryProfile"],
+  onShareProfile: () => void,
+): HTMLDivElement {
+  const card = el("div", "confidence-card");
+  card.appendChild(el("div", "puzzle-number", "Your category profile"));
+
+  if (!profile) {
+    card.appendChild(
+      el("p", "archive-note", "Play a few more days across different categories to see your profile."),
+    );
+    return card;
+  }
+
+  const bestPercent = Math.round(profile.best.hitRate * 100);
+  const worstPercent = Math.round(profile.worst.hitRate * 100);
+  card.appendChild(
+    el(
+      "p",
+      "confidence-line",
+      `Sharp on ${CATEGORY_LABELS[profile.best.category]}, hopeless on ${CATEGORY_LABELS[profile.worst.category]}`,
+    ),
+  );
+  card.appendChild(
+    el(
+      "p",
+      "confidence-detail",
+      `${bestPercent}% on ${CATEGORY_LABELS[profile.best.category]} · ${worstPercent}% on ${CATEGORY_LABELS[profile.worst.category]}`,
+    ),
+  );
+
+  const shareBtn = el("button", "btn btn-secondary", "Share profile");
+  shareBtn.type = "button";
+  shareBtn.addEventListener("click", onShareProfile);
+  card.appendChild(shareBtn);
+
   return card;
 }
 

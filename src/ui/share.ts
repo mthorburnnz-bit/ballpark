@@ -1,16 +1,29 @@
 import type { AnswerRecord } from "../state/save.ts";
+import type { CategoryProfile } from "../state/stats.ts";
+import { CATEGORY_LABELS } from "./screens.ts";
 
 export function buildShareText(
   puzzleNumber: number,
   answers: readonly AnswerRecord[],
   verdict: string,
   totalScore: number,
+  percentile: number | null = null,
   // Defaults to wherever the app is actually running (workers.dev today,
   // a real domain later) so this never needs a manual edit when that changes.
   url: string = typeof window !== "undefined" ? window.location.host : "",
 ): string {
   const emojis = answers.map((a) => (a.tight ? "🎯" : a.hit ? "✅" : "❌")).join("");
-  return `Give or Take #${puzzleNumber} 🤏\n${emojis}  ${totalScore} pts\n${verdict}\n${url}`;
+  const percentileLine = percentile !== null ? `\nBeat ${percentile}% of players` : "";
+  return `Give or Take #${puzzleNumber} 🤏\n${emojis}  ${totalScore} pts${percentileLine}\n${verdict}\n${url}`;
+}
+
+export function buildProfileShareText(
+  profile: CategoryProfile,
+  url: string = typeof window !== "undefined" ? window.location.host : "",
+): string {
+  const bestPercent = Math.round(profile.best.hitRate * 100);
+  const worstPercent = Math.round(profile.worst.hitRate * 100);
+  return `Give or Take 🤏\nSharp on ${CATEGORY_LABELS[profile.best.category]} (${bestPercent}%), hopeless on ${CATEGORY_LABELS[profile.worst.category]} (${worstPercent}%)\n${url}`;
 }
 
 export type ShareOutcome = "shared" | "copied" | "failed";
