@@ -56,6 +56,19 @@ export default {
     const url = new URL(request.url);
     const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
 
+    // Force HTTPS. Plain http:// was serving the whole app and API in
+    // cleartext, which meant display names and scores could travel
+    // unencrypted for anyone who typed the domain or followed an old link.
+    // Checked via CF-Visitor as well as the URL scheme, since Cloudflare
+    // terminates TLS at the edge and request.url doesn't always reflect
+    // what the client actually used.
+    const visitorScheme = request.headers.get("CF-Visitor");
+    const isPlainHttp = url.protocol === "http:" || visitorScheme?.includes('"scheme":"http"');
+    if (isPlainHttp) {
+      url.protocol = "https:";
+      return Response.redirect(url.toString(), 301);
+    }
+
     // www and bare domain serve identical content — redirect to one canonical
     // host so search engines consolidate ranking signal instead of splitting
     // it across two URLs.
