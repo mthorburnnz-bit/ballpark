@@ -1,7 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#f6f0e4"/>
-  <line x1="80" y1="256" x2="432" y2="256" stroke="#ddd2bb" stroke-width="10" stroke-linecap="round"/>
-  <rect x="150" y="228" width="150" height="56" rx="28" fill="#1d4e89"/>
-  <circle cx="352" cy="256" r="26" fill="#211c15"/>
-  <circle cx="352" cy="256" r="10" fill="#f6f0e4"/>
+  <!-- The game in one mark: the true answer landing inside your range.
+       The motif is scaled to 0.87 so its corners stay inside Android's
+       adaptive-icon safe zone (~72 of 108dp) — the same artwork can then
+       serve both the plain and maskable purposes without clipping. -->
+  <rect width="512" height="512" fill="#211c15"/>
+  <g transform="translate(256 256) scale(0.87) translate(-256 -256)">
+    <path d="M168 166 h-46 a10 10 0 0 0 -10 10 v160 a10 10 0 0 0 10 10 h46"
+          fill="none" stroke="#f6f0e4" stroke-width="26" stroke-linecap="round"/>
+    <path d="M344 166 h46 a10 10 0 0 1 10 10 v160 a10 10 0 0 1 -10 10 h-46"
+          fill="none" stroke="#f6f0e4" stroke-width="26" stroke-linecap="round"/>
+    <circle cx="256" cy="256" r="52" fill="#00d99b"/>
+  </g>
 </svg>
