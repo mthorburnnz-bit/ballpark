@@ -256,7 +256,13 @@ svg {
   border: 1px solid var(--color-line);
 }
 
+/* Used on its own rather than alongside .btn, so it has to do its own
+   reset — without these the "← Back" buttons render with the browser's
+   default button border and no pointer cursor. */
 .btn-text {
+  appearance: none;
+  border: none;
+  cursor: pointer;
   background: transparent;
   color: var(--color-ink-soft);
   padding: var(--space-2) var(--space-3);
