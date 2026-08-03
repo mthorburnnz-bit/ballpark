@@ -165,6 +165,21 @@ svg {
   animation: screen-in 220ms ease both;
 }
 
+/* On tall viewports (tablets, desktop) the sparser screens otherwise cling to
+   the top of a very long column with a large void beneath. Auto margins pull
+   the main content into the vertical middle while leaving the top bar where it
+   belongs. Collapses to no effect on content-heavy screens, where there's no
+   spare space for the margins to absorb. */
+@media (min-height: 800px) {
+  .today-card {
+    margin-top: auto;
+  }
+
+  .today-card ~ .nav-links {
+    margin-bottom: auto;
+  }
+}
+
 @keyframes screen-in {
   from {
     opacity: 0;
