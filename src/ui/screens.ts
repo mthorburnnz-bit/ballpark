@@ -252,7 +252,7 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
     recapList.appendChild(item);
   }
 
-  const shareBtn = el("button", "btn btn-primary", "Share result");
+  const shareBtn = el("button", "btn btn-primary", "Challenge a friend");
   shareBtn.type = "button";
   shareBtn.addEventListener("click", props.onShare);
 

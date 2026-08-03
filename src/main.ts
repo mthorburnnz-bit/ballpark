@@ -328,14 +328,14 @@ async function handleShare(
   total: number,
   percentile: number | null,
 ): Promise<void> {
-  const text = buildShareText(
+  const content = buildShareText(
     puzzleNumber,
     recap.map((r) => r.answer),
     verdict,
     total,
     percentile,
   );
-  const outcome = await shareResult(text);
+  const outcome = await shareResult(content);
   if (outcome === "copied") showToast("Copied to clipboard!");
   else if (outcome === "failed") showToast("Couldn't share — try again");
 }
