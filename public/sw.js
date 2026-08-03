@@ -3,7 +3,10 @@
 // actually requests during a successful online visit, so the current day's
 // puzzle keeps working offline once it's been loaded. Spec §2.1 / §5.3.
 
-const CACHE_NAME = "ballpark-v1";
+// Bumped when caching behaviour changes — the activate handler deletes any
+// cache whose name doesn't match, which purges entries written under the old
+// rules (notably stale /api/ responses cached before they were excluded).
+const CACHE_NAME = "giveortake-v2";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
@@ -48,6 +51,13 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // API responses are live data (leaderboard standings, challenge lookups)
+  // and must never be served from cache — cache-first here would freeze the
+  // leaderboard permanently for anyone with the worker installed. Left to the
+  // network entirely, so an offline failure surfaces as a normal fetch error
+  // the UI already handles, rather than silently stale data.
+  if (url.pathname.startsWith("/api/")) return;
 
   // Navigations network-first (so today's schedule/content updates show up
   // while online); hashed build assets and content JSON cache-first since
