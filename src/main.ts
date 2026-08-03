@@ -8,8 +8,19 @@ import type { DayProgress, AnswerRecord } from "./state/save.ts";
 import { recordDayCompletion, deriveStats } from "./state/stats.ts";
 import { loadPlayerIdentity, createPlayerIdentity, renamePlayerIdentity } from "./state/player.ts";
 import { containsBannedWord } from "./game/moderation.ts";
-import { fetchReveal, submitDay, fetchLeaderboard, ApiError } from "./state/api.ts";
-import type { LeaderboardPeriod } from "./state/api.ts";
+import { fetchReveal, submitDay, fetchLeaderboard, fetchChallenge, ApiError } from "./state/api.ts";
+import type { Challenge, LeaderboardPeriod } from "./state/api.ts";
+import {
+  readChallengeTokenFromUrl,
+  clearChallengeParamFromUrl,
+  savePendingChallenge,
+  loadPendingChallenge,
+  clearPendingChallenge,
+  isChallengeLive,
+  saveOwnChallengeToken,
+  loadOwnChallengeToken,
+  buildChallengeUrl,
+} from "./state/challenge.ts";
 import {
   buildIntroScreen,
   buildQuestionScreen,
@@ -64,6 +75,10 @@ function mountMessageScreen(message: string, actionLabel: string, onAction: () =
 const save = loadSave();
 const today = todayLocalDateString();
 
+/** The score this session is playing against, if the player arrived via a
+ * ?c= link for today. Null once resolved/expired — see resolveIncomingChallenge. */
+let activeChallenge: Challenge | null = null;
+
 function effectiveReducedMotion(): boolean {
   return save.settings.reducedMotion || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
@@ -78,6 +93,7 @@ function showIntro(): void {
     streakCurrent: save.streak.current,
     dayState,
     isFirstEverPlay: !save.hasSeenTutorial,
+    challenge: activeChallenge,
     onPlay: () => void startTodayFlow(),
     onStats: showStats,
     onArchive: showArchive,
@@ -147,7 +163,7 @@ async function startTodayFlow(): Promise<void> {
   const questions = day.questionIds.map((id) => bank.getQuestion(id));
   await runQuestionFlow(questions, day, true);
   recordDayCompletion(save, today);
-  const percentile = await submitDayToLeaderboard(day);
+  const { percentile } = await submitDayToLeaderboard(day);
   showResults(today, day, false, percentile);
 }
 
@@ -170,7 +186,7 @@ function promptForPlayerName(): Promise<string> {
   });
 }
 
-async function submitDayToLeaderboard(day: DayProgress): Promise<number | null> {
+async function submitDayToLeaderboard(day: DayProgress): Promise<{ percentile: number | null }> {
   let identity = loadPlayerIdentity();
   if (!identity) {
     identity = createPlayerIdentity(await promptForPlayerName());
@@ -185,10 +201,11 @@ async function submitDayToLeaderboard(day: DayProgress): Promise<number | null> 
   });
   try {
     const result = await submitDay(identity.id, identity.name, day.date, bank.puzzleNumberForDate(day.date), answers);
-    return result.percentile;
+    if (result.challengeToken) saveOwnChallengeToken(day.date, result.challengeToken);
+    return { percentile: result.percentile };
   } catch {
     showToast("Couldn't save your score to the leaderboard, but your results are safe.");
-    return null;
+    return { percentile: null };
   }
 }
 
@@ -304,6 +321,10 @@ function showResults(dateStr: string, day: DayProgress, isPractice: boolean, per
   );
   const puzzleNumber = bank.puzzleNumberForDate(dateStr);
 
+  // A challenge only resolves against the real day it was issued for —
+  // never a practice replay, which isn't scored on equal terms.
+  const challenge = !isPractice && isChallengeLive(activeChallenge, dateStr) ? activeChallenge : null;
+
   const { el: screenEl } = buildResultsScreen({
     puzzleNumber,
     totalScore: total,
@@ -312,7 +333,8 @@ function showResults(dateStr: string, day: DayProgress, isPractice: boolean, per
     streakCurrent: save.streak.current,
     isPractice,
     percentile,
-    onShare: () => void handleShare(puzzleNumber, recap, verdict, total, percentile),
+    challenge,
+    onShare: () => void handleShare(dateStr, puzzleNumber, recap, verdict, total, percentile),
     onHome: showIntro,
     onStats: showStats,
     onArchive: showArchive,
@@ -322,6 +344,7 @@ function showResults(dateStr: string, day: DayProgress, isPractice: boolean, per
 }
 
 async function handleShare(
+  dateStr: string,
   puzzleNumber: number,
   recap: RecapItem[],
   verdict: string,
@@ -334,13 +357,45 @@ async function handleShare(
     verdict,
     total,
     percentile,
+    buildChallengeUrl(loadOwnChallengeToken(dateStr), window.location.origin),
   );
   const outcome = await shareResult(content);
   if (outcome === "copied") showToast("Copied to clipboard!");
   else if (outcome === "failed") showToast("Couldn't share — try again");
 }
 
-showIntro();
+/**
+ * Turns a ?c= link into an active challenge before the first render. A
+ * challenge for an earlier date is dropped rather than shown: the recipient
+ * would be playing a different puzzle, so the comparison would be meaningless.
+ */
+async function resolveIncomingChallenge(): Promise<void> {
+  const token = readChallengeTokenFromUrl();
+  if (token) {
+    clearChallengeParamFromUrl();
+    try {
+      const challenge = await fetchChallenge(token);
+      savePendingChallenge(challenge);
+    } catch {
+      // Bad or expired link — fall through to a normal visit rather than
+      // blocking play on someone else's broken URL.
+    }
+  }
+
+  const pending = loadPendingChallenge();
+  if (isChallengeLive(pending, today)) {
+    activeChallenge = pending;
+  } else if (pending) {
+    clearPendingChallenge();
+  }
+}
+
+async function boot(): Promise<void> {
+  await resolveIncomingChallenge();
+  showIntro();
+}
+
+void boot();
 
 // Only register in production — an active SW during `vite dev` fights HMR
 // by serving stale cached modules instead of the live-reloaded ones.

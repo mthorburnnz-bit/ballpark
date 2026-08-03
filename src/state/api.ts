@@ -58,6 +58,21 @@ export interface SubmitDayResult {
   total: number;
   alreadySubmitted: boolean;
   percentile: number | null;
+  /** Token for a shareable "beat my score" link, or null if minting failed. */
+  challengeToken: string | null;
+}
+
+/** A score someone else is challenging you to beat, resolved from a ?c= link. */
+export interface Challenge {
+  name: string;
+  date: string;
+  score: number;
+  puzzleNumber: number;
+}
+
+export async function fetchChallenge(token: string): Promise<Challenge> {
+  const res = await fetch(`/api/challenge?token=${encodeURIComponent(token)}`);
+  return parseOrThrow<Challenge>(res);
 }
 
 export async function submitDay(

@@ -554,6 +554,69 @@ svg {
   font-size: 0.95rem;
 }
 
+/* ---------- Challenge links ---------- */
+
+.challenge-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+}
+
+.challenge-banner-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.challenge-banner-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-accent);
+}
+
+.challenge-result {
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.challenge-result.state-won {
+  background: var(--color-hit-soft);
+}
+
+.challenge-result.state-tied {
+  background: var(--color-accent-soft);
+}
+
+.challenge-result.state-lost {
+  background: var(--color-paper-raised);
+}
+
+.challenge-result-headline {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.challenge-result.state-won .challenge-result-headline {
+  color: var(--color-hit);
+}
+
+.challenge-result.state-tied .challenge-result-headline {
+  color: var(--color-accent);
+}
+
+.challenge-result-detail {
+  margin-top: var(--space-1);
+  font-size: 0.88rem;
+  color: var(--color-ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
 .emoji-row {
   text-align: center;
   font-size: 1.8rem;

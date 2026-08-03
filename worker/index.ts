@@ -2,6 +2,7 @@ import bundleData from "./generated/content-bundle.json";
 import { scoreAnswer } from "../src/game/scoring.ts";
 import { containsBannedWord } from "../src/game/moderation.ts";
 import { computePercentile } from "../src/game/percentile.ts";
+import { encodeToken, isValidTokenFormat, TOKEN_LENGTH } from "../src/game/challenge.ts";
 import type { Question } from "../src/game/types.ts";
 
 export interface Env {
@@ -76,6 +77,12 @@ export default {
     }
     if (url.pathname === "/api/leaderboard" && request.method === "GET") {
       return handleLeaderboard(env, url.searchParams.get("period"));
+    }
+    if (url.pathname === "/api/challenge" && request.method === "GET") {
+      // Read-only lookup, hit once per opened share link — generous limit,
+      // just enough to stop someone brute-forcing the token space.
+      if (!(await checkRateLimit(env, "challenge", ip, 60, 600))) return tooManyRequests();
+      return handleChallenge(env, url.searchParams.get("token"));
     }
 
     return env.ASSETS.fetch(request);
@@ -319,7 +326,59 @@ async function handleSubmitDay(request: Request, env: Env): Promise<Response> {
     .first<{ total: number; lower: number }>();
   const percentile = computePercentile(percentileRow?.lower ?? 0, percentileRow?.total ?? 0);
 
-  return json({ total: persistedTotal, alreadySubmitted: !wasNewSubmission, percentile });
+  // Mint a share token for this player+date. INSERT OR IGNORE plus a
+  // read-back means a replay reuses the existing token rather than
+  // orphaning links already sent out — UNIQUE(player_id, date) enforces it.
+  await env.DB.prepare(
+    `INSERT OR IGNORE INTO challenges (token, player_id, date, created_at) VALUES (?1, ?2, ?3, ?4)`,
+  )
+    .bind(encodeToken(crypto.getRandomValues(new Uint8Array(TOKEN_LENGTH))), playerId, date, now)
+    .run();
+  const challengeRow = await env.DB.prepare(
+    `SELECT token FROM challenges WHERE player_id = ?1 AND date = ?2`,
+  )
+    .bind(playerId, date)
+    .first<{ token: string }>();
+
+  return json({
+    total: persistedTotal,
+    alreadySubmitted: !wasNewSubmission,
+    percentile,
+    challengeToken: challengeRow?.token ?? null,
+  });
+}
+
+interface ChallengeRow {
+  name: string;
+  date: string;
+  score: number;
+  puzzleNumber: number;
+}
+
+/**
+ * Resolves a share token to the score it represents, so a recipient sees
+ * "Mark scored 210 on puzzle #47" before they play. Everything returned is
+ * already public via the leaderboard — the token just saves the recipient
+ * from having to go find it.
+ */
+async function handleChallenge(env: Env, token: string | null): Promise<Response> {
+  if (typeof token !== "string" || !isValidTokenFormat(token)) {
+    return badRequest("invalid challenge token");
+  }
+
+  const row = await env.DB.prepare(
+    `SELECT p.name as name, c.date as date, ds.score as score, ds.puzzle_number as puzzleNumber
+     FROM challenges c
+     JOIN players p ON p.id = c.player_id
+     JOIN daily_scores ds ON ds.player_id = c.player_id AND ds.date = c.date
+     WHERE c.token = ?1`,
+  )
+    .bind(token)
+    .first<ChallengeRow>();
+
+  if (!row) return badRequest("challenge not found", 404);
+
+  return json(row);
 }
 
 interface LeaderboardRow {

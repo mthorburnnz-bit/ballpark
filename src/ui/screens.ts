@@ -1,7 +1,7 @@
 import type { PublicQuestion, Category } from "../game/types.ts";
 import type { AnswerRecord, SettingsState } from "../state/save.ts";
 import type { DerivedStats } from "../state/stats.ts";
-import type { LeaderboardEntry, LeaderboardPeriod } from "../state/api.ts";
+import type { Challenge, LeaderboardEntry, LeaderboardPeriod } from "../state/api.ts";
 import { containsBannedWord } from "../game/moderation.ts";
 import { RangeSlider } from "./slider.ts";
 import { formatNumber } from "./format.ts";
@@ -75,6 +75,8 @@ export interface IntroScreenProps {
   streakCurrent: number;
   dayState: "unplayed" | "inProgress" | "complete";
   isFirstEverPlay: boolean;
+  /** Set when the player arrived via a ?c= link for today's puzzle. */
+  challenge: Challenge | null;
   onPlay: () => void;
   onStats: () => void;
   onArchive: () => void;
@@ -95,6 +97,15 @@ export function buildIntroScreen(props: IntroScreenProps): HTMLDivElement {
   const puzzleLabel = el("div", "puzzle-number", `Puzzle #${props.puzzleNumber}`);
   card.appendChild(puzzleLabel);
 
+  if (props.challenge) {
+    const banner = el("div", "challenge-banner");
+    banner.appendChild(el("div", "challenge-banner-icon", "⚔️"));
+    banner.appendChild(
+      el("div", "challenge-banner-text", `${props.challenge.name} scored ${props.challenge.score}. Beat it.`),
+    );
+    card.appendChild(banner);
+  }
+
   const playBtn = el("button", "btn btn-primary");
   playBtn.type = "button";
   playBtn.textContent =
@@ -102,7 +113,9 @@ export function buildIntroScreen(props: IntroScreenProps): HTMLDivElement {
       ? "See today's results"
       : props.dayState === "inProgress"
         ? "Continue today's five"
-        : "Play today's five";
+        : props.challenge
+          ? "Accept the challenge"
+          : "Play today's five";
   playBtn.addEventListener("click", props.onPlay);
   card.appendChild(playBtn);
 
@@ -204,11 +217,31 @@ export interface ResultsScreenProps {
   streakCurrent: number;
   isPractice: boolean;
   percentile: number | null;
+  /** Set when this day was played in response to someone's ?c= link. */
+  challenge: Challenge | null;
   onShare: () => void;
   onHome: () => void;
   onStats: () => void;
   onArchive: () => void;
   onLeaderboard: () => void;
+}
+
+/** Resolves the challenge a shared link opened: did they beat the score or not. */
+function buildChallengeResult(challenge: Challenge, totalScore: number): HTMLDivElement {
+  const won = totalScore > challenge.score;
+  const tied = totalScore === challenge.score;
+  const box = el("div", `challenge-result ${won ? "state-won" : tied ? "state-tied" : "state-lost"}`);
+
+  const headline = won
+    ? `🏆 You beat ${challenge.name}!`
+    : tied
+      ? `🤝 Dead heat with ${challenge.name}`
+      : `${challenge.name}'s score stands`;
+  box.appendChild(el("div", "challenge-result-headline", headline));
+  box.appendChild(
+    el("div", "challenge-result-detail", `You ${totalScore} · ${challenge.name} ${challenge.score}`),
+  );
+  return box;
 }
 
 export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElement; shareBtn: HTMLButtonElement } {
@@ -256,7 +289,13 @@ export function buildResultsScreen(props: ResultsScreenProps): { el: HTMLDivElem
   shareBtn.type = "button";
   shareBtn.addEventListener("click", props.onShare);
 
-  screen.append(total, emojiRow, verdict, recapList, shareBtn);
+  screen.append(total, emojiRow, verdict);
+
+  if (props.challenge) {
+    screen.appendChild(buildChallengeResult(props.challenge, props.totalScore));
+  }
+
+  screen.append(recapList, shareBtn);
 
   if (props.isPractice) {
     screen.appendChild(el("div", "archive-note", "Practice run — doesn't affect your streak or stats."));
