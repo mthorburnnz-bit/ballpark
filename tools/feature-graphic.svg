@@ -1,0 +1,21 @@
+<svg width="1024" height="500" viewBox="0 0 1024 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="500" fill="#f6f0e4" />
+
+  <text x="512" y="196" text-anchor="middle" xml:space="preserve" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="92"><tspan fill="#211c15">Give or&#160;</tspan><tspan fill="#1d4e89">Take</tspan></text>
+
+  <text x="512" y="248" text-anchor="middle" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif" font-weight="600" font-size="30" fill="#625a4c">Set a range, not a number</text>
+
+  <rect x="404" y="300" width="216" height="52" rx="26" fill="#00d99b" />
+  <text x="512" y="334" text-anchor="middle" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif" font-weight="700" font-size="26" fill="#023d2d">Tight hit</text>
+
+  <line x1="512" y1="366" x2="512" y2="404" stroke="#00d99b" stroke-width="4" stroke-linecap="round" />
+  <circle cx="512" cy="356" r="14" fill="#00d99b" opacity="0.3" />
+  <circle cx="512" cy="356" r="8" fill="#00d99b" />
+
+  <line x1="212" y1="404" x2="812" y2="404" stroke="#ddd2bb" stroke-width="10" stroke-linecap="round" />
+  <rect x="332" y="396" width="220" height="16" rx="8" fill="#1d4e89" />
+  <circle cx="332" cy="404" r="24" fill="#211c15" stroke="#f6f0e4" stroke-width="6" />
+  <circle cx="552" cy="404" r="24" fill="#211c15" stroke="#f6f0e4" stroke-width="6" />
+
+  <text x="512" y="464" text-anchor="middle" font-family="-apple-system, 'Segoe UI', system-ui, sans-serif" font-weight="500" font-size="24" fill="#736d61">A new puzzle every day &#183; Free &#183; No login</text>
+</svg>
