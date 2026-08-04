@@ -1,0 +1,13 @@
+{
+  "id": "earth-diameter-km",
+  "prompt": "What is the diameter of the Earth at the equator, in kilometres?",
+  "value": 12742,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 2000,
+  "domainMax": 30000,
+  "step": 10,
+  "category": "science",
+  "funFact": "Earth isn't quite a sphere — it bulges at the equator, making it about 43 km wider through the middle than pole to pole.",
+  "source": "https://science.nasa.gov/earth/facts/"
+}

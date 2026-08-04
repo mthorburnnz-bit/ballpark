@@ -1,0 +1,13 @@
+{
+  "id": "credit-card-length-mm",
+  "prompt": "How long is a standard credit card, in millimetres?",
+  "value": 85.6,
+  "unit": "mm",
+  "scale": "linear",
+  "domainMin": 30,
+  "domainMax": 180,
+  "step": 0.1,
+  "category": "everyday",
+  "funFact": "The size is fixed by an international standard, which is why every card fits every wallet and every card reader worldwide.",
+  "source": "https://www.iso.org/standard/31432.html"
+}

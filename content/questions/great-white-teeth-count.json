@@ -1,0 +1,13 @@
+{
+  "id": "great-white-teeth-count",
+  "prompt": "About how many teeth does a great white shark have in its mouth at once?",
+  "value": 300,
+  "unit": "teeth",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 800,
+  "step": 5,
+  "category": "nature",
+  "funFact": "They're arranged in rows that rotate forward like a conveyor belt, and a shark may get through thousands in a lifetime.",
+  "source": "https://www.britannica.com/animal/white-shark"
+}

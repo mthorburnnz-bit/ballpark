@@ -1,0 +1,13 @@
+{
+  "id": "soccer-pitch-length-m",
+  "prompt": "About how long is a standard football (soccer) pitch, in metres?",
+  "value": 105,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 40,
+  "domainMax": 200,
+  "step": 1,
+  "category": "sport",
+  "funFact": "The laws allow a range rather than one exact size, so no two grounds need share the same dimensions.",
+  "source": "https://www.britannica.com/sports/football-soccer"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mandela-released-year",
+  "prompt": "In what year was Nelson Mandela released from prison?",
+  "value": 1990,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2010,
+  "step": 1,
+  "category": "history",
+  "funFact": "He had been imprisoned for 27 years, and was elected president just four years after walking free.",
+  "source": "https://www.britannica.com/biography/Nelson-Mandela"
+}

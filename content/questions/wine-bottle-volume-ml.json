@@ -1,0 +1,13 @@
+{
+  "id": "wine-bottle-volume-ml",
+  "prompt": "How much wine does a standard bottle hold, in millilitres?",
+  "value": 750,
+  "unit": "ml",
+  "scale": "linear",
+  "domainMin": 200,
+  "domainMax": 2000,
+  "step": 5,
+  "category": "everyday",
+  "funFact": "One theory is that it matched the lung capacity of a glassblower, who shaped each bottle in a single breath.",
+  "source": "https://www.britannica.com/topic/wine"
+}

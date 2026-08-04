@@ -1,0 +1,13 @@
+{
+  "id": "sydney-opera-house-opened-year",
+  "prompt": "In what year did the Sydney Opera House open?",
+  "value": 1973,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2010,
+  "step": 1,
+  "category": "history",
+  "funFact": "It was 10 years late and roughly 14 times over budget — and its architect had resigned and left Australia before it was finished.",
+  "source": "https://www.britannica.com/topic/Sydney-Opera-House"
+}

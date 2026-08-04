@@ -1,0 +1,13 @@
+{
+  "id": "baseball-base-distance-m",
+  "prompt": "How far apart are the bases on a baseball diamond, in metres?",
+  "value": 27.43,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 8,
+  "domainMax": 70,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "That's 90 feet, a figure barely touched since the 1850s and often called the most perfectly judged number in sport.",
+  "source": "https://www.britannica.com/sports/baseball"
+}

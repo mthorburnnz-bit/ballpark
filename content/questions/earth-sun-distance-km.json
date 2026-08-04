@@ -1,0 +1,13 @@
+{
+  "id": "earth-sun-distance-km",
+  "prompt": "About how far is the Earth from the Sun, in kilometres?",
+  "value": 149600000,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 10000000000,
+  "step": 1000000,
+  "category": "science",
+  "funFact": "Light takes just over eight minutes to cover it, so you always see the Sun as it was eight minutes ago.",
+  "source": "https://science.nasa.gov/sun/facts/"
+}

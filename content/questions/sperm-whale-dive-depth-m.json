@@ -1,0 +1,13 @@
+{
+  "id": "sperm-whale-dive-depth-m",
+  "prompt": "How deep can a sperm whale dive, in metres?",
+  "value": 2000,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 300,
+  "domainMax": 4000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "They hunt giant squid in complete darkness at those depths, holding their breath for up to 90 minutes.",
+  "source": "https://www.britannica.com/animal/sperm-whale"
+}

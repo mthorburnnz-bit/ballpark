@@ -1,0 +1,13 @@
+{
+  "id": "blue-whale-tongue-weight-kg",
+  "prompt": "About how much does a blue whale's tongue weigh, in kilograms?",
+  "value": 2700,
+  "unit": "kg",
+  "scale": "linear",
+  "domainMin": 300,
+  "domainMax": 6000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "The tongue alone weighs about as much as an adult elephant.",
+  "source": "https://www.britannica.com/animal/blue-whale"
+}

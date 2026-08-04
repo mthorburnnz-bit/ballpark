@@ -1,0 +1,14 @@
+{
+  "id": "three-gorges-dam-cost-usd",
+  "prompt": "About how much did the Three Gorges Dam cost, in US dollars, by its 2012 completion?",
+  "value": 30000000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000000000,
+  "domainMax": 1000000000000,
+  "step": 100000000,
+  "category": "money",
+  "asOf": "2012",
+  "funFact": "Filling the reservoir displaced over a million people and submerged more than a thousand towns and villages.",
+  "source": "https://www.britannica.com/topic/Three-Gorges-Dam"
+}

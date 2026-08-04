@@ -1,0 +1,13 @@
+{
+  "id": "spanish-armada-year",
+  "prompt": "In what year did the Spanish Armada sail against England?",
+  "value": 1588,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1400,
+  "domainMax": 1800,
+  "step": 1,
+  "category": "history",
+  "funFact": "Storms destroyed more of the fleet than the English navy did — many ships were wrecked trying to escape around Scotland and Ireland.",
+  "source": "https://www.britannica.com/topic/Spanish-Armada"
+}

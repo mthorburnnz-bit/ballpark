@@ -1,0 +1,14 @@
+{
+  "id": "most-expensive-car-auction-usd",
+  "prompt": "How much did the most expensive car ever sold at auction fetch in 2022, in US dollars?",
+  "value": 142000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 10000000000,
+  "step": 1000000,
+  "category": "money",
+  "asOf": "2022",
+  "funFact": "It was a 1955 Mercedes-Benz 300 SLR Uhlenhaut Coupé — one of only two ever built, and previously never for sale.",
+  "source": "https://www.guinnessworldrecords.com/world-records/most-expensive-car-sold-at-auction"
+}

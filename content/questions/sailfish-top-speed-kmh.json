@@ -1,13 +1,13 @@
 {
   "id": "sailfish-top-speed-kmh",
-  "prompt": "What is the top speed of a sailfish, widely considered the fastest fish in the ocean, in km/h?",
+  "prompt": "How fast can a sailfish swim, in kilometres per hour?",
   "value": 110,
   "unit": "km/h",
   "scale": "linear",
-  "domainMin": 10,
-  "domainMax": 300,
+  "domainMin": 20,
+  "domainMax": 200,
   "step": 1,
   "category": "nature",
-  "funFact": "Its sail-like dorsal fin isn't just for show — folding it down is thought to help reduce drag during high-speed bursts.",
+  "funFact": "It's widely called the fastest fish in the ocean, though measuring a sprinting fish in open water is notoriously unreliable.",
   "source": "https://www.britannica.com/animal/sailfish"
 }

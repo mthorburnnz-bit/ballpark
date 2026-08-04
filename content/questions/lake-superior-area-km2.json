@@ -1,0 +1,13 @@
+{
+  "id": "lake-superior-area-km2",
+  "prompt": "What is the surface area of Lake Superior, in square kilometres?",
+  "value": 82100,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 5000,
+  "domainMax": 1000000,
+  "step": 1000,
+  "category": "geography",
+  "funFact": "It's the largest freshwater lake in the world by surface area, and holds enough water to cover both North and South America a foot deep.",
+  "source": "https://www.britannica.com/place/Lake-Superior"
+}

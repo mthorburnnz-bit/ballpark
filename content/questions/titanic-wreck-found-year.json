@@ -1,0 +1,13 @@
+{
+  "id": "titanic-wreck-found-year",
+  "prompt": "In what year was the wreck of the Titanic located?",
+  "value": 1985,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1930,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "The search was partly cover for a classified US Navy mission to survey two sunken nuclear submarines.",
+  "source": "https://www.britannica.com/topic/Titanic"
+}

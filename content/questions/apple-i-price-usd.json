@@ -1,0 +1,14 @@
+{
+  "id": "apple-i-price-usd",
+  "prompt": "What was the retail price of the Apple I computer in 1976, in US dollars?",
+  "value": 666.66,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 50,
+  "domainMax": 10000,
+  "step": 1,
+  "category": "money",
+  "asOf": "1976",
+  "funFact": "Wozniak picked the price because he liked repeating digits, and later said he had no idea it read as a biblical reference.",
+  "source": "https://www.britannica.com/topic/Apple-Inc"
+}

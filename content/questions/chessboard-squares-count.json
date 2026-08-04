@@ -1,0 +1,13 @@
+{
+  "id": "chessboard-squares-count",
+  "prompt": "How many squares are there on a chessboard?",
+  "value": 64,
+  "unit": "squares",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 150,
+  "step": 1,
+  "category": "sport",
+  "funFact": "The legend of doubling grains of rice on each square ends with more rice than humanity has ever grown.",
+  "source": "https://www.britannica.com/topic/chess"
+}

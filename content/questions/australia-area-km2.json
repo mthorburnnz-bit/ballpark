@@ -1,0 +1,13 @@
+{
+  "id": "australia-area-km2",
+  "prompt": "What is the land area of Australia, in square kilometres?",
+  "value": 7692000,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 500000,
+  "domainMax": 50000000,
+  "step": 10000,
+  "category": "geography",
+  "funFact": "It's the only country that is also a continent, and it's wider east to west than the distance from London to Moscow.",
+  "source": "https://www.britannica.com/place/Australia"
+}

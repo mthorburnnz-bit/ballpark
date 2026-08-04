@@ -1,0 +1,13 @@
+{
+  "id": "human-hand-bones-count",
+  "prompt": "How many bones are there in one human hand and wrist?",
+  "value": 27,
+  "unit": "bones",
+  "scale": "linear",
+  "domainMin": 8,
+  "domainMax": 60,
+  "step": 1,
+  "category": "science",
+  "funFact": "Both hands together hold over a quarter of all the bones in your body.",
+  "source": "https://www.britannica.com/science/human-skeleton"
+}

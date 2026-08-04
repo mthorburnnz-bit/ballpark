@@ -1,0 +1,13 @@
+{
+  "id": "galapagos-tortoise-lifespan-years",
+  "prompt": "About how long can a Galápagos tortoise live, in years?",
+  "value": 100,
+  "unit": "years",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 250,
+  "step": 1,
+  "category": "nature",
+  "funFact": "One tortoise taken from the islands by Darwin's voyage era reportedly lived until 2006, in an Australian zoo.",
+  "source": "https://www.britannica.com/animal/Galapagos-tortoise"
+}

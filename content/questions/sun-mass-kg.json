@@ -1,0 +1,13 @@
+{
+  "id": "sun-mass-kg",
+  "prompt": "What is the mass of the Sun, in kilograms?",
+  "value": 1.989e+30,
+  "unit": "kg",
+  "scale": "log",
+  "domainMin": 1e+26,
+  "domainMax": 1e+34,
+  "step": 1e+28,
+  "category": "science",
+  "funFact": "It accounts for about 99.86% of all the mass in the solar system — everything else is rounding error.",
+  "source": "https://science.nasa.gov/sun/facts/"
+}

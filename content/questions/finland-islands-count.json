@@ -1,0 +1,13 @@
+{
+  "id": "finland-islands-count",
+  "prompt": "About how many islands does Finland have?",
+  "value": 188000,
+  "unit": "islands",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 10000000,
+  "step": 1000,
+  "category": "geography",
+  "funFact": "It has even more lakes than islands — around 188,000 of each, which is how it earned the name the land of a thousand lakes.",
+  "source": "https://www.britannica.com/place/Finland"
+}

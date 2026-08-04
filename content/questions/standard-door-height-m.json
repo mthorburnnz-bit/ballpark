@@ -1,0 +1,13 @@
+{
+  "id": "standard-door-height-m",
+  "prompt": "About how tall is a standard interior doorway, in metres?",
+  "value": 2.03,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 4,
+  "step": 0.01,
+  "category": "everyday",
+  "funFact": "That's 6 feet 8 inches — chosen to clear the tallest people comfortably while still fitting standard wall framing.",
+  "source": "https://www.britannica.com/technology/door"
+}

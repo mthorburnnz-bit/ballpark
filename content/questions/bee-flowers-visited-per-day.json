@@ -1,0 +1,13 @@
+{
+  "id": "bee-flowers-visited-per-day",
+  "prompt": "About how many flowers does a honeybee visit in a day?",
+  "value": 2000,
+  "unit": "flowers",
+  "scale": "log",
+  "domainMin": 50,
+  "domainMax": 100000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "A single bee produces about a twelfth of a teaspoon of honey in her entire life.",
+  "source": "https://www.britannica.com/animal/honeybee"
+}

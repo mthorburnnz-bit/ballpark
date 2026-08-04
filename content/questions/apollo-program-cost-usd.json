@@ -1,0 +1,14 @@
+{
+  "id": "apollo-program-cost-usd",
+  "prompt": "About how much did the Apollo program cost in total, in US dollars, as reported through 1973?",
+  "value": 25400000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000000000,
+  "domainMax": 1000000000000,
+  "step": 100000000,
+  "category": "money",
+  "asOf": "1973",
+  "funFact": "At its peak the program employed around 400,000 people, and consumed roughly 4% of the entire US federal budget.",
+  "source": "https://www.nasa.gov/history/"
+}

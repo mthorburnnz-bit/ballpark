@@ -1,0 +1,13 @@
+{
+  "id": "danube-length-km",
+  "prompt": "About how long is the Danube?",
+  "value": 2850,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 500,
+  "domainMax": 5000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "It passes through or borders ten countries — more than any other river in the world.",
+  "source": "https://www.britannica.com/place/Danube-River"
+}

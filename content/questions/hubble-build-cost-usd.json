@@ -1,0 +1,14 @@
+{
+  "id": "hubble-build-cost-usd",
+  "prompt": "About how much did it cost to build and launch the Hubble Space Telescope, in US dollars, as of 1990?",
+  "value": 1500000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 100000000,
+  "domainMax": 100000000000,
+  "step": 10000000,
+  "category": "money",
+  "asOf": "1990",
+  "funFact": "Five separate servicing missions followed, and the running total over its lifetime is many times the original build cost.",
+  "source": "https://science.nasa.gov/mission/hubble/"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "grand-canyon-length-km",
+  "prompt": "How long is the Grand Canyon?",
+  "value": 446,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 1000,
+  "step": 5,
+  "category": "geography",
+  "funFact": "The rock at the bottom is nearly two billion years old — close to half the age of the Earth itself.",
+  "source": "https://www.nps.gov/grca/learn/nature/grand-canyon-geology.htm"
+}

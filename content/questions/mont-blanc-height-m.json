@@ -1,0 +1,13 @@
+{
+  "id": "mont-blanc-height-m",
+  "prompt": "How tall is Mont Blanc, in metres?",
+  "value": 4808,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1000,
+  "domainMax": 8000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "Its exact height is re-surveyed every couple of years, because the snow and ice cap on the summit grows and shrinks by metres.",
+  "source": "https://www.britannica.com/place/Mont-Blanc-mountain-Europe"
+}

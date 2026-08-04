@@ -1,0 +1,13 @@
+{
+  "id": "rosetta-stone-found-year",
+  "prompt": "In what year was the Rosetta Stone discovered?",
+  "value": 1799,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1650,
+  "domainMax": 1900,
+  "step": 1,
+  "category": "history",
+  "funFact": "It took another 23 years to crack the hieroglyphs, because scholars first had to accept they were partly phonetic rather than purely symbolic.",
+  "source": "https://www.britannica.com/topic/Rosetta-Stone"
+}

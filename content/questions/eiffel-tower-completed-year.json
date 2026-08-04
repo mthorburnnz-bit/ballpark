@@ -1,0 +1,13 @@
+{
+  "id": "eiffel-tower-completed-year",
+  "prompt": "In what year was the Eiffel Tower completed?",
+  "value": 1889,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1750,
+  "domainMax": 1950,
+  "step": 1,
+  "category": "history",
+  "funFact": "It was meant to be dismantled after 20 years, and survived mainly because it turned out to be a superb radio antenna.",
+  "source": "https://www.britannica.com/topic/Eiffel-Tower-Paris-France"
+}

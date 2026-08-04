@@ -1,0 +1,13 @@
+{
+  "id": "rugby-league-team-size",
+  "prompt": "How many players are on the field per team in rugby league?",
+  "value": 13,
+  "unit": "players",
+  "scale": "linear",
+  "domainMin": 5,
+  "domainMax": 25,
+  "step": 1,
+  "category": "sport",
+  "funFact": "The split from rugby union in 1895 was about paying working-class players for missed shifts, not about the rules — those diverged later.",
+  "source": "https://www.britannica.com/sports/rugby-league"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "earth-circumference-km",
+  "prompt": "What is the Earth's circumference at the equator, in kilometres?",
+  "value": 40075,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 10000,
+  "domainMax": 80000,
+  "step": 25,
+  "category": "science",
+  "funFact": "Eratosthenes estimated this to within a few percent around 240 BC, using shadows in two Egyptian cities and some geometry.",
+  "source": "https://science.nasa.gov/earth/facts/"
+}

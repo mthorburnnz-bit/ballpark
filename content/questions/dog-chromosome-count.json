@@ -1,0 +1,13 @@
+{
+  "id": "dog-chromosome-count",
+  "prompt": "How many chromosomes does a domestic dog have?",
+  "value": 78,
+  "unit": "chromosomes",
+  "scale": "linear",
+  "domainMin": 10,
+  "domainMax": 150,
+  "step": 1,
+  "category": "science",
+  "funFact": "That's more than twice the human count, and it's the same number as a wolf's — which is why the two can interbreed.",
+  "source": "https://www.britannica.com/animal/dog"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "minutes-in-a-week",
+  "prompt": "How many minutes are there in a week?",
+  "value": 10080,
+  "unit": "minutes",
+  "scale": "linear",
+  "domainMin": 2000,
+  "domainMax": 25000,
+  "step": 10,
+  "category": "everyday",
+  "funFact": "It's a suspiciously round number, and it's why 10,080 shows up so often in project planning and time-budgeting advice.",
+  "source": "https://www.britannica.com/science/time"
+}

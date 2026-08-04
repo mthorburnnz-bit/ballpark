@@ -1,0 +1,13 @@
+{
+  "id": "giant-panda-weight-kg",
+  "prompt": "About how much does an adult giant panda weigh, in kilograms?",
+  "value": 100,
+  "unit": "kg",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 250,
+  "step": 1,
+  "category": "nature",
+  "funFact": "They have a carnivore's digestive system but eat almost only bamboo, so they must spend up to 14 hours a day eating.",
+  "source": "https://www.britannica.com/animal/giant-panda"
+}

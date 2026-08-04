@@ -1,0 +1,13 @@
+{
+  "id": "shipping-container-length-m",
+  "prompt": "How long is a standard forty-foot shipping container, in metres?",
+  "value": 12.19,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 3,
+  "domainMax": 30,
+  "step": 0.01,
+  "category": "everyday",
+  "funFact": "Standardising the box in the 1950s cut cargo handling costs by well over 90% and arguably did more for globalisation than any trade treaty.",
+  "source": "https://www.britannica.com/technology/containerization"
+}

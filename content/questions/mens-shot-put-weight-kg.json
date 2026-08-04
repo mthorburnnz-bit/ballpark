@@ -1,0 +1,13 @@
+{
+  "id": "mens-shot-put-weight-kg",
+  "prompt": "How heavy is the men's Olympic shot put, in kilograms?",
+  "value": 7.26,
+  "unit": "kg",
+  "scale": "linear",
+  "domainMin": 2,
+  "domainMax": 20,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "That's exactly 16 pounds, a weight inherited from Scottish Highland games stone-throwing contests.",
+  "source": "https://www.britannica.com/sports/shot-put"
+}

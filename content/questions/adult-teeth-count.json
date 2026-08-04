@@ -1,0 +1,13 @@
+{
+  "id": "adult-teeth-count",
+  "prompt": "How many teeth does a full adult set have?",
+  "value": 32,
+  "unit": "teeth",
+  "scale": "linear",
+  "domainMin": 10,
+  "domainMax": 70,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Four of them are wisdom teeth, which a growing share of people are simply born without.",
+  "source": "https://www.britannica.com/science/tooth-anatomy"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "london-underground-stations",
+  "prompt": "How many stations does the London Underground have?",
+  "value": 272,
+  "unit": "stations",
+  "scale": "linear",
+  "domainMin": 80,
+  "domainMax": 600,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Despite the name, well over half the network runs above ground.",
+  "source": "https://www.britannica.com/topic/London-Underground"
+}

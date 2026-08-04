@@ -1,0 +1,13 @@
+{
+  "id": "giant-squid-length-m",
+  "prompt": "About how long can a giant squid grow, in metres?",
+  "value": 13,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 3,
+  "domainMax": 40,
+  "step": 0.5,
+  "category": "nature",
+  "funFact": "Nobody photographed a live one in its natural habitat until 2004 — they were known mostly from corpses and whale stomachs.",
+  "source": "https://www.britannica.com/animal/giant-squid"
+}

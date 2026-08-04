@@ -1,0 +1,13 @@
+{
+  "id": "mount-fuji-height-m",
+  "prompt": "How tall is Mount Fuji, in metres?",
+  "value": 3776,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1000,
+  "domainMax": 7000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "It's an active volcano — its last eruption, in 1707, dropped ash on Tokyo about 100 km away.",
+  "source": "https://www.britannica.com/place/Mount-Fuji"
+}

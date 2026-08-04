@@ -1,0 +1,13 @@
+{
+  "id": "domino-set-tiles-count",
+  "prompt": "How many tiles are in a standard double-six domino set?",
+  "value": 28,
+  "unit": "tiles",
+  "scale": "linear",
+  "domainMin": 8,
+  "domainMax": 70,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "It's every possible pairing of zero through six, including doubles — which is why the count is 28 and not 49.",
+  "source": "https://www.britannica.com/topic/dominoes"
+}

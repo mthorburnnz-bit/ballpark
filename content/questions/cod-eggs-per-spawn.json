@@ -1,0 +1,13 @@
+{
+  "id": "cod-eggs-per-spawn",
+  "prompt": "How many eggs can a large female cod release in one spawning?",
+  "value": 5000000,
+  "unit": "eggs",
+  "scale": "log",
+  "domainMin": 10000,
+  "domainMax": 1000000000,
+  "step": 10000,
+  "category": "nature",
+  "funFact": "Almost none survive — on average just a couple make it to adulthood, which is exactly why she lays so many.",
+  "source": "https://www.britannica.com/animal/cod"
+}

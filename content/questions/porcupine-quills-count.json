@@ -1,0 +1,13 @@
+{
+  "id": "porcupine-quills-count",
+  "prompt": "About how many quills does a porcupine have?",
+  "value": 30000,
+  "unit": "quills",
+  "scale": "log",
+  "domainMin": 500,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "nature",
+  "funFact": "They can't be shot out, despite the myth — they detach on contact, and each is barbed so it works its way inward.",
+  "source": "https://www.britannica.com/animal/porcupine"
+}

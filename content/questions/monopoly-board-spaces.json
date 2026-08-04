@@ -1,0 +1,13 @@
+{
+  "id": "monopoly-board-spaces",
+  "prompt": "How many spaces are there on a Monopoly board?",
+  "value": 40,
+  "unit": "spaces",
+  "scale": "linear",
+  "domainMin": 12,
+  "domainMax": 100,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "The game began as The Landlord's Game, designed to demonstrate how rent extraction impoverishes everyone but the landlord.",
+  "source": "https://www.britannica.com/topic/Monopoly-game"
+}

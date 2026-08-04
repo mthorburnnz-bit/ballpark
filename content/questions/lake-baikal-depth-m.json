@@ -1,13 +1,13 @@
 {
   "id": "lake-baikal-depth-m",
-  "prompt": "How deep is Lake Baikal in Russia, the world's deepest lake, in metres?",
+  "prompt": "How deep is Lake Baikal at its deepest point, in metres?",
   "value": 1642,
   "unit": "m",
   "scale": "linear",
-  "domainMin": 0,
+  "domainMin": 200,
   "domainMax": 3000,
-  "step": 1,
+  "step": 10,
   "category": "geography",
-  "funFact": "It holds roughly 20% of the world's unfrozen fresh water — more than all five of North America's Great Lakes combined.",
+  "funFact": "It holds about a fifth of all the unfrozen fresh water on Earth — more than all five North American Great Lakes combined.",
   "source": "https://www.britannica.com/place/Lake-Baikal"
 }

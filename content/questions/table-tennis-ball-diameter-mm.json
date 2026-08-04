@@ -1,0 +1,13 @@
+{
+  "id": "table-tennis-ball-diameter-mm",
+  "prompt": "What is the diameter of a table tennis ball, in millimetres?",
+  "value": 40,
+  "unit": "mm",
+  "scale": "linear",
+  "domainMin": 10,
+  "domainMax": 100,
+  "step": 1,
+  "category": "sport",
+  "funFact": "It was enlarged from 38 mm in 2000 specifically to slow rallies down and make the sport easier to follow on television.",
+  "source": "https://www.britannica.com/sports/table-tennis"
+}

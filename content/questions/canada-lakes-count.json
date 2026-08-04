@@ -1,0 +1,13 @@
+{
+  "id": "canada-lakes-count",
+  "prompt": "Roughly how many lakes are there in Canada?",
+  "value": 2000000,
+  "unit": "lakes",
+  "scale": "log",
+  "domainMin": 10000,
+  "domainMax": 1000000000,
+  "step": 10000,
+  "category": "geography",
+  "funFact": "Canada holds more lake area than the rest of the world combined — about 60% of all the lakes on Earth.",
+  "source": "https://www.britannica.com/place/Canada"
+}

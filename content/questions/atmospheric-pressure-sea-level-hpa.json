@@ -1,0 +1,13 @@
+{
+  "id": "atmospheric-pressure-sea-level-hpa",
+  "prompt": "What is standard atmospheric pressure at sea level, in hectopascals?",
+  "value": 1013,
+  "unit": "hPa",
+  "scale": "linear",
+  "domainMin": 500,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "science",
+  "funFact": "That's about 10 tonnes of air pressing on every square metre — you don't feel it because the pressure inside you matches.",
+  "source": "https://www.britannica.com/science/atmospheric-pressure"
+}

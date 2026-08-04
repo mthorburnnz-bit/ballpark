@@ -1,0 +1,13 @@
+{
+  "id": "cricket-pitch-length-m",
+  "prompt": "How long is a cricket pitch, from wicket to wicket, in metres?",
+  "value": 20.12,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 5,
+  "domainMax": 50,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "It's exactly one chain — an old surveyor's unit of 22 yards, which is also why a chain fits ten times into a furlong.",
+  "source": "https://www.britannica.com/sports/cricket-sport"
+}

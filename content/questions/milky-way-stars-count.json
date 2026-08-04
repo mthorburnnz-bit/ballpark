@@ -1,0 +1,13 @@
+{
+  "id": "milky-way-stars-count",
+  "prompt": "Roughly how many stars are in the Milky Way?",
+  "value": 100000000000,
+  "unit": "stars",
+  "scale": "log",
+  "domainMin": 100000000,
+  "domainMax": 100000000000000,
+  "step": 1000000000,
+  "category": "science",
+  "funFact": "Nobody has counted them — the estimate comes from weighing the galaxy by how fast it rotates, then dividing by an average star.",
+  "source": "https://science.nasa.gov/universe/galaxies/"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "golf-hole-diameter-mm",
+  "prompt": "What is the diameter of a golf hole, in millimetres?",
+  "value": 108,
+  "unit": "mm",
+  "scale": "linear",
+  "domainMin": 40,
+  "domainMax": 250,
+  "step": 1,
+  "category": "sport",
+  "funFact": "The size traces back to a piece of drainpipe used at St Andrews in 1829 — the standard was set by whatever pipe was handy.",
+  "source": "https://www.britannica.com/sports/golf"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "printing-press-invented-year",
+  "prompt": "Around what year did Gutenberg introduce the movable-type printing press in Europe?",
+  "value": 1440,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1200,
+  "domainMax": 1700,
+  "step": 1,
+  "category": "history",
+  "funFact": "Within 50 years there were printing presses in over 200 European cities, and more books had been printed than scribes had copied in the previous thousand years.",
+  "source": "https://www.britannica.com/biography/Johannes-Gutenberg"
+}

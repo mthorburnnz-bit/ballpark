@@ -1,0 +1,13 @@
+{
+  "id": "statue-of-liberty-dedicated-year",
+  "prompt": "In what year was the Statue of Liberty dedicated?",
+  "value": 1886,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1780,
+  "domainMax": 1950,
+  "step": 1,
+  "category": "history",
+  "funFact": "It arrived from France in 214 crates, and its copper skin is only about as thick as two stacked coins.",
+  "source": "https://www.britannica.com/topic/Statue-of-Liberty"
+}

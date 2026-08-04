@@ -1,0 +1,13 @@
+{
+  "id": "speed-of-sound-water-ms",
+  "prompt": "How fast does sound travel through water, in metres per second?",
+  "value": 1480,
+  "unit": "m/s",
+  "scale": "linear",
+  "domainMin": 500,
+  "domainMax": 3000,
+  "step": 10,
+  "category": "science",
+  "funFact": "That's more than four times its speed in air, which is why whale calls can carry for hundreds of kilometres.",
+  "source": "https://www.britannica.com/science/sound-physics/The-speed-of-sound"
+}

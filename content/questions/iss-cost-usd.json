@@ -1,0 +1,14 @@
+{
+  "id": "iss-cost-usd",
+  "prompt": "About how much has the International Space Station cost in total, in US dollars, as of the 2010s?",
+  "value": 150000000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000000000,
+  "domainMax": 10000000000000,
+  "step": 1000000000,
+  "category": "money",
+  "asOf": "2010s",
+  "funFact": "It's routinely described as the most expensive single object ever built, assembled from modules launched over more than a decade.",
+  "source": "https://www.nasa.gov/international-space-station/"
+}

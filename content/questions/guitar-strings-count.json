@@ -1,0 +1,13 @@
+{
+  "id": "guitar-strings-count",
+  "prompt": "How many strings does a standard guitar have?",
+  "value": 6,
+  "unit": "strings",
+  "scale": "linear",
+  "domainMin": 2,
+  "domainMax": 16,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Six became standard in the 1800s — earlier guitars often had pairs of strings, like a mandolin.",
+  "source": "https://www.britannica.com/art/guitar"
+}

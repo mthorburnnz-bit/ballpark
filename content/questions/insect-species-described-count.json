@@ -1,0 +1,13 @@
+{
+  "id": "insect-species-described-count",
+  "prompt": "Roughly how many insect species have been formally described?",
+  "value": 1000000,
+  "unit": "species",
+  "scale": "log",
+  "domainMin": 10000,
+  "domainMax": 100000000,
+  "step": 10000,
+  "category": "nature",
+  "funFact": "Estimates of how many remain undescribed run to several million — most of the animal kingdom is still unnamed.",
+  "source": "https://www.britannica.com/animal/insect"
+}

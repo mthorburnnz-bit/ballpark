@@ -1,0 +1,13 @@
+{
+  "id": "uk-women-equal-vote-year",
+  "prompt": "In what year did women in the UK gain the vote on equal terms with men?",
+  "value": 1928,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1850,
+  "domainMax": 1980,
+  "step": 1,
+  "category": "history",
+  "funFact": "Some women had won the vote a decade earlier, in 1918, but only if they were over 30 and met a property qualification.",
+  "source": "https://www.britannica.com/topic/woman-suffrage"
+}

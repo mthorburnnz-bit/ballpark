@@ -1,0 +1,13 @@
+{
+  "id": "playing-cards-deck-count",
+  "prompt": "How many cards are in a standard deck, excluding jokers?",
+  "value": 52,
+  "unit": "cards",
+  "scale": "linear",
+  "domainMin": 15,
+  "domainMax": 120,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Shuffle one properly and you have almost certainly produced an order no deck has ever been in before, anywhere.",
+  "source": "https://www.britannica.com/topic/playing-card"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "trans-canada-highway-length-km",
+  "prompt": "About how long is the Trans-Canada Highway, in kilometres?",
+  "value": 7821,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 2000,
+  "domainMax": 15000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "It's among the longest national highways in the world, running from the Atlantic to the Pacific through every province.",
+  "source": "https://www.britannica.com/topic/Trans-Canada-Highway"
+}

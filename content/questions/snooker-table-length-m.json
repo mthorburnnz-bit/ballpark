@@ -1,0 +1,13 @@
+{
+  "id": "snooker-table-length-m",
+  "prompt": "How long is a full-size snooker table, in metres?",
+  "value": 3.57,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 1,
+  "domainMax": 8,
+  "step": 0.01,
+  "category": "sport",
+  "funFact": "That's 12 feet — and with 22 balls on the table, a maximum break of 147 requires potting 36 of them in the right order.",
+  "source": "https://www.britannica.com/sports/snooker"
+}

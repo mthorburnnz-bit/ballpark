@@ -1,0 +1,13 @@
+{
+  "id": "lightning-temperature-c",
+  "prompt": "About how hot is a lightning bolt, in degrees Celsius?",
+  "value": 30000,
+  "unit": "°C",
+  "scale": "linear",
+  "domainMin": 5000,
+  "domainMax": 60000,
+  "step": 100,
+  "category": "science",
+  "funFact": "That's around five times hotter than the Sun's surface — the thunder is air exploding outward from the sudden heat.",
+  "source": "https://www.britannica.com/science/lightning-meteorology"
+}

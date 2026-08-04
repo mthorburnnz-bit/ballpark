@@ -1,0 +1,13 @@
+{
+  "id": "netball-team-size",
+  "prompt": "How many players from one team are on court in netball?",
+  "value": 7,
+  "unit": "players",
+  "scale": "linear",
+  "domainMin": 3,
+  "domainMax": 15,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Each position is restricted to certain thirds of the court, so only two of the seven are allowed to shoot.",
+  "source": "https://www.britannica.com/sports/netball"
+}

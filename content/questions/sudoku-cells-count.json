@@ -1,0 +1,13 @@
+{
+  "id": "sudoku-cells-count",
+  "prompt": "How many cells are there on a standard Sudoku grid?",
+  "value": 81,
+  "unit": "cells",
+  "scale": "linear",
+  "domainMin": 25,
+  "domainMax": 200,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Mathematicians proved in 2012 that no valid Sudoku can have fewer than 17 starting clues and still have one solution.",
+  "source": "https://www.britannica.com/topic/sudoku"
+}

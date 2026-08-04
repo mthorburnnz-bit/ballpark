@@ -1,0 +1,13 @@
+{
+  "id": "channel-tunnel-opened-year",
+  "prompt": "In what year did the Channel Tunnel open?",
+  "value": 1994,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1930,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "Its undersea section is the longest in the world, and serious proposals for a cross-Channel tunnel date back to 1802.",
+  "source": "https://www.britannica.com/topic/Channel-Tunnel"
+}

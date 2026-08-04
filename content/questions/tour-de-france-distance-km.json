@@ -1,0 +1,13 @@
+{
+  "id": "tour-de-france-distance-km",
+  "prompt": "About how far do riders cover in a modern Tour de France, in kilometres?",
+  "value": 3500,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 800,
+  "domainMax": 7000,
+  "step": 10,
+  "category": "sport",
+  "funFact": "Riders burn roughly 120,000 calories over the three weeks — about the same as eating 250 Big Macs.",
+  "source": "https://www.britannica.com/sports/Tour-de-France"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "mens-110m-hurdle-height-m",
+  "prompt": "How high is a hurdle in the men's 110 metres hurdles, in metres?",
+  "value": 1.067,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 0.4,
+  "domainMax": 2,
+  "step": 0.001,
+  "category": "sport",
+  "funFact": "They're weighted to tip over forward — knocking one down costs you time but no longer disqualifies you.",
+  "source": "https://www.britannica.com/sports/hurdles-race"
+}

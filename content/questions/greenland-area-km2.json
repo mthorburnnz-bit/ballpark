@@ -1,0 +1,13 @@
+{
+  "id": "greenland-area-km2",
+  "prompt": "What is the area of Greenland, in square kilometres?",
+  "value": 2166000,
+  "unit": "km²",
+  "scale": "log",
+  "domainMin": 100000,
+  "domainMax": 10000000,
+  "step": 10000,
+  "category": "geography",
+  "funFact": "Roughly 80% of it is covered by ice sheet, so almost the entire population lives on a thin ribbon of ice-free coast.",
+  "source": "https://www.britannica.com/place/Greenland"
+}

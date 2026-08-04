@@ -1,0 +1,14 @@
+{
+  "id": "first-super-bowl-ad-cost-usd",
+  "prompt": "About how much did a 30-second advert cost at the first Super Bowl in 1967, in US dollars?",
+  "value": 37500,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000,
+  "domainMax": 1000000,
+  "step": 100,
+  "category": "money",
+  "asOf": "1967",
+  "funFact": "The same slot now costs well over a hundred times as much, and the adverts themselves have become a reason people watch.",
+  "source": "https://www.britannica.com/sports/Super-Bowl"
+}

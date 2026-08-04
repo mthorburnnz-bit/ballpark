@@ -1,0 +1,13 @@
+{
+  "id": "soviet-union-dissolved-year",
+  "prompt": "In what year was the Soviet Union formally dissolved?",
+  "value": 1991,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1940,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "Fifteen independent countries appeared essentially overnight, and the Soviet flag came down over the Kremlin on Christmas Day.",
+  "source": "https://www.britannica.com/place/Soviet-Union"
+}

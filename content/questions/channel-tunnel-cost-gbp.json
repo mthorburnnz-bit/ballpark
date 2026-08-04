@@ -1,0 +1,14 @@
+{
+  "id": "channel-tunnel-cost-gbp",
+  "prompt": "About how much did the Channel Tunnel cost to build, in pounds, by its completion in 1994?",
+  "value": 4650000000,
+  "unit": "£",
+  "scale": "log",
+  "domainMin": 100000000,
+  "domainMax": 1000000000000,
+  "step": 10000000,
+  "category": "money",
+  "asOf": "1994",
+  "funFact": "It came in around 80% over budget, and the company that built it went through financial restructuring more than once.",
+  "source": "https://www.britannica.com/topic/Channel-Tunnel"
+}

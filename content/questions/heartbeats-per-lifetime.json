@@ -1,0 +1,13 @@
+{
+  "id": "heartbeats-per-lifetime",
+  "prompt": "Roughly how many times does a human heart beat in an average lifetime?",
+  "value": 2500000000,
+  "unit": "beats",
+  "scale": "log",
+  "domainMin": 10000000,
+  "domainMax": 1000000000000,
+  "step": 10000000,
+  "category": "science",
+  "funFact": "Across mammals the total is oddly consistent — mice beat fast and die young, whales beat slowly and live long, landing near the same lifetime count.",
+  "source": "https://www.britannica.com/science/heart-anatomy"
+}

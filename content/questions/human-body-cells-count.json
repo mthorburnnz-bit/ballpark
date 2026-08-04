@@ -1,0 +1,13 @@
+{
+  "id": "human-body-cells-count",
+  "prompt": "Roughly how many cells are there in an adult human body?",
+  "value": 37000000000000,
+  "unit": "cells",
+  "scale": "log",
+  "domainMin": 1000000000,
+  "domainMax": 100000000000000000,
+  "step": 1000000000000,
+  "category": "science",
+  "funFact": "Cells are outnumbered by the bacteria living in and on you — though the ratio is closer to 1:1 than the 10:1 often repeated.",
+  "source": "https://www.britannica.com/science/cell-biology"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "cd-diameter-mm",
+  "prompt": "What is the diameter of a compact disc, in millimetres?",
+  "value": 120,
+  "unit": "mm",
+  "scale": "linear",
+  "domainMin": 40,
+  "domainMax": 300,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "A popular story says the size was set so Beethoven's Ninth Symphony would fit on one disc.",
+  "source": "https://www.britannica.com/technology/compact-disc"
+}

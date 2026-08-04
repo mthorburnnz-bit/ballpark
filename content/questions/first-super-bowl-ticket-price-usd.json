@@ -1,0 +1,14 @@
+{
+  "id": "first-super-bowl-ticket-price-usd",
+  "prompt": "About how much did a ticket to the first Super Bowl cost in 1967, in US dollars?",
+  "value": 12,
+  "unit": "$",
+  "scale": "linear",
+  "domainMin": 2,
+  "domainMax": 40,
+  "step": 0.5,
+  "category": "money",
+  "asOf": "1967",
+  "funFact": "Even at that price the stadium didn't sell out — around a third of the seats sat empty.",
+  "source": "https://www.britannica.com/sports/Super-Bowl"
+}

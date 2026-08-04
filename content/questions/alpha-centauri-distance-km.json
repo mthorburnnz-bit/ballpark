@@ -1,0 +1,13 @@
+{
+  "id": "alpha-centauri-distance-km",
+  "prompt": "About how far away is Alpha Centauri, in kilometres?",
+  "value": 41000000000000,
+  "unit": "km",
+  "scale": "log",
+  "domainMin": 10000000000,
+  "domainMax": 100000000000000000,
+  "step": 100000000000,
+  "category": "science",
+  "funFact": "It's the closest star system to us, and even at the speed of Voyager 1 the trip would take over 70,000 years.",
+  "source": "https://science.nasa.gov/universe/stars/"
+}

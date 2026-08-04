@@ -1,0 +1,13 @@
+{
+  "id": "rubiks-cube-combinations",
+  "prompt": "How many possible arrangements does a 3x3 Rubik's Cube have?",
+  "value": 43252003274489860000,
+  "unit": "arrangements",
+  "scale": "log",
+  "domainMin": 1000000000000,
+  "domainMax": 1e+26,
+  "step": 1000000000000000000,
+  "category": "everyday",
+  "funFact": "Despite that number, any arrangement can be solved in 20 moves or fewer — a limit proved by computer in 2010 and nicknamed God's number.",
+  "source": "https://www.britannica.com/topic/Rubiks-Cube"
+}

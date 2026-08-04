@@ -1,0 +1,14 @@
+{
+  "id": "burj-khalifa-cost-usd",
+  "prompt": "About how much did it cost to build the Burj Khalifa, in US dollars, as of its 2010 opening?",
+  "value": 1500000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 100000000,
+  "domainMax": 100000000000,
+  "step": 10000000,
+  "category": "money",
+  "asOf": "2010",
+  "funFact": "The building's concrete had to be poured at night and chilled with ice, because Dubai's daytime heat would have weakened it.",
+  "source": "https://www.britannica.com/topic/Burj-Khalifa"
+}

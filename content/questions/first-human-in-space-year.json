@@ -1,0 +1,13 @@
+{
+  "id": "first-human-in-space-year",
+  "prompt": "In what year did the first human travel into space?",
+  "value": 1961,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "Yuri Gagarin's flight lasted 108 minutes, and he ejected and parachuted down separately from his capsule.",
+  "source": "https://www.britannica.com/biography/Yuri-Gagarin"
+}

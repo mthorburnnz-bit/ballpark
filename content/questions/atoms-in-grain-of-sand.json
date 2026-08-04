@@ -1,0 +1,13 @@
+{
+  "id": "atoms-in-grain-of-sand",
+  "prompt": "Roughly how many atoms are in a single grain of sand?",
+  "value": 50000000000000000000,
+  "unit": "atoms",
+  "scale": "log",
+  "domainMin": 100000000000000,
+  "domainMax": 1e+25,
+  "step": 1000000000000000000,
+  "category": "science",
+  "funFact": "There are more atoms in that one grain than there are grains of sand on all the beaches of Earth.",
+  "source": "https://www.britannica.com/science/atom"
+}

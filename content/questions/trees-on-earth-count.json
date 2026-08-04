@@ -1,0 +1,13 @@
+{
+  "id": "trees-on-earth-count",
+  "prompt": "Roughly how many trees are there on Earth?",
+  "value": 3000000000000,
+  "unit": "trees",
+  "scale": "log",
+  "domainMin": 1000000000,
+  "domainMax": 10000000000000000,
+  "step": 10000000000,
+  "category": "nature",
+  "funFact": "A 2015 study revised the estimate up nearly eightfold — and also found that humans remove about 15 billion trees a year.",
+  "source": "https://www.nature.com/articles/nature14967"
+}

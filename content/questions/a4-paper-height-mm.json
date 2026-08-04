@@ -1,0 +1,13 @@
+{
+  "id": "a4-paper-height-mm",
+  "prompt": "How tall is a sheet of A4 paper, in millimetres?",
+  "value": 297,
+  "unit": "mm",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 600,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Every A size has the same shape, so folding A4 in half gives you A5 exactly — the ratio is the square root of two.",
+  "source": "https://www.iso.org/standard/36631.html"
+}

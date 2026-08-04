@@ -1,0 +1,13 @@
+{
+  "id": "greenland-shark-lifespan-years",
+  "prompt": "How long can a Greenland shark live, in years?",
+  "value": 400,
+  "unit": "years",
+  "scale": "log",
+  "domainMin": 20,
+  "domainMax": 2000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "They're the longest-lived vertebrates known, and don't reach breeding age until around 150 — older than most countries' constitutions.",
+  "source": "https://www.britannica.com/animal/Greenland-shark"
+}

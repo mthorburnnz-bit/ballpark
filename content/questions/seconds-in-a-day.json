@@ -1,0 +1,13 @@
+{
+  "id": "seconds-in-a-day",
+  "prompt": "How many seconds are there in a day?",
+  "value": 86400,
+  "unit": "seconds",
+  "scale": "log",
+  "domainMin": 5000,
+  "domainMax": 2000000,
+  "step": 100,
+  "category": "everyday",
+  "funFact": "Occasionally there are 86,401 — a leap second is added when Earth's rotation drifts out of step with atomic clocks.",
+  "source": "https://www.britannica.com/science/leap-second"
+}

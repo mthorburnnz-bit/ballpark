@@ -1,0 +1,13 @@
+{
+  "id": "hubble-launched-year",
+  "prompt": "In what year was the Hubble Space Telescope launched?",
+  "value": 1990,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1950,
+  "domainMax": 2020,
+  "step": 1,
+  "category": "history",
+  "funFact": "Its main mirror was ground to the wrong shape, and astronauts had to fly up in 1993 to fit what amounted to a pair of corrective glasses.",
+  "source": "https://science.nasa.gov/mission/hubble/"
+}

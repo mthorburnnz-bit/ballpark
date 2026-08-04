@@ -1,0 +1,13 @@
+{
+  "id": "hummingbird-wingbeats-per-second",
+  "prompt": "About how many times per second does a hummingbird beat its wings?",
+  "value": 50,
+  "unit": "beats/s",
+  "scale": "linear",
+  "domainMin": 10,
+  "domainMax": 150,
+  "step": 1,
+  "category": "nature",
+  "funFact": "They're the only birds that can fly backwards, and their hearts can exceed 1,200 beats per minute in flight.",
+  "source": "https://www.britannica.com/animal/hummingbird"
+}

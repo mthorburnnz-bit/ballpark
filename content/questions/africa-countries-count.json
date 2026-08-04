@@ -1,0 +1,13 @@
+{
+  "id": "africa-countries-count",
+  "prompt": "How many sovereign countries are there in Africa?",
+  "value": 54,
+  "unit": "countries",
+  "scale": "linear",
+  "domainMin": 10,
+  "domainMax": 100,
+  "step": 1,
+  "category": "geography",
+  "funFact": "That makes it the continent with the most countries — over a quarter of the UN's membership sits in Africa.",
+  "source": "https://www.britannica.com/place/Africa"
+}

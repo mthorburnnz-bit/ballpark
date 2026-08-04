@@ -1,0 +1,13 @@
+{
+  "id": "human-hair-diameter-micrometres",
+  "prompt": "About how thick is a human hair, in micrometres?",
+  "value": 70,
+  "unit": "µm",
+  "scale": "linear",
+  "domainMin": 15,
+  "domainMax": 160,
+  "step": 1,
+  "category": "science",
+  "funFact": "It's the go-to comparison for small things, yet hair thickness varies more than threefold between individuals.",
+  "source": "https://www.britannica.com/science/hair"
+}

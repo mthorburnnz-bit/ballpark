@@ -1,0 +1,13 @@
+{
+  "id": "keyboard-keys-count",
+  "prompt": "How many keys are on a full-size Windows keyboard?",
+  "value": 104,
+  "unit": "keys",
+  "scale": "linear",
+  "domainMin": 30,
+  "domainMax": 250,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "The QWERTY arrangement they sit in was designed for mechanical typewriters, and has outlived the problem it solved by 150 years.",
+  "source": "https://www.britannica.com/technology/typewriter"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "piano-strings-count",
+  "prompt": "About how many strings does a modern grand piano have?",
+  "value": 230,
+  "unit": "strings",
+  "scale": "linear",
+  "domainMin": 70,
+  "domainMax": 500,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "Most notes use two or three strings tuned together, which is why there are far more strings than the 88 keys.",
+  "source": "https://www.britannica.com/art/piano"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "championship-boxing-rounds",
+  "prompt": "How many rounds are there in a modern world championship boxing match?",
+  "value": 12,
+  "unit": "rounds",
+  "scale": "linear",
+  "domainMin": 3,
+  "domainMax": 30,
+  "step": 1,
+  "category": "sport",
+  "funFact": "It was cut from 15 to 12 in the 1980s on medical advice, after a fighter collapsed following a late-round bout.",
+  "source": "https://www.britannica.com/sports/boxing"
+}

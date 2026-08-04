@@ -1,0 +1,13 @@
+{
+  "id": "f1-grand-prix-distance-km",
+  "prompt": "What is the minimum race distance of a Formula 1 Grand Prix, in kilometres?",
+  "value": 305,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 100,
+  "domainMax": 700,
+  "step": 5,
+  "category": "sport",
+  "funFact": "Monaco is the deliberate exception, cut short because the circuit is so slow the full distance would take too long.",
+  "source": "https://www.britannica.com/sports/Formula-One-automobile-racing"
+}

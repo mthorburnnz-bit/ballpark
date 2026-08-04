@@ -1,0 +1,13 @@
+{
+  "id": "australia-federation-year",
+  "prompt": "In what year did the Australian colonies federate into a single nation?",
+  "value": 1901,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1800,
+  "domainMax": 1980,
+  "step": 1,
+  "category": "history",
+  "funFact": "The country existed for 26 years before it had a capital city to govern from — Canberra wasn't founded until 1913.",
+  "source": "https://www.britannica.com/place/Australia/Commonwealth-of-Australia"
+}

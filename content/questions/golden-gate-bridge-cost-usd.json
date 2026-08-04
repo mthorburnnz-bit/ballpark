@@ -1,0 +1,14 @@
+{
+  "id": "golden-gate-bridge-cost-usd",
+  "prompt": "About how much did the Golden Gate Bridge cost to build, in US dollars, when it opened in 1937?",
+  "value": 35000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 1000000,
+  "domainMax": 10000000000,
+  "step": 100000,
+  "category": "money",
+  "asOf": "1937",
+  "funFact": "It came in under budget, and the safety net strung beneath it saved 19 workers who became known as the Halfway to Hell Club.",
+  "source": "https://www.britannica.com/topic/Golden-Gate-Bridge"
+}

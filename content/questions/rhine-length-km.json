@@ -1,0 +1,13 @@
+{
+  "id": "rhine-length-km",
+  "prompt": "About how long is the Rhine?",
+  "value": 1230,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 200,
+  "domainMax": 3000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "It's one of the busiest waterways on Earth, carrying more freight than any other river in Europe.",
+  "source": "https://www.britannica.com/place/Rhine-River"
+}

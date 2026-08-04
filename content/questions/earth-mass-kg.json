@@ -1,0 +1,13 @@
+{
+  "id": "earth-mass-kg",
+  "prompt": "What is the mass of the Earth, in kilograms?",
+  "value": 5.97e+24,
+  "unit": "kg",
+  "scale": "log",
+  "domainMin": 1e+21,
+  "domainMax": 1e+28,
+  "step": 1e+22,
+  "category": "science",
+  "funFact": "It was first worked out in 1798 by measuring the faint gravitational pull between lead balls in a shed — an experiment precise enough to 'weigh the world'.",
+  "source": "https://science.nasa.gov/earth/facts/"
+}

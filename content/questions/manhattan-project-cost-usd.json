@@ -1,0 +1,14 @@
+{
+  "id": "manhattan-project-cost-usd",
+  "prompt": "About how much did the Manhattan Project cost, in US dollars, by 1945?",
+  "value": 2000000000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 10000000,
+  "domainMax": 1000000000000,
+  "step": 10000000,
+  "category": "money",
+  "asOf": "1945",
+  "funFact": "At its height it employed around 130,000 people, the vast majority of whom had no idea what they were building.",
+  "source": "https://www.britannica.com/event/Manhattan-Project"
+}

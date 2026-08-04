@@ -1,0 +1,13 @@
+{
+  "id": "bird-species-count",
+  "prompt": "About how many species of birds are there in the world?",
+  "value": 11000,
+  "unit": "species",
+  "scale": "log",
+  "domainMin": 500,
+  "domainMax": 200000,
+  "step": 100,
+  "category": "nature",
+  "funFact": "The count keeps rising without new birds being found — genetic work keeps splitting one species into several.",
+  "source": "https://www.britannica.com/animal/bird-animal"
+}

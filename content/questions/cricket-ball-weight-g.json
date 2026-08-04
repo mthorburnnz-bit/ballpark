@@ -1,0 +1,13 @@
+{
+  "id": "cricket-ball-weight-g",
+  "prompt": "About how much does a men's cricket ball weigh, in grams?",
+  "value": 160,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 400,
+  "step": 1,
+  "category": "sport",
+  "funFact": "The seam is stitched by hand in six rows, and bowlers polish one side deliberately so the ball swings through the air.",
+  "source": "https://www.britannica.com/sports/cricket-sport"
+}

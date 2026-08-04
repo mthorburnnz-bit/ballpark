@@ -1,0 +1,13 @@
+{
+  "id": "table-mountain-height-m",
+  "prompt": "How tall is Table Mountain, in metres?",
+  "value": 1085,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 200,
+  "domainMax": 2500,
+  "step": 5,
+  "category": "geography",
+  "funFact": "Its flat top is about 3 km end to end, and the cloud that regularly spills over the edge is known locally as the 'tablecloth'.",
+  "source": "https://www.britannica.com/place/Table-Mountain-mountain-South-Africa"
+}

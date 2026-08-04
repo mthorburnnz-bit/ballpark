@@ -1,0 +1,13 @@
+{
+  "id": "us-declaration-independence-year",
+  "prompt": "In what year was the United States Declaration of Independence adopted?",
+  "value": 1776,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1600,
+  "domainMax": 1900,
+  "step": 1,
+  "category": "history",
+  "funFact": "Most signatures weren't added on 4 July — the majority of delegates signed a formal copy nearly a month later.",
+  "source": "https://www.britannica.com/topic/Declaration-of-Independence"
+}

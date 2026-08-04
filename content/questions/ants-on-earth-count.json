@@ -1,0 +1,13 @@
+{
+  "id": "ants-on-earth-count",
+  "prompt": "Roughly how many ants are alive on Earth at any moment?",
+  "value": 20000000000000000,
+  "unit": "ants",
+  "scale": "log",
+  "domainMin": 1000000000000,
+  "domainMax": 1e+21,
+  "step": 100000000000000,
+  "category": "nature",
+  "funFact": "Their combined weight rivals that of all wild birds and mammals put together.",
+  "source": "https://www.britannica.com/animal/ant"
+}

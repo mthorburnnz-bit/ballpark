@@ -1,0 +1,13 @@
+{
+  "id": "scrabble-tiles-count",
+  "prompt": "How many letter tiles are in a standard English Scrabble set?",
+  "value": 100,
+  "unit": "tiles",
+  "scale": "linear",
+  "domainMin": 30,
+  "domainMax": 250,
+  "step": 1,
+  "category": "everyday",
+  "funFact": "The letter frequencies were worked out by counting letters on the front page of the New York Times.",
+  "source": "https://www.britannica.com/topic/Scrabble"
+}

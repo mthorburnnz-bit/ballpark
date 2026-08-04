@@ -1,0 +1,13 @@
+{
+  "id": "columbus-americas-year",
+  "prompt": "In what year did Columbus first reach the Americas?",
+  "value": 1492,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1300,
+  "domainMax": 1700,
+  "step": 1,
+  "category": "history",
+  "funFact": "He died still insisting he had reached Asia, and never accepted that he'd encountered a continent unknown to Europe.",
+  "source": "https://www.britannica.com/biography/Christopher-Columbus"
+}

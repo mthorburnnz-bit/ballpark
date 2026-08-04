@@ -210,6 +210,216 @@
       "penguin-species-count",
       "penicillin-discovery-year",
       "nobel-prize-amount-2024-sek"
+    ],
+    "2026-08-26": [
+      "sun-mass-kg",
+      "spanish-armada-year",
+      "first-super-bowl-ad-cost-usd",
+      "three-gorges-dam-cost-usd",
+      "greenland-shark-lifespan-years"
+    ],
+    "2026-08-27": [
+      "bee-flowers-visited-per-day",
+      "chile-length-km",
+      "giant-panda-weight-kg",
+      "human-hair-diameter-micrometres",
+      "earth-mass-kg"
+    ],
+    "2026-08-28": [
+      "finland-islands-count",
+      "domino-set-tiles-count",
+      "us-federal-minimum-wage-usd",
+      "mandela-released-year",
+      "championship-boxing-rounds"
+    ],
+    "2026-08-29": [
+      "apollo-program-cost-usd",
+      "australia-federation-year",
+      "tennis-net-centre-height-m",
+      "sun-surface-temperature-c",
+      "monopoly-properties-count"
+    ],
+    "2026-08-30": [
+      "greenland-area-km2",
+      "eiffel-tower-completed-year",
+      "mont-blanc-height-m",
+      "hubble-launched-year",
+      "channel-tunnel-cost-gbp"
+    ],
+    "2026-08-31": [
+      "canada-lakes-count",
+      "denali-height-m",
+      "first-apple-computer-year",
+      "human-hand-bones-count",
+      "basketball-hoop-diameter-cm"
+    ],
+    "2026-09-01": [
+      "sun-diameter-km",
+      "trans-canada-highway-length-km",
+      "tour-de-france-distance-km",
+      "lightning-temperature-c",
+      "panama-canal-length-km"
+    ],
+    "2026-09-02": [
+      "breaths-per-day-count",
+      "a4-paper-height-mm",
+      "cricket-pitch-length-m",
+      "rhine-length-km",
+      "earth-diameter-km"
+    ],
+    "2026-09-03": [
+      "wimbledon-balls-used-count",
+      "heaviest-pumpkin-kg",
+      "earth-circumference-km",
+      "guitar-strings-count",
+      "human-body-cells-count"
+    ],
+    "2026-09-04": [
+      "australia-area-km2",
+      "atmospheric-pressure-sea-level-hpa",
+      "uk-women-equal-vote-year",
+      "vatican-city-area-km2",
+      "piano-strings-count"
+    ],
+    "2026-09-05": [
+      "trees-on-earth-count",
+      "first-human-in-space-year",
+      "tennis-net-height-center-m",
+      "f1-grand-prix-distance-km",
+      "sydney-opera-house-opened-year"
+    ],
+    "2026-09-06": [
+      "salvator-mundi-price-usd",
+      "africa-countries-count",
+      "speed-of-sound-water-ms",
+      "concorde-first-flight-year",
+      "heartbeats-per-lifetime"
+    ],
+    "2026-09-07": [
+      "alpha-centauri-distance-km",
+      "printing-press-invented-year",
+      "netball-team-size",
+      "human-body-water-percent",
+      "sailfish-top-speed-kmh"
+    ],
+    "2026-09-08": [
+      "earth-age-years",
+      "dog-chromosome-count",
+      "first-email-sent-year",
+      "cd-diameter-mm",
+      "cricket-ball-weight-g"
+    ],
+    "2026-09-09": [
+      "earth-sun-distance-km",
+      "double-decker-bus-height-m",
+      "battle-of-hastings-year",
+      "ice-hockey-puck-weight-g",
+      "insect-species-described-count"
+    ],
+    "2026-09-10": [
+      "cod-eggs-per-spawn",
+      "mens-javelin-world-record-m",
+      "rugby-league-team-size",
+      "us-declaration-independence-year",
+      "rosetta-stone-found-year"
+    ],
+    "2026-09-11": [
+      "most-expensive-car-auction-usd",
+      "soccer-pitch-length-m",
+      "sloth-speed-kmh",
+      "lake-baikal-depth-m",
+      "galapagos-tortoise-lifespan-years"
+    ],
+    "2026-09-12": [
+      "atoms-in-grain-of-sand",
+      "pearl-harbor-attack-year",
+      "human-rib-pairs-count",
+      "golf-hole-diameter-mm",
+      "sperm-whale-dive-depth-m"
+    ],
+    "2026-09-13": [
+      "burj-khalifa-cost-usd",
+      "sudoku-cells-count",
+      "monopoly-board-spaces",
+      "kilimanjaro-height-m",
+      "bird-species-count"
+    ],
+    "2026-09-14": [
+      "apple-i-price-usd",
+      "mens-110m-hurdle-height-m",
+      "statue-of-liberty-dedicated-year",
+      "columbus-americas-year",
+      "table-tennis-ball-diameter-mm"
+    ],
+    "2026-09-15": [
+      "human-head-hairs-count",
+      "us-civil-war-end-year",
+      "olympic-diving-platform-height-m",
+      "first-nobel-prizes-year",
+      "shipping-container-length-m"
+    ],
+    "2026-09-16": [
+      "porcupine-quills-count",
+      "titanic-wreck-found-year",
+      "credit-card-length-mm",
+      "la-paz-altitude-m",
+      "ants-on-earth-count"
+    ],
+    "2026-09-17": [
+      "octopus-species-count",
+      "snooker-table-length-m",
+      "mens-shot-put-weight-kg",
+      "berlin-wall-built-year",
+      "minutes-in-a-week"
+    ],
+    "2026-09-18": [
+      "golden-gate-bridge-cost-usd",
+      "table-mountain-height-m",
+      "bald-eagle-wingspan-m",
+      "adult-teeth-count",
+      "mount-fuji-height-m"
+    ],
+    "2026-09-19": [
+      "hubble-build-cost-usd",
+      "danube-length-km",
+      "wine-bottle-volume-ml",
+      "london-underground-stations",
+      "nyc-subway-fare-2024-usd"
+    ],
+    "2026-09-20": [
+      "rubiks-cube-combinations",
+      "channel-tunnel-opened-year",
+      "playing-cards-deck-count",
+      "lake-superior-area-km2",
+      "soviet-union-dissolved-year"
+    ],
+    "2026-09-21": [
+      "milky-way-stars-count",
+      "keyboard-keys-count",
+      "grand-canyon-length-km",
+      "scrabble-tiles-count",
+      "hummingbird-wingbeats-per-second"
+    ],
+    "2026-09-22": [
+      "iss-cost-usd",
+      "giant-squid-length-m",
+      "amazon-river-length-km",
+      "moon-diameter-km",
+      "chessboard-squares-count"
+    ],
+    "2026-09-23": [
+      "manhattan-project-cost-usd",
+      "housefly-lifespan-days",
+      "first-super-bowl-ticket-price-usd",
+      "standard-door-height-m",
+      "seconds-in-a-day"
+    ],
+    "2026-09-24": [
+      "pacific-ocean-area-km2",
+      "ostrich-egg-weight-g",
+      "great-white-teeth-count",
+      "uk-minimum-wage-2024-gbp",
+      "baseball-base-distance-m"
     ]
   }
 }

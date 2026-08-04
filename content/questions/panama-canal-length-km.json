@@ -1,0 +1,13 @@
+{
+  "id": "panama-canal-length-km",
+  "prompt": "How long is the Panama Canal?",
+  "value": 82,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 200,
+  "step": 1,
+  "category": "geography",
+  "funFact": "Ships are lifted 26 metres above sea level by locks, cross a man-made lake, then are lowered back down the other side.",
+  "source": "https://www.britannica.com/topic/Panama-Canal"
+}

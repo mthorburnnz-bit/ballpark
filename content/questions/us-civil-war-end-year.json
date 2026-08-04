@@ -1,0 +1,13 @@
+{
+  "id": "us-civil-war-end-year",
+  "prompt": "In what year did the American Civil War end?",
+  "value": 1865,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1750,
+  "domainMax": 1950,
+  "step": 1,
+  "category": "history",
+  "funFact": "News travelled so slowly that the last Confederate force in the field didn't surrender until late June, months after the main surrender in April.",
+  "source": "https://www.britannica.com/event/American-Civil-War"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "first-apple-computer-year",
+  "prompt": "In what year was the Apple I computer released?",
+  "value": 1976,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1920,
+  "domainMax": 2010,
+  "step": 1,
+  "category": "history",
+  "funFact": "It was sold as a bare circuit board — buyers had to supply their own case, keyboard and power supply.",
+  "source": "https://www.britannica.com/topic/Apple-Inc"
+}

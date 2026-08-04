@@ -1,0 +1,14 @@
+{
+  "id": "salvator-mundi-price-usd",
+  "prompt": "How much did Salvator Mundi sell for at auction in 2017, in US dollars?",
+  "value": 450300000,
+  "unit": "$",
+  "scale": "log",
+  "domainMin": 10000000,
+  "domainMax": 10000000000,
+  "step": 1000000,
+  "category": "money",
+  "asOf": "2017",
+  "funFact": "It remains the most expensive painting ever sold, and experts still argue over how much of it Leonardo actually painted.",
+  "source": "https://www.britannica.com/topic/Salvator-Mundi"
+}

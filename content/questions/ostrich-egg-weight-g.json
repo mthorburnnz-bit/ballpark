@@ -1,0 +1,13 @@
+{
+  "id": "ostrich-egg-weight-g",
+  "prompt": "About how much does an ostrich egg weigh, in grams?",
+  "value": 1400,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 200,
+  "domainMax": 3000,
+  "step": 10,
+  "category": "nature",
+  "funFact": "It's the largest egg of any living bird, but the smallest relative to the mother — about 1.5% of her body weight.",
+  "source": "https://www.britannica.com/animal/ostrich-bird"
+}

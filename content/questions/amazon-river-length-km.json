@@ -1,0 +1,13 @@
+{
+  "id": "amazon-river-length-km",
+  "prompt": "About how long is the Amazon River?",
+  "value": 6400,
+  "unit": "km",
+  "scale": "linear",
+  "domainMin": 1000,
+  "domainMax": 10000,
+  "step": 50,
+  "category": "geography",
+  "funFact": "Whether it or the Nile is longest is still argued over — the answer depends on which distant headwater stream you agree to call the source.",
+  "source": "https://www.britannica.com/place/Amazon-River"
+}

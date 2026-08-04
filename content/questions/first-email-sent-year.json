@@ -1,0 +1,13 @@
+{
+  "id": "first-email-sent-year",
+  "prompt": "In what year was the first networked email sent?",
+  "value": 1971,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2010,
+  "step": 1,
+  "category": "history",
+  "funFact": "Ray Tomlinson chose the @ symbol simply because it was already on the keyboard and wasn't used in anyone's name.",
+  "source": "https://www.britannica.com/technology/email"
+}

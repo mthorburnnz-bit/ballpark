@@ -1,0 +1,13 @@
+{
+  "id": "human-body-water-percent",
+  "prompt": "About what percentage of an adult human body is water?",
+  "value": 60,
+  "unit": "%",
+  "scale": "linear",
+  "domainMin": 20,
+  "domainMax": 90,
+  "step": 1,
+  "category": "science",
+  "funFact": "It varies a lot by tissue — bone is around a third water, while the lungs are closer to 80%.",
+  "source": "https://www.usgs.gov/special-topics/water-science-school/science/water-you-water-and-human-body"
+}

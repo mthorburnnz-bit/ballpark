@@ -1,0 +1,13 @@
+{
+  "id": "battle-of-hastings-year",
+  "prompt": "In what year was the Battle of Hastings fought?",
+  "value": 1066,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 900,
+  "domainMax": 1300,
+  "step": 1,
+  "category": "history",
+  "funFact": "The Norman victory replaced England's ruling class so thoroughly that it reshaped the English language — which is why we farm 'cows' but eat 'beef'.",
+  "source": "https://www.britannica.com/event/Battle-of-Hastings"
+}

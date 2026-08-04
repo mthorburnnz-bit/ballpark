@@ -1,0 +1,13 @@
+{
+  "id": "berlin-wall-built-year",
+  "prompt": "In what year was the Berlin Wall built?",
+  "value": 1961,
+  "unit": "year",
+  "scale": "linear",
+  "domainMin": 1900,
+  "domainMax": 2000,
+  "step": 1,
+  "category": "history",
+  "funFact": "It went up almost overnight — barbed wire was strung across the city in the early hours of a Sunday morning.",
+  "source": "https://www.britannica.com/topic/Berlin-Wall"
+}

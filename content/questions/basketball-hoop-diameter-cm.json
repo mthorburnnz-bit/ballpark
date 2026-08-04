@@ -1,0 +1,13 @@
+{
+  "id": "basketball-hoop-diameter-cm",
+  "prompt": "What is the inside diameter of a basketball hoop, in centimetres?",
+  "value": 45.7,
+  "unit": "cm",
+  "scale": "linear",
+  "domainMin": 15,
+  "domainMax": 100,
+  "step": 0.1,
+  "category": "sport",
+  "funFact": "A regulation ball is about 24 cm across, so two balls could pass through side by side with room to spare.",
+  "source": "https://www.britannica.com/sports/basketball"
+}

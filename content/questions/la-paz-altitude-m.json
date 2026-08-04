@@ -1,0 +1,13 @@
+{
+  "id": "la-paz-altitude-m",
+  "prompt": "About how high above sea level is La Paz, Bolivia, in metres?",
+  "value": 3640,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 500,
+  "domainMax": 7000,
+  "step": 10,
+  "category": "geography",
+  "funFact": "The thin air means fires burn less fiercely there, and the city's fire risk is genuinely lower as a result.",
+  "source": "https://www.britannica.com/place/La-Paz-Bolivia"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "tennis-net-centre-height-m",
+  "prompt": "How high is a tennis net at the centre, in metres?",
+  "value": 0.914,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 0.3,
+  "domainMax": 2,
+  "step": 0.001,
+  "category": "sport",
+  "funFact": "It's higher at the posts than in the middle — the sag is deliberate, making down-the-middle shots slightly safer.",
+  "source": "https://www.britannica.com/sports/tennis"
+}

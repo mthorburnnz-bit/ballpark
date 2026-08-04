@@ -1,0 +1,13 @@
+{
+  "id": "human-head-hairs-count",
+  "prompt": "Roughly how many hairs are on an average human head?",
+  "value": 100000,
+  "unit": "hairs",
+  "scale": "log",
+  "domainMin": 5000,
+  "domainMax": 2000000,
+  "step": 1000,
+  "category": "everyday",
+  "funFact": "Losing up to about 100 a day is completely normal — each follicle cycles independently, so they don't all shed at once.",
+  "source": "https://www.britannica.com/science/hair"
+}

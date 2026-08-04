@@ -1,0 +1,13 @@
+{
+  "id": "ice-hockey-puck-weight-g",
+  "prompt": "About how much does an ice hockey puck weigh, in grams?",
+  "value": 170,
+  "unit": "g",
+  "scale": "linear",
+  "domainMin": 50,
+  "domainMax": 400,
+  "step": 1,
+  "category": "sport",
+  "funFact": "Pucks are frozen before games — a cold puck bounces less and slides more predictably on the ice.",
+  "source": "https://www.britannica.com/sports/ice-hockey"
+}

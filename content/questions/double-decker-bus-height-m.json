@@ -1,0 +1,13 @@
+{
+  "id": "double-decker-bus-height-m",
+  "prompt": "About how tall is a London double-decker bus, in metres?",
+  "value": 4.4,
+  "unit": "m",
+  "scale": "linear",
+  "domainMin": 2,
+  "domainMax": 9,
+  "step": 0.05,
+  "category": "everyday",
+  "funFact": "It's such a familiar yardstick that British news reports routinely measure whales, trees and floods in double-decker buses.",
+  "source": "https://www.britannica.com/technology/bus-vehicle"
+}

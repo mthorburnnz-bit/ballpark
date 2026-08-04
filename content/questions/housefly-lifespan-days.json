@@ -1,0 +1,13 @@
+{
+  "id": "housefly-lifespan-days",
+  "prompt": "About how long does an adult housefly live, in days?",
+  "value": 28,
+  "unit": "days",
+  "scale": "linear",
+  "domainMin": 5,
+  "domainMax": 80,
+  "step": 1,
+  "category": "nature",
+  "funFact": "In that time a single female can lay around 500 eggs, which is why fly populations explode so quickly in summer.",
+  "source": "https://www.britannica.com/animal/housefly"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "sun-surface-temperature-c",
+  "prompt": "About how hot is the Sun's surface, in degrees Celsius?",
+  "value": 5500,
+  "unit": "°C",
+  "scale": "linear",
+  "domainMin": 1000,
+  "domainMax": 15000,
+  "step": 50,
+  "category": "science",
+  "funFact": "The surface is the cool part — the corona above it is over a million degrees, and nobody fully agrees on why.",
+  "source": "https://science.nasa.gov/sun/facts/"
+}
