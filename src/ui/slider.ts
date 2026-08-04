@@ -1,6 +1,6 @@
 import type { PublicQuestion } from "../game/types.ts";
 import { toSliderSpace, fromSliderSpace, provisionalScore } from "../game/scoring.ts";
-import { formatNumber } from "./format.ts";
+import { formatNumber, formatTickNumber } from "./format.ts";
 import { computeTicks } from "./ticks.ts";
 
 export interface RangeSliderOptions {
@@ -223,12 +223,75 @@ export class RangeSlider {
   private renderTicks(): void {
     this.ticksEl.innerHTML = "";
     const ticks = computeTicks(this.q.domainMin, this.q.domainMax, this.q.scale);
+    const items: { el: HTMLSpanElement; fraction: number }[] = [];
     for (const tick of ticks) {
       const el = document.createElement("span");
       el.className = "rs-tick";
+      // The default center-anchor (translateX(-50%), set in CSS) makes a
+      // tick right at the track's start or end bleed half its label off
+      // the edge — worse the wider the label (bigger numbers, longer
+      // units). Anchor those two inward instead of centering them.
+      if (tick.fraction <= 0.01) el.classList.add("rs-tick-start");
+      else if (tick.fraction >= 0.99) el.classList.add("rs-tick-end");
       el.style.left = `${tick.fraction * 100}%`;
-      el.textContent = formatNumber(tick.value, this.q.unit);
+      el.textContent = formatTickNumber(tick.value, this.q.unit);
       this.ticksEl.appendChild(el);
+      items.push({ el, fraction: tick.fraction });
+    }
+    // The slider itself isn't attached to the document yet at construction
+    // time (the caller appends `this.el` right after `new RangeSlider(...)`
+    // returns) — measuring widths now would read zero for everything.
+    // Defer one frame so layout has actually happened by the time we measure.
+    requestAnimationFrame(() => this.hideCollidingTicks(items));
+  }
+
+  /**
+   * Drops middle tick labels that would visually overlap a neighbor, based
+   * on actual rendered width — computeTicks can only bound how many ticks
+   * it *hands back*, not whether their formatted text fits, since that
+   * depends on the unit and the magnitude of the value. The first and last
+   * tick (the domain bounds) are never dropped.
+   */
+  private hideCollidingTicks(items: { el: HTMLSpanElement; fraction: number }[]): void {
+    if (items.length <= 2) return;
+    const trackWidth = this.trackEl.getBoundingClientRect().width;
+    if (trackWidth === 0) return; // not laid out yet — nothing to measure against
+
+    const GAP = 6; // px of breathing room between adjacent labels
+    const boxOf = (item: { el: HTMLSpanElement; fraction: number }) => {
+      const width = item.el.getBoundingClientRect().width;
+      if (item.fraction <= 0.01) return { left: 0, right: width };
+      if (item.fraction >= 0.99) return { left: trackWidth - width, right: trackWidth };
+      const center = item.fraction * trackWidth;
+      return { left: center - width / 2, right: center + width / 2 };
+    };
+
+    const kept = [items[0]!];
+    let lastBox = boxOf(items[0]!);
+    for (let i = 1; i < items.length - 1; i++) {
+      const box = boxOf(items[i]!);
+      if (box.left < lastBox.right + GAP) {
+        items[i]!.el.remove();
+        continue;
+      }
+      kept.push(items[i]!);
+      lastBox = box;
+    }
+    const lastItem = items[items.length - 1]!;
+    kept.push(lastItem);
+
+    // A pass left-to-right can't see the fixed final tick coming, so a kept
+    // middle tick just before it can still collide with it — walk back from
+    // the end and drop any that do.
+    const lastBox2 = boxOf(lastItem);
+    for (let i = kept.length - 2; i >= 1; i--) {
+      const box = boxOf(kept[i]!);
+      if (box.right + GAP > lastBox2.left) {
+        kept[i]!.el.remove();
+        kept.splice(i, 1);
+      } else {
+        break;
+      }
     }
   }
 

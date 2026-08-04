@@ -35,3 +35,63 @@ export function formatQuestionValue(
   const primary = formatNumber(value, question.unit);
   return question.displayUnit ? `${primary} ${question.displayUnit}` : primary;
 }
+
+const COMPACT_SCALES: Array<{ exp: number; suffix: string }> = [
+  { exp: 15, suffix: "Q" },
+  { exp: 12, suffix: "T" },
+  { exp: 9, suffix: "B" },
+  { exp: 6, suffix: "M" },
+  { exp: 3, suffix: "K" },
+];
+
+const SUPERSCRIPT_DIGITS: Record<string, string> = {
+  "0": "⁰",
+  "1": "¹",
+  "2": "²",
+  "3": "³",
+  "4": "⁴",
+  "5": "⁵",
+  "6": "⁶",
+  "7": "⁷",
+  "8": "⁸",
+  "9": "⁹",
+};
+
+function toSuperscript(n: number): string {
+  return String(n)
+    .split("")
+    .map((d) => SUPERSCRIPT_DIGITS[d] ?? d)
+    .join("");
+}
+
+function compactMagnitude(value: number): string {
+  const exp = Math.floor(Math.log10(Math.abs(value)));
+  if (exp >= 18) {
+    // Past quadrillion, a named suffix stops being recognizable (content
+    // spans up to 1e26 — Rubik's cube combinations) — a power of ten reads
+    // better than either a wall of zeros or an obscure "sextillion".
+    return `10${toSuperscript(exp)}`;
+  }
+  const bucket = COMPACT_SCALES.find((s) => exp >= s.exp)!;
+  const scaled = value / Math.pow(10, bucket.exp);
+  const rounded = Math.round(scaled * 10) / 10;
+  const text = Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
+  return text + bucket.suffix;
+}
+
+/**
+ * Compact form for the small-print slider tick labels only — "10M" instead
+ * of "10,000,000". The two live readouts, the mid-slider "worth N pts"
+ * label, the recap, and share text all keep full precision via
+ * formatNumber; only these low-emphasis axis labels are small and numerous
+ * enough (up to 5 on a ~400px track) to collide once values get large.
+ */
+export function formatTickNumber(value: number, unit: string): string {
+  if (unit === "year" || Math.abs(value) < 1000) {
+    return formatNumber(value, unit);
+  }
+  const compact = compactMagnitude(value);
+  if (PREFIX_CURRENCY_UNITS.has(unit)) return unit + compact;
+  if (unit === "%") return compact + "%";
+  return compact + " " + unit;
+}

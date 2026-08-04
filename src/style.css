@@ -1236,6 +1236,17 @@ svg {
   white-space: nowrap;
 }
 
+/* The start/end ticks sit exactly at the track's edges — center-anchoring
+   them like the rest would bleed half the label off the track. Anchor
+   inward instead so long labels (big numbers, long units) stay flush. */
+.rs-tick-start {
+  transform: translateX(0);
+}
+
+.rs-tick-end {
+  transform: translateX(-100%);
+}
+
 .rs.rs-locked {
   opacity: 0.5;
   pointer-events: none;

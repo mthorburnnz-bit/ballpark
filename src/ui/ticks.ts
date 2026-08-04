@@ -67,6 +67,12 @@ function computeLogTicks(domainMin: number, domainMax: number): Tick[] {
   let chosen: number[];
   if (powersOfTen.length >= 4 && powersOfTen.length <= 6) {
     chosen = powersOfTen;
+  } else if (powersOfTen.length > 6) {
+    // A domain spanning many decades (some content spans 10+, e.g.
+    // 1e12-1e26) has one power of ten per decade — taking all of them
+    // crams that many labels onto the track, guaranteed to overlap.
+    // Downsample to a handful spread evenly across the list instead.
+    chosen = downsampleEvenly(powersOfTen, 5);
   } else if (withSubdivisions.length > 6) {
     // Too many candidates: prefer powers of ten, pad with subdivisions if too few.
     chosen = powersOfTen.length >= 4 ? powersOfTen : withSubdivisions.slice(0, 6);
@@ -75,6 +81,20 @@ function computeLogTicks(domainMin: number, domainMax: number): Tick[] {
   }
 
   return chosen.map((v) => ({ value: v, fraction: fractionOf(v, domainMin, domainMax, "log") }));
+}
+
+/** Picks `target` entries spread evenly by index, always keeping the first
+ * and last. Used to thin a too-long, already-sorted list of tick candidates. */
+function downsampleEvenly(values: number[], target: number): number[] {
+  if (values.length <= target) return values;
+  const lastIndex = values.length - 1;
+  const picked: number[] = [];
+  for (let i = 0; i < target; i++) {
+    const idx = Math.round((i * lastIndex) / (target - 1));
+    const v = values[idx]!;
+    if (picked[picked.length - 1] !== v) picked.push(v);
+  }
+  return picked;
 }
 
 export function computeTicks(domainMin: number, domainMax: number, scale: Scale): Tick[] {
