@@ -64,17 +64,19 @@ export default {
     // what the client actually used.
     const visitorScheme = request.headers.get("CF-Visitor");
     const isPlainHttp = url.protocol === "http:" || visitorScheme?.includes('"scheme":"http"');
-    if (isPlainHttp) {
-      url.protocol = "https:";
-      return Response.redirect(url.toString(), 301);
-    }
+    const isWww = url.hostname === "www.give-or-take.com";
 
-    // www and bare domain serve identical content — redirect to one canonical
-    // host so search engines consolidate ranking signal instead of splitting
-    // it across two URLs.
-    if (url.hostname === "www.give-or-take.com") {
-      url.hostname = "give-or-take.com";
-      return Response.redirect(url.toString(), 301);
+    // 301 is only safe for GET/HEAD — on a POST it lets the client drop the
+    // method and body. 308 preserves both, so API calls survive a redirect
+    // instead of silently arriving as a bodyless GET.
+    const redirectStatus = request.method === "GET" || request.method === "HEAD" ? 301 : 308;
+
+    if (isPlainHttp || isWww) {
+      // Fixed in one hop rather than chaining http->https->bare, which cost
+      // an extra round trip and an extra redirect for search engines to follow.
+      if (isPlainHttp) url.protocol = "https:";
+      if (isWww) url.hostname = "give-or-take.com";
+      return Response.redirect(url.toString(), redirectStatus);
     }
 
     if (url.pathname === "/api/reveal" && request.method === "POST") {

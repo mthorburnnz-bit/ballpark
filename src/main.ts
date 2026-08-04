@@ -44,7 +44,13 @@ document.getElementById("seo-fallback")?.remove();
 const appRoot = document.querySelector<HTMLDivElement>("#app")!;
 let shell: HTMLDivElement | null = null;
 
+/** Bumped on every screen mount. Lets a slow async task tell whether the
+ * player has navigated since it started, so it never clobbers the screen
+ * they're actually looking at. */
+let navGeneration = 0;
+
 function mountScreen(screenEl: HTMLElement): void {
+  navGeneration++;
   if (!shell) {
     appRoot.innerHTML = "";
     shell = document.createElement("div");
@@ -371,31 +377,45 @@ async function handleShare(
  */
 async function resolveIncomingChallenge(): Promise<void> {
   const token = readChallengeTokenFromUrl();
-  if (token) {
-    clearChallengeParamFromUrl();
-    try {
-      const challenge = await fetchChallenge(token);
-      savePendingChallenge(challenge);
-    } catch {
-      // Bad or expired link — fall through to a normal visit rather than
-      // blocking play on someone else's broken URL.
-    }
+  if (!token) return;
+
+  let challenge;
+  try {
+    challenge = await fetchChallenge(token);
+  } catch {
+    // Bad link, or the network was down. The ?c= param is deliberately left
+    // in place so a refresh retries instead of losing the challenge for good.
+    return;
   }
 
+  // Only drop the param once it's actually been resolved and stored.
+  clearChallengeParamFromUrl();
+  savePendingChallenge(challenge);
+  if (!isChallengeLive(challenge, today)) return;
+
+  activeChallenge = challenge;
+  // The player may have started playing while this was in flight — only
+  // repaint if they're still sitting on the screen we rendered.
+  if (navGeneration === generationAtBoot) showIntro();
+}
+
+let generationAtBoot = 0;
+
+function boot(): void {
+  // Render from local state first. Resolving a ?c= link needs the network,
+  // and awaiting it here would leave a blank page for as long as that took —
+  // on the exact entry path shared links use.
   const pending = loadPendingChallenge();
-  if (isChallengeLive(pending, today)) {
-    activeChallenge = pending;
-  } else if (pending) {
-    clearPendingChallenge();
-  }
-}
+  if (isChallengeLive(pending, today)) activeChallenge = pending;
+  else if (pending) clearPendingChallenge();
 
-async function boot(): Promise<void> {
-  await resolveIncomingChallenge();
   showIntro();
+  generationAtBoot = navGeneration;
+
+  void resolveIncomingChallenge();
 }
 
-void boot();
+boot();
 
 // Only register in production — an active SW during `vite dev` fights HMR
 // by serving stale cached modules instead of the live-reloaded ones.

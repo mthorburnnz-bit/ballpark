@@ -71,7 +71,12 @@ export interface Challenge {
 }
 
 export async function fetchChallenge(token: string): Promise<Challenge> {
-  const res = await fetch(`/api/challenge?token=${encodeURIComponent(token)}`);
+  // Bounded so a dead connection fails fast rather than leaving the incoming
+  // challenge unresolved indefinitely — the caller treats a failure as
+  // "no challenge" and the link can be retried by refreshing.
+  const res = await fetch(`/api/challenge?token=${encodeURIComponent(token)}`, {
+    signal: AbortSignal.timeout(8000),
+  });
   return parseOrThrow<Challenge>(res);
 }
 
