@@ -696,6 +696,10 @@ svg {
 .recap-detail {
   font-size: 0.82rem;
   color: var(--color-ink-soft);
+  /* Safety net for the same failure as the slider readouts: an extreme
+     value formats as one long unbreakable numeric run that could otherwise
+     push this card wider than the screen. */
+  overflow-wrap: break-word;
 }
 
 .streak-row {
@@ -1111,6 +1115,7 @@ svg {
   appearance: none;
   min-height: 44px;
   min-width: 44px;
+  width: 100%;
   background: var(--color-paper-raised);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-md);
@@ -1118,6 +1123,12 @@ svg {
   font-size: 1.15rem;
   font-weight: 800;
   cursor: pointer;
+  text-align: center;
+  /* A huge value ("100,000,000,000,000,000,000,000,000 arrangements") is
+     one unbreakable run with no internal spaces — without this, flexbox
+     can't shrink either button below that run's width, so the pair
+     overflows past each other instead of wrapping. */
+  overflow-wrap: break-word;
 }
 
 .rs-readout-btn:hover {
@@ -1126,7 +1137,8 @@ svg {
 
 .rs-readout-input {
   min-height: 44px;
-  width: 7ch;
+  width: 100%;
+  box-sizing: border-box;
   font-size: 1.15rem;
   font-weight: 800;
   border: 1px solid var(--color-accent);
@@ -1170,10 +1182,24 @@ svg {
 
 .rs-mid-label {
   position: absolute;
-  top: -34px;
-  left: 50%;
+  /* Now a direct child of .rs-track (not .rs-fill — see the comment in
+     slider.ts's buildDom), with `left` set per-render in JS to the
+     midpoint fraction between the two thumbs, so this only handles the
+     constant vertical offset and the horizontal centering on that point.
+     Anchored by `bottom`, not `top`: a long value wraps to 2+ lines (see
+     the wrapping rules below), and anchoring from the top let it grow
+     downward into the thumb row below. Anchoring from the bottom instead
+     means it always grows upward, away from the track, no matter how tall
+     it gets. */
+  bottom: calc(100% + 10px);
   transform: translateX(-50%);
-  white-space: nowrap;
+  /* A wide label (huge value, or a long unit) could otherwise run past the
+     track — or even the screen — especially with the range near an edge.
+     Wrap instead of bleeding off, capped to a sane width either way. */
+  max-width: min(88vw, 360px);
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: break-word;
   font-size: 0.76rem;
   font-weight: 700;
   color: var(--color-accent);

@@ -178,12 +178,19 @@ export class RangeSlider {
 
     this.midLabelEl = document.createElement("div");
     this.midLabelEl.className = "rs-mid-label";
-    this.fillEl.appendChild(this.midLabelEl);
 
     this.thumbLoEl = this.buildThumb("lo");
     this.thumbHiEl = this.buildThumb("hi");
 
-    this.trackEl.append(trackLine, this.fillEl, this.thumbLoEl, this.thumbHiEl);
+    // The label used to live inside .rs-fill, centered via CSS `left: 50%`.
+    // That made .rs-fill — which is only as wide as the *selected range*,
+    // often just a handful of px on a wide domain — its containing block,
+    // so once the label needed to wrap (see the overflow-wrap fix below)
+    // the browser bounded that wrapping to the fill's width instead of the
+    // track's, folding it into an unreadable one-character-wide column.
+    // Parenting it on the always-full-width track and positioning it with
+    // JS (like the thumbs) avoids that entirely.
+    this.trackEl.append(trackLine, this.fillEl, this.midLabelEl, this.thumbLoEl, this.thumbHiEl);
 
     this.ticksEl = document.createElement("div");
     this.ticksEl.className = "rs-ticks";
@@ -305,6 +312,10 @@ export class RangeSlider {
     this.thumbHiEl.style.left = `${hiFrac * 100}%`;
     this.fillEl.style.left = `${loFrac * 100}%`;
     this.fillEl.style.width = `${Math.max(0, hiFrac - loFrac) * 100}%`;
+    // Positioned directly (not just centered via CSS on .rs-fill, which it
+    // no longer lives inside) so its wrap width is bounded by the full
+    // track, not the — often much narrower — selected range.
+    this.midLabelEl.style.left = `${((loFrac + hiFrac) / 2) * 100}%`;
 
     this.readoutLoBtn.textContent = formatNumber(this.lo, this.q.unit);
     this.readoutHiBtn.textContent = formatNumber(this.hi, this.q.unit);
