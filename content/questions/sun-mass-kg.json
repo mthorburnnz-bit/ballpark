@@ -4,9 +4,9 @@
   "value": 1.989e+30,
   "unit": "kg",
   "scale": "log",
-  "domainMin": 1e+26,
-  "domainMax": 1e+34,
-  "step": 1e+28,
+  "domainMin": 49999999999999995716575428608,
+  "domainMax": 4999999999999999769381329101060571136,
+  "step": 9999999999999999583119736832,
   "category": "science",
   "funFact": "It accounts for about 99.86% of all the mass in the solar system — everything else is rounding error.",
   "source": "https://science.nasa.gov/sun/facts/"

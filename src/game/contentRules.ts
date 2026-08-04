@@ -1,4 +1,5 @@
 import type { Question } from "./types.ts";
+import { DEFAULT_LO_FRACTION, DEFAULT_HI_FRACTION } from "./scoring.ts";
 
 export interface ValidationIssue {
   questionId?: string;
@@ -7,6 +8,13 @@ export interface ValidationIssue {
 
 const VALID_CATEGORIES = new Set(["geography", "history", "science", "sport", "everyday", "money", "nature"]);
 const VALID_SCALES = new Set(["linear", "log"]);
+
+/** Where the true value sits in the domain, in slider space (0 = domainMin, 1 = domainMax). */
+export function valuePositionFraction(q: Pick<Question, "value" | "domainMin" | "domainMax" | "scale">): number {
+  return q.scale === "log"
+    ? (Math.log10(q.value) - Math.log10(q.domainMin)) / (Math.log10(q.domainMax) - Math.log10(q.domainMin))
+    : (q.value - q.domainMin) / (q.domainMax - q.domainMin);
+}
 
 /** §7.4: schema-valid, domain/position/step sanity, asOf pinning, source URL. */
 export function validateQuestion(q: Question): ValidationIssue[] {
@@ -39,10 +47,7 @@ export function validateQuestion(q: Question): ValidationIssue[] {
         fail(`value ${q.value} is not strictly inside domain [${q.domainMin}, ${q.domainMax}]`);
       }
 
-      const fraction =
-        q.scale === "log"
-          ? (Math.log10(q.value) - Math.log10(q.domainMin)) / (Math.log10(q.domainMax) - Math.log10(q.domainMin))
-          : (q.value - q.domainMin) / (q.domainMax - q.domainMin);
+      const fraction = valuePositionFraction(q);
 
       if (fraction < 0.1 || fraction > 0.9) {
         fail(
@@ -104,6 +109,33 @@ export function validateBank(bank: readonly Question[]): ValidationIssue[] {
 
   for (const [id, count] of seenIds) {
     if (count > 1) issues.push({ questionId: id, message: `id used ${count} times in the bank` });
+  }
+
+  // A per-question check (10%-90%, above) keeps any single question sane,
+  // but says nothing about the bank as a whole: a player who locks in the
+  // slider's untouched default range (35%-65% — see DEFAULT_LO/HI_FRACTION)
+  // gets a free hit on every question whose true value happens to land
+  // there. A uniform spread across the allowed 10%-90% band would put
+  // ~37.5% of questions in that 35%-65% slice; well above that means
+  // values are clustering near the middle instead of being spread out.
+  // Skipped below a minimum bank size so small test fixtures aren't
+  // affected by a rule that's only meaningful in aggregate.
+  const MIN_BANK_SIZE_FOR_DISTRIBUTION_CHECK = 20;
+  const MAX_DEFAULT_WINDOW_SHARE = 0.4;
+  if (bank.length >= MIN_BANK_SIZE_FOR_DISTRIBUTION_CHECK) {
+    const inDefaultWindow = bank.filter((q) => {
+      const f = valuePositionFraction(q);
+      return f >= DEFAULT_LO_FRACTION && f <= DEFAULT_HI_FRACTION;
+    }).length;
+    const share = inDefaultWindow / bank.length;
+    if (share > MAX_DEFAULT_WINDOW_SHARE) {
+      issues.push({
+        message:
+          `${inDefaultWindow}/${bank.length} questions (${(share * 100).toFixed(1)}%) have their true value inside ` +
+          `the slider's default ${DEFAULT_LO_FRACTION * 100}%-${DEFAULT_HI_FRACTION * 100}% starting range — ` +
+          `above the ${MAX_DEFAULT_WINDOW_SHARE * 100}% cap. Too many questions are winnable without touching the slider.`,
+      });
+    }
   }
 
   return issues;

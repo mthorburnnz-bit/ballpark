@@ -12,6 +12,16 @@ export const MAX_SCORE_PER_QUESTION = 100;
 export const SCORE_EXPONENT = 1.5;
 export const DAILY_MAX_SCORE = MAX_SCORE_PER_QUESTION * 5;
 
+/**
+ * The slider's starting range, before a player touches it — see
+ * RangeSlider's constructor. Also referenced by contentRules.ts, which
+ * flags content where the true answer lands in this band for too much of
+ * the bank: if it does, a meaningful share of questions are effectively
+ * free hits for a player who never moves the slider at all.
+ */
+export const DEFAULT_LO_FRACTION = 0.35;
+export const DEFAULT_HI_FRACTION = 0.65;
+
 /** Map a real value into slider space for the given scale. */
 export function toSliderSpace(value: number, scale: Scale): number {
   return scale === "log" ? Math.log10(value) : value;

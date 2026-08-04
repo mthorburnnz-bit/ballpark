@@ -82,6 +82,35 @@ describe("validateBank", () => {
     const issues = validateBank(bank);
     expect(issues.some((i) => i.message.includes("near-duplicate"))).toBe(true);
   });
+
+  describe("default-window distribution", () => {
+    // value=50 in domain [0,100] sits at exactly 50% — inside the slider's
+    // default 35%-65% starting range.
+    function bankOfSize(n: number, fraction: "default" | "spread"): Question[] {
+      return Array.from({ length: n }, (_, i) =>
+        goodQuestion({
+          id: `q${i}`,
+          prompt: `Distinct prompt number ${i} entirely?`,
+          value: fraction === "default" ? 50 : i % 2 === 0 ? 20 : 80,
+        }),
+      );
+    }
+
+    it("ignores small banks, even at 100% clustering", () => {
+      const issues = validateBank(bankOfSize(19, "default"));
+      expect(issues.some((i) => i.message.includes("default"))).toBe(false);
+    });
+
+    it("flags a large bank clustered in the default window", () => {
+      const issues = validateBank(bankOfSize(20, "default"));
+      expect(issues.some((i) => i.message.includes("above the 40% cap"))).toBe(true);
+    });
+
+    it("passes a large bank spread outside the default window", () => {
+      const issues = validateBank(bankOfSize(20, "spread"));
+      expect(issues.some((i) => i.message.includes("above the 40% cap"))).toBe(false);
+    });
+  });
 });
 
 describe("validateScheduleEntry", () => {

@@ -1,5 +1,11 @@
 import type { PublicQuestion } from "../game/types.ts";
-import { toSliderSpace, fromSliderSpace, provisionalScore } from "../game/scoring.ts";
+import {
+  toSliderSpace,
+  fromSliderSpace,
+  provisionalScore,
+  DEFAULT_LO_FRACTION,
+  DEFAULT_HI_FRACTION,
+} from "../game/scoring.ts";
 import { formatNumber, formatTickNumber } from "./format.ts";
 import { computeTicks } from "./ticks.ts";
 
@@ -57,8 +63,8 @@ export class RangeSlider {
     // for log-scale questions, interpolating raw values instead would put the
     // default massively skewed toward domainMax, since large numbers dominate a
     // linear span even though the slider itself is laid out in log space.
-    this.lo = this.snap(opts.initialLo ?? this.valueAtFraction(0.35));
-    this.hi = this.snap(opts.initialHi ?? this.valueAtFraction(0.65));
+    this.lo = this.snap(opts.initialLo ?? this.valueAtFraction(DEFAULT_LO_FRACTION));
+    this.hi = this.snap(opts.initialHi ?? this.valueAtFraction(DEFAULT_HI_FRACTION));
     this.ensureMinGap("hi");
     this.hapticsEnabled = opts.hapticsEnabled ?? false;
     this.onChange = opts.onChange;
