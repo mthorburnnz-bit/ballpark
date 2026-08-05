@@ -333,7 +333,12 @@ export class RangeSlider {
 
     const width = this.hi - this.lo;
     const points = provisionalScore(this.lo, this.hi, this.q.domainMin, this.q.domainMax, this.q.scale);
-    this.midLabelEl.textContent = `${formatNumber(width, this.q.unit)} wide · worth ${points} pts`;
+    // Abbreviated, not the full-precision form: a spelled-out width like
+    // "1,056,000,000 people" wraps this pill onto a second line, and since
+    // it grows upward from the track that second line lands on top of the
+    // readout buttons. The exact bounds are already shown in those readouts;
+    // this label only needs to convey rough width.
+    this.midLabelEl.textContent = `${formatTickNumber(width, this.q.unit)} wide · worth ${points} pts`;
 
     this.onChange?.(this.lo, this.hi);
   }

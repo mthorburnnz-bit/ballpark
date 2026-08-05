@@ -1150,7 +1150,12 @@ svg {
 .rs-track {
   position: relative;
   height: 44px;
-  margin: var(--space-5) 8px 0;
+  /* The top margin reserves room for .rs-mid-label, which is absolutely
+     positioned above the track and grows upward. At --space-5 the pill's
+     top edge sat flush against the readout buttons, and anything that made
+     it taller (a long unit wrapping it to two lines) pushed it over them.
+     --space-7 clears a two-line pill outright. */
+  margin: var(--space-7) 8px 0;
   touch-action: none;
 }
 
