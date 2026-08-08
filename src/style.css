@@ -1407,3 +1407,56 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Landscape phones ---------- */
+
+/* Landscape phones invert the usual constraint: width to spare, almost no
+   height. At 856x384 the single 480px column ran 703px tall, leaving the
+   slider track 92px below the fold and "Lock it in" a further 150px down,
+   so the entire interaction was invisible until you scrolled.
+
+   Widening the column is the main lever rather than a cosmetic tweak: the
+   prompt is the tallest block on the screen, and letting it wrap to one or
+   two lines instead of three claws back more height than tightening every
+   gap put together. The rest is trimming vertical rhythm that only reads as
+   generous when there is height to be generous with.
+
+   Bounded at 500px tall so a portrait phone can never match it, and gated on
+   orientation so a merely short desktop window doesn't get phone treatment.
+   Lives at the end of the file because these selectors carry the same
+   specificity as the rules they override, so only source order wins. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .app-shell {
+    max-width: 760px;
+  }
+
+  .screen {
+    padding: var(--space-2) var(--space-4) var(--space-3);
+    gap: var(--space-2);
+  }
+
+  .question-body {
+    gap: var(--space-2);
+  }
+
+  .question-prompt {
+    font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+  }
+
+  .tutorial-line {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  /* The portrait rule reserves --space-7 here so a mid-label that wraps to two
+     lines can't reach the readouts. The wider landscape column keeps that pill
+     on one line, so the extra row of clearance is dead space. */
+  .rs-track {
+    margin-top: var(--space-6);
+  }
+
+  .question-body > .btn-primary {
+    padding: var(--space-3) var(--space-5);
+    min-height: 44px;
+  }
+}
